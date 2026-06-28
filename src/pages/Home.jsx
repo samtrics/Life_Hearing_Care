@@ -17,7 +17,7 @@ function Home() {
             id: 1,
             title: "Hear Better. Live Better.",
             subtitle: "Advanced hearing care solutions for every age. Rediscover the joy of sound with our expert audiologists.",
-            image: "https://lh3.googleusercontent.com/aida-public/AB6AXuDp6RCaqtYRrL2shkv4djrikw8KvrUivmqF-Q3_JfsuMftLyRUbZBj3N1ogQPu5j9n-F6Cz0x8VGwG_nkqeCx7Rej_h9F-tmWP4kXH89d74R9ZtWwgSS58gYA2WOPhRQK3yXYgy0aUH5V5Ms3-Nh-MIY91AraO4a-wpSqUWnJCaWFrw9COZqzcI7i5ivbiRqVA38bj1X9bI09TvEB8eab-OnDSvAJe0m8FnmGBGKvK-PLS-PYYrngxHF8HAFrO9vW9yBLnHFmkScPkU=w1200",
+            image: "/hero_slides/slide1.png",
             buttonText: "Book Appointment",
             buttonLink: "/book"
         },
@@ -25,7 +25,7 @@ function Home() {
             id: 2,
             title: "Zero Cost EMI Available",
             subtitle: "Upgrade to premium hearing aids with easy, interest-free monthly installments.",
-            image: "https://images.unsplash.com/photo-1579684385127-1ef15d508118?q=80&w=2080&auto=format&fit=crop",
+            image: "/hero_slides/slide2.png",
             buttonText: "Explore Hearing Aids",
             buttonLink: "/hearing-aids"
         },
@@ -33,7 +33,7 @@ function Home() {
             id: 3,
             title: "Expert Care at Your Doorstep",
             subtitle: "Exclusive Home Visit services available across Kota, Rajasthan.",
-            image: "https://images.unsplash.com/photo-1584515933487-779824d29309?q=80&w=2070&auto=format&fit=crop",
+            image: "/hero_slides/slide3.png",
             buttonText: "Book a Home Visit",
             buttonLink: "/book"
         },
@@ -41,7 +41,7 @@ function Home() {
             id: 4,
             title: "Free Trial on Premium Devices",
             subtitle: "Experience crystal clear sound before you commit. Available on select advanced hearing aids.",
-            image: "https://images.unsplash.com/photo-1579684453377-48ec05c6b30a?q=80&w=2070&auto=format&fit=crop",
+            image: "/hero_slides/slide4.png",
             buttonText: "Claim Free Trial",
             buttonLink: "/hearing-aids"
         },
@@ -49,7 +49,7 @@ function Home() {
             id: 5,
             title: "Say Goodbye to Batteries",
             subtitle: "Discover our range of advanced rechargeable hearing aids that last all day on a single charge.",
-            image: "https://images.unsplash.com/photo-1616012480717-fd9867059ca0?q=80&w=2070&auto=format&fit=crop",
+            image: "/hero_slides/slide5.png",
             buttonText: "View Rechargeable Devices",
             buttonLink: "/hearing-aids"
         },
@@ -57,7 +57,7 @@ function Home() {
             id: 6,
             title: "Tinnitus Relief & Management",
             subtitle: "Struggling with ringing in your ears? Our expert audiologists can help you find lasting relief.",
-            image: "https://images.unsplash.com/photo-1666214280391-8ff5bd3c0bf0?q=80&w=2070&auto=format&fit=crop",
+            image: "/hero_slides/slide6.png",
             buttonText: "Consult an Audiologist",
             buttonLink: "/services"
         }
@@ -97,6 +97,8 @@ function Home() {
         // Trigger hero animations on mount
         setTimeout(() => setHeroVisible(true), 100);
         loadFeedbacks();
+        // Set a random initial slide
+        setCurrentSlide(Math.floor(Math.random() * heroSlides.length));
     }, []);
 
     // Auto-play Slider
@@ -371,7 +373,7 @@ function Home() {
                             <RevealOnScroll className="relative">
                                 <div className="rounded-3xl overflow-hidden shadow-2xl relative group">
                                     <div className="absolute inset-0 bg-primary/20 group-hover:bg-transparent transition-colors duration-500 z-10 mix-blend-overlay"></div>
-                                    <img className="w-full h-[500px] object-cover group-hover:scale-105 transition-transform duration-700" alt="Clinic Interior" loading="lazy" decoding="async" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC2iO37DgKF3B0G5cAzxNEjLDCQSVp8TGyEz2p66UNkE1Mndb8nqjgdNEsVyWd9t45IYv0inK3bKayqyKTtJdM_Y-MCcPGTCUz34q3XVb2zAFbT2kXIkeAdZXdjmh-fVZQzreQu4mNQ2foQquofgGApfnw2VcOYCZbxxjmPthY1xmiB9C20RbR2vcpVlwJs2PIheLEhTtNHdeQwF5Zp6w0wHaw4ULQbnrxFExj1H_Q9gpvzNF1uqalQp2QyhpsXtAyTSg1BngyAacYN=w800" />
+                                    <img className="w-full h-[500px] object-cover group-hover:scale-105 transition-transform duration-700" alt="Clinic Interior" loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?q=80&w=800&auto=format&fit=crop" />
                                 </div>
                                 <div className="absolute -bottom-10 -right-10 hidden lg:block bg-white p-lg rounded-3xl shadow-2xl border border-outline-variant/20 max-w-[300px] z-20 animate-float">
                                     <div className="space-y-md">
