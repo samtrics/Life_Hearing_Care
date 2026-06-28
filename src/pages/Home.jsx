@@ -11,6 +11,59 @@ function Home() {
     const [heroVisible, setHeroVisible] = useState(false);
     const { clinicName } = useSettings();
 
+    // Hero Slider Data & State
+    const heroSlides = [
+        {
+            id: 1,
+            title: "Hear Better. Live Better.",
+            subtitle: "Advanced hearing care solutions for every age. Rediscover the joy of sound with our expert audiologists.",
+            image: "https://lh3.googleusercontent.com/aida-public/AB6AXuDp6RCaqtYRrL2shkv4djrikw8KvrUivmqF-Q3_JfsuMftLyRUbZBj3N1ogQPu5j9n-F6Cz0x8VGwG_nkqeCx7Rej_h9F-tmWP4kXH89d74R9ZtWwgSS58gYA2WOPhRQK3yXYgy0aUH5V5Ms3-Nh-MIY91AraO4a-wpSqUWnJCaWFrw9COZqzcI7i5ivbiRqVA38bj1X9bI09TvEB8eab-OnDSvAJe0m8FnmGBGKvK-PLS-PYYrngxHF8HAFrO9vW9yBLnHFmkScPkU=w1200",
+            buttonText: "Book Appointment",
+            buttonLink: "/book"
+        },
+        {
+            id: 2,
+            title: "Zero Cost EMI Available",
+            subtitle: "Upgrade to premium hearing aids with easy, interest-free monthly installments.",
+            image: "https://images.unsplash.com/photo-1579684385127-1ef15d508118?q=80&w=2080&auto=format&fit=crop",
+            buttonText: "Explore Hearing Aids",
+            buttonLink: "/hearing-aids"
+        },
+        {
+            id: 3,
+            title: "Expert Care at Your Doorstep",
+            subtitle: "Exclusive Home Visit services available across Kota, Rajasthan.",
+            image: "https://images.unsplash.com/photo-1584515933487-779824d29309?q=80&w=2070&auto=format&fit=crop",
+            buttonText: "Book a Home Visit",
+            buttonLink: "/book"
+        },
+        {
+            id: 4,
+            title: "Free Trial on Premium Devices",
+            subtitle: "Experience crystal clear sound before you commit. Available on select advanced hearing aids.",
+            image: "https://images.unsplash.com/photo-1579684453377-48ec05c6b30a?q=80&w=2070&auto=format&fit=crop",
+            buttonText: "Claim Free Trial",
+            buttonLink: "/hearing-aids"
+        },
+        {
+            id: 5,
+            title: "Say Goodbye to Batteries",
+            subtitle: "Discover our range of advanced rechargeable hearing aids that last all day on a single charge.",
+            image: "https://images.unsplash.com/photo-1616012480717-fd9867059ca0?q=80&w=2070&auto=format&fit=crop",
+            buttonText: "View Rechargeable Devices",
+            buttonLink: "/hearing-aids"
+        },
+        {
+            id: 6,
+            title: "Tinnitus Relief & Management",
+            subtitle: "Struggling with ringing in your ears? Our expert audiologists can help you find lasting relief.",
+            image: "https://images.unsplash.com/photo-1666214280391-8ff5bd3c0bf0?q=80&w=2070&auto=format&fit=crop",
+            buttonText: "Consult an Audiologist",
+            buttonLink: "/services"
+        }
+    ];
+    const [currentSlide, setCurrentSlide] = useState(0);
+
     // Feedback State
     const [feedbacks, setFeedbacks] = useState([]);
     const [showFeedbackModal, setShowFeedbackModal] = useState(false);
@@ -45,6 +98,14 @@ function Home() {
         setTimeout(() => setHeroVisible(true), 100);
         loadFeedbacks();
     }, []);
+
+    // Auto-play Slider
+    useEffect(() => {
+        const timer = setInterval(() => {
+            setCurrentSlide((prev) => (prev + 1) % heroSlides.length);
+        }, 5000);
+        return () => clearInterval(timer);
+    }, [heroSlides.length]);
 
     const handleFeedbackSubmit = async (e) => {
         e.preventDefault();
@@ -92,72 +153,87 @@ function Home() {
             <Navbar />
             <main className="pt-20">
 
-                {/*  1. Hero Section  */}
-                <section className="relative min-h-[85vh] lg:min-h-[921px] flex items-center overflow-hidden hero-gradient">
-                    <div className="max-w-container-max mx-auto px-gutter w-full grid md:grid-cols-2 gap-xl items-center relative z-10 py-20">
-                        <div className="space-y-lg">
-                            <div className={`animate-on-scroll ${heroVisible ? 'is-visible' : ''} inline-flex items-center gap-xs px-3 py-1 bg-primary-fixed text-on-primary-fixed rounded-full text-label-md`}>
-                                <span className="material-symbols-outlined text-[18px]">verified</span>
-                                India's Leading Hearing Care Clinic
+                {/*  1. Dynamic Hero Slider Section  */}
+                <section className="relative w-full h-[80vh] min-h-[600px] lg:min-h-[750px] overflow-hidden bg-black">
+                    {heroSlides.map((slide, index) => (
+                        <div
+                            key={slide.id}
+                            className={`absolute top-0 left-0 w-full h-full transition-opacity duration-1000 ease-in-out ${index === currentSlide ? 'opacity-100 z-10' : 'opacity-0 z-0'}`}
+                        >
+                            {/* Background Image with Dark Gradient Overlay */}
+                            <div className="absolute inset-0">
+                                <img
+                                    src={slide.image}
+                                    alt={slide.title}
+                                    className="w-full h-full object-cover"
+                                />
+                                <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/60 to-black/20 md:to-transparent"></div>
                             </div>
-                            <h1 className={`animate-on-scroll delay-100 ${heroVisible ? 'is-visible' : ''} font-display-lg text-display-lg text-primary max-w-xl`}>
-                                Hear Better. <span className="text-secondary">Live Better.</span>
-                            </h1>
-                            <p className={`animate-on-scroll delay-200 ${heroVisible ? 'is-visible' : ''} text-body-xl text-on-surface-variant max-w-lg`}>
-                                Advanced hearing care solutions for every age. Rediscover the joy of sound with our expert
-                                audiologists and state-of-the-art technology.
-                            </p>
-                            <div className={`animate-on-scroll delay-300 ${heroVisible ? 'is-visible' : ''} flex flex-wrap gap-md`}>
-                                <Link to="/book" className="h-[56px] flex items-center justify-center px-8 bg-primary text-on-primary rounded-xl font-label-md hover:shadow-lg transition-all active:scale-95 hover:-translate-y-1">
-                                    Book Appointment
-                                </Link>
+
+                            {/* Slide Content */}
+                            <div className="relative z-20 h-full max-w-container-max mx-auto px-gutter flex flex-col justify-center items-start">
+                                <div className={`max-w-2xl transform transition-all duration-1000 delay-300 ${index === currentSlide ? 'translate-y-0 opacity-100' : 'translate-y-12 opacity-0'}`}>
+                                    <div className="inline-flex items-center gap-xs px-3 py-1 bg-white/10 backdrop-blur-md text-white rounded-full text-label-md mb-6 border border-white/20 shadow-lg">
+                                        <span className="material-symbols-outlined text-[18px]">verified</span>
+                                        India's Leading Hearing Care Clinic
+                                    </div>
+                                    <h1 className="font-display-lg text-4xl md:text-6xl text-white mb-6 leading-tight font-bold drop-shadow-lg">
+                                        {slide.title}
+                                    </h1>
+                                    <p className="text-body-xl text-gray-100 mb-8 max-w-lg drop-shadow-md">
+                                        {slide.subtitle}
+                                    </p>
+                                    <Link
+                                        to={slide.buttonLink}
+                                        className="inline-flex h-[56px] items-center justify-center px-8 bg-primary text-on-primary rounded-xl font-label-md hover:bg-primary-container hover:shadow-xl hover:shadow-primary/30 transition-all active:scale-95 text-lg"
+                                    >
+                                        {slide.buttonText}
+                                        <span className="material-symbols-outlined ml-2">arrow_forward</span>
+                                    </Link>
+                                </div>
                             </div>
                         </div>
+                    ))}
 
-                        <div className="relative mt-lg md:mt-0">
-                            <div className={`animate-on-scroll delay-200 ${heroVisible ? 'is-visible' : ''} relative rounded-3xl overflow-hidden shadow-2xl aspect-[4/3]`}>
-                                <img className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
-                                    alt="Audiologist examining patient"
-                                    fetchPriority="high"
-                                    decoding="async"
-                                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuDp6RCaqtYRrL2shkv4djrikw8KvrUivmqF-Q3_JfsuMftLyRUbZBj3N1ogQPu5j9n-F6Cz0x8VGwG_nkqeCx7Rej_h9F-tmWP4kXH89d74R9ZtWwgSS58gYA2WOPhRQK3yXYgy0aUH5V5Ms3-Nh-MIY91AraO4a-wpSqUWnJCaWFrw9COZqzcI7i5ivbiRqVA38bj1X9bI09TvEB8eab-OnDSvAJe0m8FnmGBGKvK-PLS-PYYrngxHF8HAFrO9vW9yBLnHFmkScPkU=w1200" />
-                            </div>
-                            {/*  Floating Cards  */}
-                            <div className={`animate-on-scroll delay-300 ${heroVisible ? 'is-visible' : ''} absolute -top-6 -left-6 glass-card p-md rounded-xl shadow-xl animate-float`}>
-                                <div className="flex items-center gap-sm">
-                                    <div className="bg-secondary/10 p-2 rounded-lg text-secondary">
-                                        <span className="material-symbols-outlined">groups</span>
-                                    </div>
-                                    <div>
-                                        <div className="font-bold text-primary">5000+</div>
-                                        <div className="text-xs text-on-surface-variant">Happy Patients</div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className={`animate-on-scroll delay-400 ${heroVisible ? 'is-visible' : ''} absolute top-1/2 -right-8 glass-card p-md rounded-xl shadow-xl animate-float`}
-                                style={{ animationDelay: '1s' }}>
-                                <div className="flex items-center gap-sm">
-                                    <div className="bg-primary/10 p-2 rounded-lg text-primary">
-                                        <span className="material-symbols-outlined">award_star</span>
-                                    </div>
-                                    <div>
-                                        <div className="font-bold text-primary">8+ Years</div>
-                                        <div className="text-xs text-on-surface-variant">Experience</div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className={`animate-on-scroll delay-400 ${heroVisible ? 'is-visible' : ''} absolute -bottom-6 left-12 glass-card p-md rounded-xl shadow-xl animate-float`}
-                                style={{ animationDelay: '2s' }}>
-                                <div className="flex items-center gap-sm">
-                                    <div className="bg-tertiary-fixed text-on-tertiary-fixed-variant p-2 rounded-lg">
-                                        <span className="material-symbols-outlined">medical_information</span>
-                                    </div>
-                                    <div>
-                                        <div className="font-bold text-primary">Certified</div>
-                                        <div className="text-xs text-on-surface-variant">RCI Audiologists</div>
-                                    </div>
-                                </div>
-                            </div>
+                    {/* Navigation Dots */}
+                    <div className="absolute bottom-10 left-1/2 -translate-x-1/2 z-30 flex gap-3">
+                        {heroSlides.map((_, index) => (
+                            <button
+                                key={index}
+                                onClick={() => setCurrentSlide(index)}
+                                className={`h-3 rounded-full transition-all duration-300 shadow-md ${index === currentSlide ? 'bg-primary w-10' : 'bg-white/60 hover:bg-white w-3'}`}
+                                aria-label={`Go to slide ${index + 1}`}
+                            />
+                        ))}
+                    </div>
+                </section>
+
+                {/* Minimalist Stats Banner */}
+                <section className="bg-surface-container-lowest pt-16 pb-4 md:pb-8 border-b border-outline-variant/10">
+                    <div className="max-w-5xl mx-auto px-4">
+                        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-10 text-center divide-y md:divide-y-0 md:divide-x divide-outline-variant/20">
+
+                            <RevealOnScroll delay="delay-100" className="flex flex-col items-center justify-center pt-6 md:pt-0">
+                                <h3 className="font-display-lg text-5xl font-light text-on-surface mb-3 tracking-tight">10,000<span className="text-primary font-bold">+</span></h3>
+                                <p className="text-on-surface-variant font-medium uppercase tracking-widest text-xs flex items-center gap-2">
+                                    <span className="material-symbols-outlined text-[18px]">sentiment_satisfied</span> Happy Patients
+                                </p>
+                            </RevealOnScroll>
+
+                            <RevealOnScroll delay="delay-200" className="flex flex-col items-center justify-center pt-8 md:pt-0">
+                                <h3 className="font-display-lg text-5xl font-light text-on-surface mb-3 tracking-tight">8<span className="text-primary font-bold">+</span></h3>
+                                <p className="text-on-surface-variant font-medium uppercase tracking-widest text-xs flex items-center gap-2">
+                                    <span className="material-symbols-outlined text-[18px]">workspace_premium</span> Years Experience
+                                </p>
+                            </RevealOnScroll>
+
+                            <RevealOnScroll delay="delay-300" className="flex flex-col items-center justify-center pt-8 md:pt-0">
+                                <h3 className="font-display-lg text-5xl font-light text-on-surface mb-3 tracking-tight">100<span className="text-primary font-bold">%</span></h3>
+                                <p className="text-on-surface-variant font-medium uppercase tracking-widest text-xs flex items-center gap-2">
+                                    <span className="material-symbols-outlined text-[18px]">verified</span> Certified Experts
+                                </p>
+                            </RevealOnScroll>
+
                         </div>
                     </div>
                 </section>

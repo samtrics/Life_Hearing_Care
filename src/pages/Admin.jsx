@@ -55,6 +55,13 @@ function Admin() {
     title: '', excerpt: '', category: '', author: '', imageUrl: '', content: '', is_featured: false
   });
 
+  // Products state
+  const [products, setProducts] = useState([]);
+  const [showProductModal, setShowProductModal] = useState(false);
+  const [productFormData, setProductFormData] = useState({
+    name: '', brand: '', price: '', description: '', image: '', badge: '', badgeClass: 'bg-primary text-on-primary', features: '', detailsAI: '', detailsBattery: '', detailsWater: '', detailsBluetooth: ''
+  });
+
   const loadAppointments = async () => {
     try {
       const { data: appointmentsData, error } = await supabase
@@ -165,12 +172,23 @@ function Admin() {
     if (data) setBlockedNumbers(data.map(d => d.phone_number));
   };
 
+  const loadProducts = async () => {
+    try {
+      const { data, error } = await supabase.from('products').select('*').order('created_at', { ascending: false });
+      if (error && error.code !== '42P01') throw error; // Ignore table missing if they haven't run SQL yet
+      if (data) setProducts(data);
+    } catch (err) {
+      console.error('Error loading products:', err);
+    }
+  };
+
   useEffect(() => {
     loadReviews();
     loadAppointments();
     loadSubscribers();
     loadBlogs();
     loadBlockedNumbers();
+    loadProducts();
   }, []);
 
   // Route Protection (Un-bypassable email verification)
@@ -294,6 +312,47 @@ function Admin() {
         loadBlogs();
       } catch (err) {
         alert("Failed to delete blog: " + err.message);
+      }
+    }
+  };
+
+  const handleAddProduct = async (e) => {
+    e.preventDefault();
+    try {
+      const { error } = await supabase.from('products').insert([{
+        name: productFormData.name,
+        brand: productFormData.brand,
+        price: productFormData.price,
+        description: productFormData.description,
+        image: productFormData.image,
+        badge: productFormData.badge || null,
+        badge_class: productFormData.badgeClass || null,
+        features: productFormData.features.split(',').map(f => f.trim()).filter(Boolean),
+        details: {
+          ai: productFormData.detailsAI,
+          battery: productFormData.detailsBattery,
+          waterResistance: productFormData.detailsWater,
+          bluetooth: productFormData.detailsBluetooth
+        }
+      }]);
+      if (error) throw error;
+      alert("Product added successfully!");
+      setShowProductModal(false);
+      setProductFormData({ name: '', brand: '', price: '', description: '', image: '', badge: '', badgeClass: 'bg-primary text-on-primary', features: '', detailsAI: '', detailsBattery: '', detailsWater: '', detailsBluetooth: '' });
+      loadProducts();
+    } catch (err) {
+      alert("Error adding product: " + err.message);
+    }
+  };
+
+  const handleDeleteProduct = async (id) => {
+    if (window.confirm("Are you sure you want to delete this product?")) {
+      try {
+        const { error } = await supabase.from('products').delete().eq('id', id);
+        if (error) throw error;
+        loadProducts();
+      } catch (err) {
+        alert("Failed to delete product: " + err.message);
       }
     }
   };
@@ -484,6 +543,12 @@ function Admin() {
               className={`whitespace-nowrap px-md md:px-lg py-sm rounded-full font-bold text-sm transition-all flex items-center gap-1 ${activeTab === 'blogs' ? 'bg-primary text-on-primary shadow-md' : 'bg-surface-container hover:bg-surface-container-high text-on-surface'}`}
             >
               <span className="material-symbols-outlined text-[18px]">article</span> Blogs
+            </button>
+            <button 
+              onClick={() => setActiveTab('products')}
+              className={`whitespace-nowrap px-md md:px-lg py-sm rounded-full font-bold text-sm transition-all flex items-center gap-1 ${activeTab === 'products' ? 'bg-primary text-on-primary shadow-md' : 'bg-surface-container hover:bg-surface-container-high text-on-surface'}`}
+            >
+              <span className="material-symbols-outlined text-[18px]">hearing</span> Products
             </button>
           </div>
         </div>
@@ -941,6 +1006,58 @@ function Admin() {
             </div>
           )}
 
+          {/* PRODUCTS TAB */}
+          {activeTab === 'products' && (
+            <div className="space-y-lg">
+              <div className="flex justify-between items-end border-b border-outline-variant/20 pb-md">
+                <div>
+                  <h2 className="text-title-lg font-title-lg text-primary mb-xs">Manage Products</h2>
+                  <p className="text-sm text-on-surface-variant">Add or remove products from the website.</p>
+                </div>
+                <button onClick={() => setShowProductModal(true)} className="bg-secondary text-white px-4 py-2 rounded-xl text-sm font-bold shadow-md hover:bg-secondary-container hover:text-on-secondary-container transition-colors flex items-center gap-1">
+                  <span className="material-symbols-outlined text-[18px]">add</span> New Product
+                </button>
+              </div>
+              
+              {products.length === 0 ? (
+                <div className="bg-surface-container-low border border-outline-variant/20 rounded-3xl p-xl text-center">
+                  <p className="text-on-surface-variant">No products found. Add some to display them on the website!</p>
+                </div>
+              ) : (
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-md">
+                  {products.map((product) => (
+                    <div key={product.id} className="bg-white rounded-3xl border border-outline-variant/20 shadow-sm overflow-hidden flex flex-col">
+                      <div className="h-48 overflow-hidden relative">
+                        <img src={product.image} alt={product.name} className="w-full h-full object-cover" />
+                        {product.badge && (
+                          <span className={`absolute top-2 left-2 ${product.badge_class || 'bg-primary text-white'} text-[10px] font-bold px-2 py-1 rounded-full uppercase shadow-md`}>
+                            {product.badge}
+                          </span>
+                        )}
+                      </div>
+                      <div className="p-4 flex flex-col flex-grow">
+                        <div className="flex justify-between items-start mb-1">
+                          <h3 className="font-bold text-on-surface line-clamp-1">{product.name}</h3>
+                          <span className="font-bold text-primary">{product.price}</span>
+                        </div>
+                        <p className="text-xs text-secondary font-bold mb-2 uppercase">{product.brand}</p>
+                        <div className="flex justify-between items-center mt-auto pt-3 border-t border-outline-variant/20">
+                          <span className="text-xs text-on-surface-variant">{new Date(product.created_at).toLocaleDateString()}</span>
+                          <button 
+                            onClick={() => handleDeleteProduct(product.id)}
+                            className="text-error hover:text-error/80 font-bold text-xs bg-error/10 px-2 py-1 rounded transition-colors"
+                          >
+                            Delete
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              )}
+            </div>
+          )}
+
         </div>
       </main>
 
@@ -1201,6 +1318,90 @@ function Admin() {
               <div className="pt-6 flex justify-end gap-3 border-t border-outline-variant/20 mt-2">
                 <button type="button" onClick={() => setShowBlogModal(false)} className="px-6 py-2.5 rounded-xl font-bold text-on-surface-variant bg-surface-container hover:bg-surface-container-high transition-colors">Cancel</button>
                 <button type="submit" className="px-6 py-2.5 rounded-xl font-bold bg-primary text-on-primary hover:scale-105 shadow-md hover:shadow-lg transition-all">Publish Blog</button>
+              </div>
+            </form>
+    </div>
+  </div>
+)}
+
+      {/* NEW PRODUCT MODAL */}
+      {showProductModal && (
+        <div className="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+          <div className="bg-surface-container-lowest rounded-[2rem] w-full max-w-3xl max-h-[90vh] overflow-y-auto shadow-2xl p-6 md:p-8 animate-fade-in custom-scrollbar">
+            <div className="flex justify-between items-center mb-6">
+              <h2 className="text-headline-sm font-headline-sm text-primary flex items-center gap-2">
+                <span className="material-symbols-outlined">add_box</span>
+                Add New Product
+              </h2>
+              <button onClick={() => setShowProductModal(false)} className="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center hover:bg-surface-container-high transition-colors">
+                <span className="material-symbols-outlined">close</span>
+              </button>
+            </div>
+            <form onSubmit={handleAddProduct} className="space-y-4">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="space-y-1">
+                  <label className="text-sm font-bold text-on-surface">Product Name</label>
+                  <input type="text" required value={productFormData.name} onChange={(e) => setProductFormData({...productFormData, name: e.target.value})} className="w-full bg-white border border-outline-variant/30 rounded-xl px-4 py-2.5 focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 text-on-surface" placeholder="e.g. Lumina X-7" />
+                </div>
+                <div className="space-y-1">
+                  <label className="text-sm font-bold text-on-surface">Brand</label>
+                  <input type="text" required value={productFormData.brand} onChange={(e) => setProductFormData({...productFormData, brand: e.target.value})} className="w-full bg-white border border-outline-variant/30 rounded-xl px-4 py-2.5 focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 text-on-surface" placeholder="e.g. Phonak" />
+                </div>
+                <div className="space-y-1">
+                  <label className="text-sm font-bold text-on-surface">Price String</label>
+                  <input type="text" required value={productFormData.price} onChange={(e) => setProductFormData({...productFormData, price: e.target.value})} className="w-full bg-white border border-outline-variant/30 rounded-xl px-4 py-2.5 focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 text-on-surface" placeholder="e.g. ₹1,99,000" />
+                </div>
+                <div className="space-y-1">
+                  <label className="text-sm font-bold text-on-surface">Image URL</label>
+                  <input type="url" required value={productFormData.image} onChange={(e) => setProductFormData({...productFormData, image: e.target.value})} className="w-full bg-white border border-outline-variant/30 rounded-xl px-4 py-2.5 focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 text-on-surface" placeholder="https://..." />
+                </div>
+                <div className="space-y-1">
+                  <label className="text-sm font-bold text-on-surface">Badge Text (Optional)</label>
+                  <input type="text" value={productFormData.badge} onChange={(e) => setProductFormData({...productFormData, badge: e.target.value})} className="w-full bg-white border border-outline-variant/30 rounded-xl px-4 py-2.5 focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 text-on-surface" placeholder="e.g. Top Rated" />
+                </div>
+                <div className="space-y-1">
+                  <label className="text-sm font-bold text-on-surface">Badge Color Theme</label>
+                  <select value={productFormData.badgeClass} onChange={(e) => setProductFormData({...productFormData, badgeClass: e.target.value})} className="w-full bg-white border border-outline-variant/30 rounded-xl px-4 py-2.5 focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 text-on-surface">
+                    <option value="bg-primary text-on-primary">Primary (Blue)</option>
+                    <option value="bg-secondary text-on-secondary">Secondary (Coral)</option>
+                    <option value="bg-tertiary-fixed text-on-tertiary-fixed">Tertiary (Green/Mint)</option>
+                  </select>
+                </div>
+              </div>
+              
+              <div className="space-y-1">
+                <label className="text-sm font-bold text-on-surface">Description</label>
+                <textarea required rows="2" value={productFormData.description} onChange={(e) => setProductFormData({...productFormData, description: e.target.value})} className="w-full bg-white border border-outline-variant/30 rounded-xl px-4 py-2.5 focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 text-on-surface" placeholder="Detailed product description..." />
+              </div>
+              
+              <div className="space-y-1">
+                <label className="text-sm font-bold text-on-surface">Feature Tags (comma separated)</label>
+                <input type="text" value={productFormData.features} onChange={(e) => setProductFormData({...productFormData, features: e.target.value})} className="w-full bg-white border border-outline-variant/30 rounded-xl px-4 py-2.5 focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 text-on-surface" placeholder="e.g. Rechargeable, Bluetooth, Invisible" />
+              </div>
+              
+              <h3 className="font-bold text-on-surface mt-4 border-b border-outline-variant/20 pb-2">Technical Details</h3>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="space-y-1">
+                  <label className="text-xs font-bold text-on-surface-variant">AI Processing</label>
+                  <input type="text" value={productFormData.detailsAI} onChange={(e) => setProductFormData({...productFormData, detailsAI: e.target.value})} className="w-full bg-white border border-outline-variant/30 rounded-xl px-3 py-2 text-sm focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 text-on-surface" placeholder="e.g. Advanced" />
+                </div>
+                <div className="space-y-1">
+                  <label className="text-xs font-bold text-on-surface-variant">Battery Life</label>
+                  <input type="text" value={productFormData.detailsBattery} onChange={(e) => setProductFormData({...productFormData, detailsBattery: e.target.value})} className="w-full bg-white border border-outline-variant/30 rounded-xl px-3 py-2 text-sm focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 text-on-surface" placeholder="e.g. 30 Hours" />
+                </div>
+                <div className="space-y-1">
+                  <label className="text-xs font-bold text-on-surface-variant">Water Resistance</label>
+                  <input type="text" value={productFormData.detailsWater} onChange={(e) => setProductFormData({...productFormData, detailsWater: e.target.value})} className="w-full bg-white border border-outline-variant/30 rounded-xl px-3 py-2 text-sm focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 text-on-surface" placeholder="e.g. IP68" />
+                </div>
+                <div className="space-y-1">
+                  <label className="text-xs font-bold text-on-surface-variant">Bluetooth Pairing</label>
+                  <input type="text" value={productFormData.detailsBluetooth} onChange={(e) => setProductFormData({...productFormData, detailsBluetooth: e.target.value})} className="w-full bg-white border border-outline-variant/30 rounded-xl px-3 py-2 text-sm focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 text-on-surface" placeholder="e.g. Multi-Device" />
+                </div>
+              </div>
+              
+              <div className="pt-6 flex justify-end gap-3 border-t border-outline-variant/20 mt-2">
+                <button type="button" onClick={() => setShowProductModal(false)} className="px-6 py-2.5 rounded-xl font-bold text-on-surface-variant bg-surface-container hover:bg-surface-container-high transition-colors">Cancel</button>
+                <button type="submit" className="px-6 py-2.5 rounded-xl font-bold bg-primary text-on-primary hover:scale-105 shadow-md hover:shadow-lg transition-all">Add Product</button>
               </div>
             </form>
           </div>

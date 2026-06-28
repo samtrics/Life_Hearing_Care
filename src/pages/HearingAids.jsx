@@ -3,97 +3,29 @@ import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import ricImg from '../assets/ric_hearing_aid.png';
 import starkeyImg from '../assets/starkey_aids.png';
-
-const hearingAidsData = [
-  {
-    id: 1,
-    name: 'Lumina X-7',
-    price: '₹1,99,000',
-    brand: 'Phonak Precision',
-    description: 'AI-powered noise cancellation with immersive spatial audio for crystal clear conversations.',
-    features: ['Rechargeable', 'Bluetooth'],
-    image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuDu83RUG1EP0AOfW6dstC1EAgnyRuDqVwlUx6Qxf45wclM8RplVulLQrnJko0sk6q4OuLQ1_5jwa-GJE8Ujo-o1J3ZDENnIAKZzThz_fqKZKxvNXs9ubaa6KtbJTCL6KNCt_uvpOEQcUgZYCtzWqq7F_15jFHuQbo8pF3h87W9kBxbPk8x4hEE_Rg8gSQkOwQl0BtloZnNXjBqL7bZVfn-sc3k22cydr_oiD4CpSyOQA8YUceyEQdY3pCW6Ts7heUz-MSPt5OICUjFM',
-    badge: 'Top Rated',
-    badgeClass: 'bg-secondary text-on-secondary',
-    details: {
-      ai: 'Advanced',
-      battery: '30 Hours',
-      waterResistance: 'IP68',
-      bluetooth: 'Multi-Device'
-    }
-  },
-  {
-    id: 2,
-    name: 'InvisiCore Pro',
-    price: '₹1,49,000',
-    brand: 'Oticon Clarity',
-    description: 'Virtually invisible design with deep-ear fit for natural sound resonance and comfort.',
-    features: ['Invisible', 'Natural Sound'],
-    image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBb0ShO3H6Y2V0l_yyceKFnUS9XMquFOTBfW86Kfir76yshtjNfnSJPeERK0HIYGGddrcicvuWYWTE5i0afBdRU2NRoNoyifTyircjaiNSS35t2FduJTd2FShvuowTc7iqT8l2YlmmVwADqRrjFW_M4mwVI1Qr_AfkDA-AookhuhaFegBPWtc1QQXhoqFadpr9_4xywBJYX5T-1Vpuf0rmEZZvW8Y0TJxEJNxbzP_OrkA7wUl_sBIfmjXOM4e9Q-46Kx-trvdK8PJqW',
-    badge: 'Discreet',
-    badgeClass: 'bg-primary-container text-on-primary-container',
-    details: {
-      ai: 'Standard',
-      battery: 'Zinc-Air Only',
-      waterResistance: 'IP57',
-      bluetooth: 'N/A'
-    }
-  },
-  {
-    id: 3,
-    name: 'UltraStream S2',
-    price: '₹2,49,000',
-    brand: 'Starkey Edge',
-    description: 'Stream directly from your TV and phone. Long-lasting battery life for all-day use.',
-    features: ['Bluetooth', 'Fast Charging'],
-    image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuDMBB2_3tk7DsR-j45Wy-RnUqKUtHZ4cLfiIpUkXiEQlXACf2Cdtoyd3zFWlcUJR2ebjZk61Ms7QqozHCX3-YFaPaNZR2FHQBbH2ouEk7r1xVFFanrVP-K9tVB4Pjeks2lMbYbiwpp2z550dzhtVmeoLEjEGkHvwnMs1OJtBc4ukFbflikKojl8SRJ6VDuhRMPqfc6XN0ERnzZwGfQTM4GjuErDVY02vtAL0TF0tds4gLBYS5unkJkcFAHAKfh24VrBYzIFijLZZKcD',
-    badge: 'Bestseller',
-    badgeClass: 'bg-tertiary-fixed text-on-tertiary-fixed',
-    details: {
-      ai: 'Premium',
-      battery: '48 Hours',
-      waterResistance: 'IP68',
-      bluetooth: 'Multi-Device'
-    }
-  },
-  {
-    id: 4,
-    name: 'HearClear: Kit Pure C&G BCT 2IX',
-    price: '₹2,09,990',
-    brand: 'HearClear',
-    description: 'Premium Receiver-In-Canal hearing aid providing crisp sound quality and seamless connectivity. Zero Cost EMI Available.',
-    features: ['Zero Cost EMI', 'Bluetooth', 'Rechargeable'],
-    image: ricImg,
-    badge: 'EMI Available',
-    badgeClass: 'bg-primary text-on-primary',
-    details: {
-      ai: 'Advanced',
-      battery: 'Rechargeable',
-      waterResistance: 'IP68',
-      bluetooth: 'Yes'
-    }
-  },
-  {
-    id: 5,
-    name: 'Active IX Transmitter',
-    price: '₹39,990',
-    brand: 'HearClear',
-    description: 'Enhance your hearing experience with the Active IX Transmitter. Direct audio streaming. Zero Cost EMI Available.',
-    features: ['Zero Cost EMI', 'Audio Streaming'],
-    image: starkeyImg,
-    badge: 'Accessory',
-    badgeClass: 'bg-secondary text-on-secondary',
-    details: {
-      ai: 'N/A',
-      battery: 'Rechargeable',
-      waterResistance: 'Standard',
-      bluetooth: 'Transmitter'
-    }
-  }
-];
+import { supabase } from '../supabaseClient';
 
 function HearingAids() {
   const [selectedProduct, setSelectedProduct] = useState(null);
+  const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchProducts = async () => {
+      try {
+        const { data, error } = await supabase.from('products').select('*').order('created_at', { ascending: false });
+        if (error && error.code !== '42P01') throw error;
+        if (data) {
+            setProducts(data);
+        }
+      } catch (err) {
+        console.error("Error fetching products", err);
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchProducts();
+  }, []);
 
   useEffect(() => {
     // Simple filter interactions
@@ -187,28 +119,43 @@ function HearingAids() {
 <div className="w-full">
 {/*  Product Grid  */}
 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-lg max-w-5xl mx-auto">
-{hearingAidsData.map(product => (
-  <div key={product.id} className="group bg-surface-container-lowest rounded-2xl overflow-hidden shadow-[0px_4px_20px_rgba(15,76,129,0.05)] hover:shadow-xl transition-all flex flex-col h-full">
-    <div className="relative h-64 overflow-hidden">
-      <img className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt={product.name} src={product.image}/>
-      <span className={`absolute top-md left-md ${product.badgeClass} text-xs font-bold px-sm py-1 rounded-full uppercase tracking-wider`}>{product.badge}</span>
-    </div>
-    <div className="p-md flex flex-col flex-grow">
-      <div className="flex justify-between items-start mb-xs">
-        <h4 className="text-title-lg font-title-lg text-on-surface">{product.name}</h4>
-        <span className="text-primary font-bold">{product.price}</span>
-      </div>
-      <p className="text-label-md text-secondary mb-sm">{product.brand}</p>
-      <p className="text-body-lg text-on-surface-variant line-clamp-2 mb-md">{product.description}</p>
-      <div className="flex flex-wrap gap-xs mb-lg">
-        {product.features.map(f => (
-          <span key={f} className="bg-surface-container-high px-sm py-1 rounded text-xs font-medium">{f}</span>
-        ))}
-      </div>
-      <button onClick={() => setSelectedProduct(product)} className="mt-auto w-full border-2 border-primary text-primary py-sm rounded-lg font-label-md hover:bg-primary hover:text-on-primary transition-all active:scale-95">View Details</button>
-    </div>
+{loading ? (
+  <div className="col-span-1 md:col-span-2 lg:col-span-3 py-xl text-center">
+    <div className="inline-block w-8 h-8 border-4 border-primary border-t-transparent rounded-full animate-spin"></div>
+    <p className="mt-4 text-on-surface-variant font-medium">Loading premium catalog...</p>
   </div>
-))}
+) : products.length === 0 ? (
+  <div className="col-span-1 md:col-span-2 lg:col-span-3 py-xl text-center bg-surface-container-lowest rounded-3xl border border-outline-variant/30">
+    <span className="material-symbols-outlined text-[48px] text-on-surface-variant/30 mb-2">inventory_2</span>
+    <h3 className="text-title-lg font-bold text-on-surface">No Products Available</h3>
+    <p className="text-on-surface-variant">Products will appear here once they are added in the Admin Portal.</p>
+  </div>
+) : (
+  products.map(product => (
+    <div key={product.id} className="group bg-surface-container-lowest rounded-2xl overflow-hidden shadow-[0px_4px_20px_rgba(15,76,129,0.05)] hover:shadow-xl transition-all flex flex-col h-full">
+      <div className="relative h-64 overflow-hidden">
+        <img className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt={product.name} src={product.image}/>
+        {product.badge && (
+          <span className={`absolute top-md left-md ${product.badge_class || 'bg-primary text-on-primary'} text-xs font-bold px-sm py-1 rounded-full uppercase tracking-wider`}>{product.badge}</span>
+        )}
+      </div>
+      <div className="p-md flex flex-col flex-grow">
+        <div className="flex justify-between items-start mb-xs">
+          <h4 className="text-title-lg font-title-lg text-on-surface line-clamp-1">{product.name}</h4>
+          <span className="text-primary font-bold whitespace-nowrap ml-2">{product.price}</span>
+        </div>
+        <p className="text-label-md text-secondary mb-sm uppercase tracking-wide">{product.brand}</p>
+        <p className="text-body-lg text-on-surface-variant line-clamp-2 mb-md">{product.description}</p>
+        <div className="flex flex-wrap gap-xs mb-lg">
+          {Array.isArray(product.features) && product.features.map(f => (
+            <span key={f} className="bg-surface-container-high px-sm py-1 rounded text-xs font-medium">{f}</span>
+          ))}
+        </div>
+        <button onClick={() => setSelectedProduct(product)} className="mt-auto w-full border-2 border-primary text-primary py-sm rounded-lg font-label-md hover:bg-primary hover:text-on-primary transition-all active:scale-95">View Details</button>
+      </div>
+    </div>
+  ))
+)}
 </div>
 </div>
 </div>
@@ -337,19 +284,19 @@ function HearingAids() {
         <ul className="space-y-sm text-body-lg">
           <li className="flex justify-between border-b border-outline-variant/20 pb-xs">
             <span className="text-on-surface-variant">AI Processing:</span>
-            <span className="font-bold text-on-surface">{selectedProduct.details.ai}</span>
+            <span className="font-bold text-on-surface">{selectedProduct.details?.ai || 'Standard'}</span>
           </li>
           <li className="flex justify-between border-b border-outline-variant/20 pb-xs">
             <span className="text-on-surface-variant">Battery Life:</span>
-            <span className="font-bold text-on-surface">{selectedProduct.details.battery}</span>
+            <span className="font-bold text-on-surface">{selectedProduct.details?.battery || 'N/A'}</span>
           </li>
           <li className="flex justify-between border-b border-outline-variant/20 pb-xs">
             <span className="text-on-surface-variant">Water Resistance:</span>
-            <span className="font-bold text-on-surface">{selectedProduct.details.waterResistance}</span>
+            <span className="font-bold text-on-surface">{selectedProduct.details?.waterResistance || 'Standard'}</span>
           </li>
           <li className="flex justify-between pb-xs">
             <span className="text-on-surface-variant">Bluetooth Pairing:</span>
-            <span className="font-bold text-on-surface">{selectedProduct.details.bluetooth}</span>
+            <span className="font-bold text-on-surface">{selectedProduct.details?.bluetooth || 'N/A'}</span>
           </li>
         </ul>
       </div>

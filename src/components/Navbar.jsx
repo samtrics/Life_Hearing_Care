@@ -8,6 +8,22 @@ function Navbar() {
   const location = useLocation();
   const { clinicName } = useSettings();
 
+  // Announcement Slider State
+  const announcements = [
+    "🎉 Special Offer: Free Hearing Test this month!",
+    "💳 Zero Cost EMI Available on all premium hearing aids",
+    "📅 Book your appointment online and skip the waiting room",
+    "🏠 Home visits exclusively available in Kota, Rajasthan"
+  ];
+  const [announcementIndex, setAnnouncementIndex] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setAnnouncementIndex((prev) => (prev + 1) % announcements.length);
+    }, 4000);
+    return () => clearInterval(timer);
+  }, []);
+
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 20) {
@@ -48,8 +64,9 @@ function Navbar() {
   };
 
   return (
-    <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${scrolled ? 'bg-surface/80 backdrop-blur-lg shadow-md py-1' : 'bg-surface/50 backdrop-blur-sm py-3'}`}>
-      <div className="px-gutter max-w-container-max mx-auto h-16 flex items-center justify-between md:grid md:grid-cols-3 md:items-center">
+    <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${scrolled ? 'bg-surface/80 backdrop-blur-lg shadow-md' : 'bg-surface/50 backdrop-blur-sm'}`}>
+      
+      <div className={`px-gutter max-w-container-max mx-auto h-16 flex items-center justify-between md:grid md:grid-cols-3 md:items-center transition-all duration-300 ${scrolled ? 'py-1' : 'py-3'}`}>
         
         {/* Left: Desktop Nav Links */}
         <div className="hidden md:flex justify-start items-center gap-6 lg:gap-8">
@@ -136,6 +153,22 @@ function Navbar() {
         <Link to="/book" onClick={closeMobileMenu} className="block w-full text-center bg-primary text-on-primary py-sm rounded-xl font-label-md text-lg shadow-md hover:bg-primary-container active:scale-95 transition-all">
           Book Appointment
         </Link>
+      </div>
+
+      {/* Announcement Bar Slider */}
+      <div className={`bg-primary text-on-primary text-xs md:text-sm font-label-md font-bold text-center overflow-hidden relative flex items-center justify-center transition-all duration-500 ${scrolled ? 'h-0 py-0 opacity-0' : 'h-8 py-1 opacity-100'}`}>
+        {announcements.map((text, i) => (
+          <div
+            key={i}
+            className={`absolute w-full px-4 transition-all duration-700 transform ${
+              i === announcementIndex
+                ? 'opacity-100 translate-y-0'
+                : 'opacity-0 translate-y-4'
+            }`}
+          >
+            {text}
+          </div>
+        ))}
       </div>
     </nav>
   );
