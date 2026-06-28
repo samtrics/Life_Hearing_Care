@@ -449,18 +449,19 @@ function Home() {
                         
                         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 md:gap-6">
                             {[
-                                { title: 'Central Govt', subtitle: 'Employees', icon: 'account_balance' },
-                                { title: 'State Govt', subtitle: 'Employees', icon: 'holiday_village' },
-                                { title: 'CGHS', subtitle: 'Beneficiaries', icon: 'health_and_safety' },
-                                { title: 'RGHS', subtitle: 'Beneficiaries', icon: 'medical_services' },
-                                { title: 'RAPP', subtitle: 'Employees', icon: 'factory' }
+                                { title: 'Central Govt', subtitle: 'Employees', icon: 'account_balance', desc: 'Seamless reimbursement processing for all central government workers.' },
+                                { title: 'State Govt', subtitle: 'Employees', icon: 'holiday_village', desc: 'Easy claim assistance for Rajasthan and other state government employees.' },
+                                { title: 'CGHS', subtitle: 'Beneficiaries', icon: 'health_and_safety', desc: 'Complete documentation support for Central Govt Health Scheme beneficiaries.' },
+                                { title: 'RGHS', subtitle: 'Beneficiaries', icon: 'medical_services', desc: 'Dedicated assistance for Rajasthan Government Health Scheme cardholders.' },
+                                { title: 'RAPP', subtitle: 'Employees', icon: 'factory', desc: 'Specialized care and claim support for Rajasthan Atomic Power Project staff.' }
                             ].map((scheme, i) => (
-                                <RevealOnScroll key={i} delay={`delay-${(i % 5 + 1) * 100}`} className="bg-white p-6 rounded-2xl shadow-sm border border-outline-variant/30 hover:shadow-lg hover:-translate-y-1 hover:border-primary/50 transition-all group flex flex-col items-center text-center cursor-default">
-                                    <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mb-4 group-hover:scale-110 group-hover:bg-primary transition-all shadow-inner">
+                                <RevealOnScroll key={i} delay={`delay-${(i % 5 + 1) * 100}`} className="bg-white p-6 rounded-2xl shadow-sm border border-outline-variant/30 hover:shadow-lg hover:-translate-y-1 hover:border-primary/50 transition-all group flex flex-col items-center text-center cursor-default h-full">
+                                    <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mb-4 group-hover:scale-110 group-hover:bg-primary transition-all shadow-inner shrink-0">
                                         <span className="material-symbols-outlined text-primary group-hover:text-white text-[32px] transition-colors">{scheme.icon}</span>
                                     </div>
                                     <h3 className="font-bold text-primary text-lg leading-tight">{scheme.title}</h3>
-                                    <p className="text-xs text-on-surface-variant mt-1 font-medium uppercase tracking-wider">{scheme.subtitle}</p>
+                                    <p className="text-[10px] text-primary/70 mt-1 font-bold uppercase tracking-widest mb-3">{scheme.subtitle}</p>
+                                    <p className="text-sm text-on-surface-variant leading-relaxed">{scheme.desc}</p>
                                 </RevealOnScroll>
                             ))}
                         </div>
