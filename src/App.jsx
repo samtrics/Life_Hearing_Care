@@ -2,6 +2,7 @@ import React, { Suspense, lazy, useEffect, useState } from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import { SettingsProvider } from './context/SettingsContext';
 import { supabase } from './supabaseClient';
+import { Analytics } from '@vercel/analytics/react';
 
 // Lazy load all route components
 const Home = lazy(() => import('./pages/Home'));
@@ -68,24 +69,27 @@ const SamtricsTracker = () => {
 
 function App() {
   return (
-    <SettingsProvider>
-      <Router>
-        <SamtricsTracker />
-        <Suspense fallback={<LoadingFallback />}>
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/services" element={<Services />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/hearing-aids" element={<HearingAids />} />
-            <Route path="/blog" element={<Blog />} />
-            <Route path="/book" element={<BookAppointment />} />
-            <Route path="/admin" element={<PrivateRoute><Admin /></PrivateRoute>} />
-            <Route path="/admin-login" element={<AdminLogin />} />
-            <Route path="/reviews" element={<Reviews />} />
-          </Routes>
-        </Suspense>
-      </Router>
-    </SettingsProvider>
+    <>
+      <SettingsProvider>
+        <Router>
+          <SamtricsTracker />
+          <Suspense fallback={<LoadingFallback />}>
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/services" element={<Services />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/hearing-aids" element={<HearingAids />} />
+              <Route path="/blog" element={<Blog />} />
+              <Route path="/book" element={<BookAppointment />} />
+              <Route path="/admin" element={<PrivateRoute><Admin /></PrivateRoute>} />
+              <Route path="/admin-login" element={<AdminLogin />} />
+              <Route path="/reviews" element={<Reviews />} />
+            </Routes>
+          </Suspense>
+        </Router>
+      </SettingsProvider>
+      <Analytics />
+    </>
   );
 }
 
