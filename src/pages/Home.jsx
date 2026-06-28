@@ -570,7 +570,7 @@ function Home() {
                                         <a href="tel:+91 9219559322" className="flex items-center gap-3 text-on-surface-variant hover:text-primary transition-colors font-medium">
                                             <div className="w-8 h-8 rounded-full bg-surface-container flex items-center justify-center text-primary"><span className="material-symbols-outlined text-[16px]">call</span></div> +91 9219559322
                                         </a>
-                                        <a href="mailto:info@lifehearing.com" className="flex items-center gap-3 text-on-surface-variant hover:text-primary transition-colors font-medium">
+                                        <a href="mailto:lifehearcare@gmail.com" className="flex items-center gap-3 text-on-surface-variant hover:text-primary transition-colors font-medium">
                                             <div className="w-8 h-8 rounded-full bg-surface-container flex items-center justify-center text-primary"><span className="material-symbols-outlined text-[16px]">mail</span></div> lifehearcare@gmail.com
                                         </a>
                                         <a href="https://www.google.com/maps/place/Life+Hearing+Care/@25.153423,75.8520923,17.5z/data=!4m16!1m9!3m8!1s0x396f85f70140ed13:0xdfdb28470156842c!2sLife+Hearing+Care!8m2!3d25.1528616!4d75.8523502!9m1!1b1!16s%2Fg%2F11j1_gkc3h!3m5!1s0x396f85f70140ed13:0xdfdb28470156842c!8m2!3d25.1528616!4d75.8523502!16s%2Fg%2F11j1_gkc3h!18m1!1e1?entry=ttu&g_ep=EgoyMDI2MDYyNC4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 text-sm font-bold text-white bg-primary px-4 py-2.5 rounded-xl hover:bg-primary-container hover:text-primary transition-colors mt-2 w-max shadow-sm hover:shadow-md">
@@ -595,9 +595,9 @@ function Home() {
                                         </div>
                                     </div>
                                     <div className="flex flex-col gap-3 pl-[64px]">
-                                        <button onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="inline-flex items-center justify-center gap-2 text-sm font-bold text-white bg-secondary px-6 py-3 rounded-xl hover:bg-secondary-container hover:text-secondary transition-colors mt-2 w-max shadow-md hover:shadow-lg">
+                                        <Link to="/book" className="inline-flex items-center justify-center gap-2 text-sm font-bold text-white bg-secondary px-6 py-3 rounded-xl hover:bg-secondary-container hover:text-secondary transition-colors mt-2 w-max shadow-md hover:shadow-lg">
                                             Book a Home Visit <span className="material-symbols-outlined text-[18px]">calendar_month</span>
-                                        </button>
+                                        </Link>
                                     </div>
                                 </div>
                             </RevealOnScroll>

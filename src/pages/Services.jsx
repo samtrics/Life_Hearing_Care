@@ -12,19 +12,23 @@ function Services() {
   const { clinicName, supportEmail } = useSettings();
 
   useEffect(() => {
-    const observerOptions = { threshold: 0.1 };
+    // Use rootMargin to trigger slightly before visible — avoids jank
+    const observerOptions = { threshold: 0.08, rootMargin: '0px 0px -40px 0px' };
 
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('opacity-100');
-                entry.target.classList.remove('opacity-0', 'translate-y-10');
+                entry.target.classList.remove('opacity-0');
+                entry.target.style.willChange = 'auto'; // release GPU after animation
+                observer.unobserve(entry.target); // stop observing once visible
             }
         });
     }, observerOptions);
 
     document.querySelectorAll('section').forEach(section => {
-        section.classList.add('transition-all', 'duration-1000', 'opacity-0', 'translate-y-10');
+        section.classList.add('transition-opacity', 'duration-700', 'opacity-0');
+        section.style.willChange = 'opacity';
         observer.observe(section);
     });
 
@@ -48,9 +52,10 @@ function Services() {
                         of clinical audiology services designed to restore your connection with the world. From advanced
                         diagnostics to personalized therapy.</p>
                 </div>
-                <div className="relative h-[400px] rounded-3xl overflow-hidden shadow-xl">
+                <div className="relative h-[400px] rounded-3xl overflow-hidden shadow-xl hidden lg:block">
                     <img className="w-full h-full object-cover"
-                        data-alt="A professional audiologist wearing a crisp white clinic coat performing a hearing test on a patient in a bright, modern, and clinical setting. The room is flooded with soft natural light, highlighting the high-tech medical equipment and minimalist interior. The overall aesthetic is clean, medical, and comforting with a palette of soft blues and whites."
+                        fetchpriority="high"
+                        decoding="async"
                         src="https://lh3.googleusercontent.com/aida-public/AB6AXuCubAoZNqHvSIGT5FUB1g1VmglxGLIlJGGSadch5SIV0RgYoigKLO4m220r3uUUJ1HiFqLPBzoc-Ys9CLj2vZDn_0FmSwgVySHs2ANJoHBE42J8ukfREX4LR87JXw33xv6XjKbXr5VTzKBLjHM1lwLyKLpRArujNWeQyLKRqHmkjx02rNk-B7BFlBZd8ywRtlQsr6-VybIstWcUXMhlNiesE8SL_ZBY-pgPYNRWx465-U6A6c310Lw4ciTHwvypCqZfHhOTAMz0jmvH" />
                     <div className="absolute inset-0 bg-gradient-to-t from-primary/30 to-transparent"></div>
                 </div>
@@ -62,7 +67,7 @@ function Services() {
                 {/*  Service 1: Comprehensive Hearing Test  */}
                 <div className="glass-card rounded-3xl overflow-hidden shadow-sm flex flex-col lg:flex-row gap-lg p-lg">
                     <div className="lg:w-2/5 rounded-2xl overflow-hidden">
-                        <img className="w-full h-full object-cover min-h-[300px]"
+                        <img className="w-full h-full object-cover min-h-[300px]" loading="lazy" decoding="async"
                             data-alt="Close up of a high-tech hearing assessment station in a clinical environment. A pair of premium clinical headphones rests on a sleek white desk next to a digital tablet displaying sound frequency waves. The lighting is soft and professional, using cool blue and white tones to emphasize clinical precision and modern healthcare aesthetics."
                             src="https://lh3.googleusercontent.com/aida-public/AB6AXuCC3cgvTwQb3RmQ7rsvqhny9nLlRM4VRtgO3tUC2WzbKU81CNBkAtk3utlS79Yj9C2B2_mTmHeso-OqUIcqjLA6AGI4VirzyPSLpEehG_0lADrZhDomP4C-R9s4mnAVgOwxOagssXkRRxUb9_Fa5-IbOC_nMtGZBV51sT8hiIyiDyF0RYyIt6vg-_ek7r18jNeCoEOHrPeIkpalSk9NKilHzMMqbVrYCkaMoGgujvV1gEu5wAA-KLPqprUr1UYZ9gTgYwjD5k_N7E1Y" />
                     </div>
@@ -126,7 +131,7 @@ function Services() {
                 <div
                     className="glass-card rounded-3xl overflow-hidden shadow-sm flex flex-col lg:flex-row-reverse gap-lg p-lg">
                     <div className="lg:w-2/5 rounded-2xl overflow-hidden">
-                        <img className="w-full h-full object-cover min-h-[300px]"
+                        <img className="w-full h-full object-cover min-h-[300px]" loading="lazy" decoding="async"
                             data-alt="A serene, minimalist wellness room designed for tinnitus therapy. The scene features a comfortable ergonomic chair, soft ambient lighting coming from a circular wall lamp, and a small Zen garden on a side table. The color palette consists of calming teals, off-whites, and natural wood textures, creating a sense of peace and professional care."
                             src="https://lh3.googleusercontent.com/aida-public/AB6AXuDP-unxEF0I_609NkuDpj6WPnB6f4vRhNbz_tDH5GIjtJ3kMe9lLjHJPdJNj7amvRzQO_kXZwEse6kPmBVc4H6ZLGwpEJrMfQvx8JhexXK4P99f6LllbyYGeiTCc-MkQdLyiwT5yqRfSe3FslwHabBdYfBB2EfALspTewOBdbDsQ0pOUT2RoBMmQEy899mzsnOFm1AduvshZHyC2OkkwsmYSMhb504DnnFWTlRonGE5ignDn3M5ilOcqeue8ADaAL2aBNSnfI7OJrfg" />
                     </div>
@@ -188,7 +193,7 @@ function Services() {
                 {/*  Service 3: Speech Therapy  */}
                 <div className="glass-card rounded-3xl overflow-hidden shadow-sm flex flex-col lg:flex-row gap-lg p-lg">
                     <div className="lg:w-2/5 rounded-2xl overflow-hidden">
-                        <img className="w-full h-full object-cover min-h-[300px]"
+                        <img className="w-full h-full object-cover min-h-[300px]" loading="lazy" decoding="async"
                             data-alt="A warm and inviting speech therapy session room. A therapist is engaged in a friendly conversation with an elderly patient. The room features high-quality acoustics, light oak furniture, and large windows revealing a soft green garden outside. The mood is supportive, modern, and clinical with high-end glass accents and soft-toned furniture."
                             src="https://lh3.googleusercontent.com/aida-public/AB6AXuBI3EpbJ1_73iwlqhcynIVQ0H1PNj6GoBv9kpF-7eOFzdFDEF9VCKmAInUYgk4_bXnWS_PFKNoguk7-fY2v9v9DDxmMwfD1bbaNVkdgLvVG3-z2nGTk48IPQiSfCEZ-5Ko-Ne7r5jytvzr6g7XLUw--yI-3DEP68V9_Ti7d6RHYdPQooiegwOLx5FKZ-jUezmbVlAU2dUwvofsLR7GopctxyRor1U_1EFViU2Nh2fuUr7S8jmPDgvt-5hTPaIUD8zlSeEFGrcbFSjXe" />
                     </div>
@@ -252,7 +257,7 @@ function Services() {
                 {/*  Service 4: RIC Hearing Aid  */}
                 <div className="glass-card rounded-3xl overflow-hidden shadow-sm flex flex-col lg:flex-row-reverse gap-lg p-lg">
                     <div className="lg:w-2/5 rounded-2xl overflow-hidden">
-                        <img className="w-full h-full object-cover min-h-[300px]"
+                        <img className="w-full h-full object-cover min-h-[300px]" loading="lazy" decoding="async"
                             alt="RIC Hearing Aid"
                             src={ricImg} />
                     </div>
@@ -297,7 +302,7 @@ function Services() {
                 {/*  Service 5: BERA Test Center  */}
                 <div className="glass-card rounded-3xl overflow-hidden shadow-sm flex flex-col lg:flex-row gap-lg p-lg">
                     <div className="lg:w-2/5 rounded-2xl overflow-hidden">
-                        <img className="w-full h-full object-cover min-h-[300px]"
+                        <img className="w-full h-full object-cover min-h-[300px]" loading="lazy" decoding="async"
                             alt="BERA Test Center"
                             src={beraImg} />
                     </div>
@@ -342,7 +347,7 @@ function Services() {
                 {/*  Service 6: Hearing Loss Treatment  */}
                 <div className="glass-card rounded-3xl overflow-hidden shadow-sm flex flex-col lg:flex-row-reverse gap-lg p-lg">
                     <div className="lg:w-2/5 rounded-2xl overflow-hidden">
-                        <img className="w-full h-full object-cover min-h-[300px]"
+                        <img className="w-full h-full object-cover min-h-[300px]" loading="lazy" decoding="async"
                             alt="Hearing Loss Treatment"
                             src={lossImg} />
                     </div>
@@ -387,7 +392,7 @@ function Services() {
                 {/*  Service 7: Starkey Hearing Aids  */}
                 <div className="glass-card rounded-3xl overflow-hidden shadow-sm flex flex-col lg:flex-row gap-lg p-lg">
                     <div className="lg:w-2/5 rounded-2xl overflow-hidden">
-                        <img className="w-full h-full object-cover min-h-[300px]"
+                        <img className="w-full h-full object-cover min-h-[300px]" loading="lazy" decoding="async"
                             alt="Starkey Hearing Aids"
                             src={starkeyImg} />
                     </div>
@@ -505,3 +510,4 @@ function Services() {
 }
 
 export default Services;
+
