@@ -1,0 +1,16 @@
+{
+  "rewrites": [
+    {
+      "source": "/admin-portal",
+      "destination": "https://your-admin-portal-domain.vercel.app"
+    },
+    {
+      "source": "/admin-portal/(.*)",
+      "destination": "https://your-admin-portal-domain.vercel.app/$1"
+    },
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ]
+}
