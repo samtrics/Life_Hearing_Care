@@ -434,6 +434,39 @@ function Home() {
                     </div>
                 </section>
 
+                {/* Government Schemes & Reimbursements */}
+                <section className="py-xl bg-gradient-to-br from-primary/5 via-surface to-secondary/5 border-y border-outline-variant/20 overflow-hidden">
+                    <div className="max-w-container-max mx-auto px-gutter relative">
+                        <div className="text-center mb-12">
+                            <span className="inline-block py-1 px-4 bg-primary/10 text-primary rounded-full text-xs font-bold uppercase tracking-wider mb-4 border border-primary/20">
+                                100% Documentation Support
+                            </span>
+                            <h2 className="font-headline-md text-3xl md:text-headline-md text-primary mb-4">Government Reimbursement Available</h2>
+                            <p className="text-body-lg text-on-surface-variant max-w-3xl mx-auto">
+                                We are committed to making premium hearing care accessible. We provide full documentation and assistance for reimbursement claims under various government schemes.
+                            </p>
+                        </div>
+                        
+                        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 md:gap-6">
+                            {[
+                                { title: 'Central Govt', subtitle: 'Employees', icon: 'account_balance' },
+                                { title: 'State Govt', subtitle: 'Employees', icon: 'holiday_village' },
+                                { title: 'CGHS', subtitle: 'Beneficiaries', icon: 'health_and_safety' },
+                                { title: 'RGHS', subtitle: 'Beneficiaries', icon: 'medical_services' },
+                                { title: 'RAPP', subtitle: 'Employees', icon: 'factory' }
+                            ].map((scheme, i) => (
+                                <RevealOnScroll key={i} delay={`delay-${(i % 5 + 1) * 100}`} className="bg-white p-6 rounded-2xl shadow-sm border border-outline-variant/30 hover:shadow-lg hover:-translate-y-1 hover:border-primary/50 transition-all group flex flex-col items-center text-center cursor-default">
+                                    <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mb-4 group-hover:scale-110 group-hover:bg-primary transition-all shadow-inner">
+                                        <span className="material-symbols-outlined text-primary group-hover:text-white text-[32px] transition-colors">{scheme.icon}</span>
+                                    </div>
+                                    <h3 className="font-bold text-primary text-lg leading-tight">{scheme.title}</h3>
+                                    <p className="text-xs text-on-surface-variant mt-1 font-medium uppercase tracking-wider">{scheme.subtitle}</p>
+                                </RevealOnScroll>
+                            ))}
+                        </div>
+                    </div>
+                </section>
+
                 {/* 5. Trust Indicators (Moved Down) */}
                 <section className="py-xl bg-surface-container-lowest relative z-10 border-b border-outline-variant/10">
                     <div className="max-w-container-max mx-auto px-gutter">
