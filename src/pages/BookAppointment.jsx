@@ -514,9 +514,22 @@ function BookAppointment() {
                           className="w-full px-md py-sm rounded-xl border border-outline-variant bg-surface focus:bg-white focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all text-on-surface"
                         >
                           <option value="">Select a time</option>
-                          <option value="morning">Morning (8:00 AM - 12:00 PM)</option>
-                          <option value="afternoon">Afternoon (12:00 PM - 4:00 PM)</option>
-                          <option value="evening">Late Afternoon (4:00 PM - 7:00 PM)</option>
+                          {(() => {
+                            let isSunday = false;
+                            if (formData.date) {
+                              const [year, month, day] = formData.date.split('-');
+                              isSunday = new Date(year, month - 1, day).getDay() === 0;
+                            }
+                            return isSunday ? (
+                              <option value="morning">Morning (10:00 AM - 1:00 PM)</option>
+                            ) : (
+                              <>
+                                <option value="morning">Morning (10:00 AM - 1:00 PM)</option>
+                                <option value="afternoon">Afternoon (1:00 PM - 4:00 PM)</option>
+                                <option value="evening">Late Afternoon (4:00 PM - 7:00 PM)</option>
+                              </>
+                            );
+                          })()}
                         </select>
                       </div>
                     </div>
