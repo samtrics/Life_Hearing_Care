@@ -419,11 +419,11 @@ function Home() {
 
                                 <RevealOnScroll delay="delay-400" className="grid grid-cols-2 gap-lg pt-md">
                                     <div>
-                                        <div className="text-display-lg-mobile font-display-lg text-primary">5k+</div>
+                                        <div className="text-display-lg-mobile font-display-lg text-primary">10k+</div>
                                         <div className="text-label-md text-on-surface-variant">Patients Treated</div>
                                     </div>
                                     <div>
-                                        <div className="text-display-lg-mobile font-display-lg text-secondary">1k+</div>
+                                        <div className="text-display-lg-mobile font-display-lg text-secondary">5k+</div>
                                         <div className="text-label-md text-on-surface-variant">Hearing Aids Fitted</div>
                                     </div>
                                 </RevealOnScroll>
