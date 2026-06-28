@@ -112,7 +112,11 @@ function BookAppointment() {
       };
 
       const payloadString = JSON.stringify(payload);
-      const secretKey = import.meta.env.VITE_API_SECRET || "default_development_secret_key_123!";
+      const secretKey = import.meta.env.VITE_API_SECRET;
+      
+      if (!secretKey) {
+        throw new Error("System configuration error: Security key is missing. Please contact support.");
+      }
 
       // Encrypt the payload so it never travels in plain text
       const encryptedPayload = CryptoJS.AES.encrypt(payloadString, secretKey).toString();
