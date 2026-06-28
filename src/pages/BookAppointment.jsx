@@ -121,7 +121,7 @@ function BookAppointment() {
       const signature = CryptoJS.HmacSHA256(encryptedPayload, secretKey).toString(CryptoJS.enc.Hex);
 
       // The API lives on the admin-portal backend, not the frontend!
-      const apiUrl = import.meta.env.VITE_API_URL || "https://life-hearing-super-admin.vercel.app";
+      const apiUrl = import.meta.env.VITE_API_URL || "https://life-hearing-care.vercel.app";
       const response = await fetch(`${apiUrl}/api/appointments/book`, {
         method: 'POST',
         headers: {
