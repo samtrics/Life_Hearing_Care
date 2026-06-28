@@ -97,8 +97,6 @@ function Home() {
         // Trigger hero animations on mount
         setTimeout(() => setHeroVisible(true), 100);
         loadFeedbacks();
-        // Set a random initial slide
-        setCurrentSlide(Math.floor(Math.random() * heroSlides.length));
     }, []);
 
     // Auto-play Slider
