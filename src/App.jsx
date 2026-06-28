@@ -53,7 +53,8 @@ const SamtricsTracker = () => {
 
   useEffect(() => {
     // Send telemetry to the Admin Portal bridge
-    fetch('http://localhost:3000/api/samtrics/track', {
+    const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:3000';
+    fetch(`${apiUrl}/api/samtrics/track`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
