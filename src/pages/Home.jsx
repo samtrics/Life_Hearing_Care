@@ -449,11 +449,11 @@ function Home() {
                         
                         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 md:gap-6">
                             {[
-                                { title: 'Central Govt', subtitle: 'Employees', icon: 'account_balance', desc: 'Seamless reimbursement processing for all central government workers.' },
-                                { title: 'State Govt', subtitle: 'Employees', icon: 'holiday_village', desc: 'Easy claim assistance for Rajasthan and other state government employees.' },
-                                { title: 'CGHS', subtitle: 'Beneficiaries', icon: 'health_and_safety', desc: 'Complete documentation support for Central Govt Health Scheme beneficiaries.' },
-                                { title: 'RGHS', subtitle: 'Beneficiaries', icon: 'medical_services', desc: 'Dedicated assistance for Rajasthan Government Health Scheme cardholders.' },
-                                { title: 'RAPP', subtitle: 'Employees', icon: 'factory', desc: 'Specialized care and claim support for Rajasthan Atomic Power Project staff.' }
+                                { title: 'Central Govt', subtitle: 'Employees', icon: 'account_balance', desc: 'Seamless hearing aid reimbursement processing for central government workers.' },
+                                { title: 'State Govt', subtitle: 'Employees', icon: 'holiday_village', desc: 'Easy claim assistance on hearing care for Rajasthan state government employees.' },
+                                { title: 'CGHS', subtitle: 'Beneficiaries', icon: 'health_and_safety', desc: 'Complete documentation support for CGHS beneficiaries seeking hearing aids.' },
+                                { title: 'RGHS', subtitle: 'Beneficiaries', icon: 'medical_services', desc: 'Dedicated hearing care assistance for Rajasthan Government Health Scheme cardholders.' },
+                                { title: 'RAPP', subtitle: 'Employees', icon: 'factory', desc: 'Specialized hearing care and claim support for Rajasthan Atomic Power Project staff.' }
                             ].map((scheme, i) => (
                                 <RevealOnScroll key={i} delay={`delay-${(i % 5 + 1) * 100}`} className="bg-white p-6 rounded-2xl shadow-sm border border-outline-variant/30 hover:shadow-lg hover:-translate-y-1 hover:border-primary/50 transition-all group flex flex-col items-center text-center cursor-default h-full">
                                     <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mb-4 group-hover:scale-110 group-hover:bg-primary transition-all shadow-inner shrink-0">
