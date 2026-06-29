@@ -88,8 +88,11 @@ function Navbar() {
           <AnimatedNavLink to="/hearing-aids">Hearing Aids</AnimatedNavLink>
           <AnimatedNavLink to="/blog">Blog</AnimatedNavLink>
           <div className="h-6 w-px bg-outline-variant/30"></div>
-          <Link to="/book" className="bg-primary text-on-primary px-5 py-2.5 rounded-full font-label-md hover:bg-primary-container hover:shadow-lg hover:shadow-primary/20 active:scale-95 transition-all">
-            Book
+          <a href="/#contact" className="border-2 border-primary text-primary px-4 py-2 rounded-full font-bold text-sm hover:bg-primary hover:text-white transition-all shadow-sm">
+            Contact Us
+          </a>
+          <Link to="/book" className="bg-primary text-on-primary px-5 py-2.5 rounded-full font-bold text-sm hover:bg-primary-container hover:shadow-lg hover:shadow-primary/20 active:scale-95 transition-all flex items-center gap-1">
+            Book <span className="hidden lg:inline">Appointment</span>
           </Link>
         </div>
 
@@ -150,7 +153,10 @@ function Navbar() {
         </Link>
         
         <div className="h-px w-full bg-outline-variant/30 my-sm"></div>
-        <Link to="/book" onClick={closeMobileMenu} className="block w-full text-center bg-primary text-on-primary py-sm rounded-xl font-label-md text-lg shadow-md hover:bg-primary-container active:scale-95 transition-all">
+        <a href="/#contact" onClick={closeMobileMenu} className="block w-full text-center border-2 border-primary text-primary py-sm rounded-xl font-bold text-lg hover:bg-primary hover:text-white transition-all shadow-sm">
+          Contact Us
+        </a>
+        <Link to="/book" onClick={closeMobileMenu} className="block w-full text-center bg-primary text-on-primary py-sm rounded-xl font-bold text-lg shadow-md hover:bg-primary-container active:scale-95 transition-all">
           Book Appointment
         </Link>
       </div>
