@@ -520,61 +520,62 @@ function Home() {
                 </section>
 
                 {/* Government Schemes Section */}
-                <section id="schemes" className="py-xl bg-surface relative overflow-hidden border-b border-outline-variant/10">
+                {/* EMI Options Section */}
+                <section id="financing" className="py-xl bg-surface relative overflow-hidden border-b border-outline-variant/10">
                     {/* Decorative background elements */}
-                    <div className="absolute top-0 left-0 w-[400px] h-[400px] bg-tertiary/5 rounded-full blur-3xl -translate-y-1/2 -translate-x-1/2"></div>
+                    <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-secondary/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
 
                     <div className="max-w-container-max mx-auto px-gutter relative z-10">
                         <RevealOnScroll className="text-center mb-xl">
-                            <span className="inline-block py-xs px-md bg-tertiary-fixed text-on-tertiary-fixed-variant rounded-full text-label-md font-label-md uppercase tracking-wider mb-md">
-                                Financial Assistance
+                            <span className="inline-block py-xs px-md bg-secondary-container text-on-secondary-container rounded-full text-label-md font-label-md uppercase tracking-wider mb-md">
+                                Easy Financing
                             </span>
-                            <h2 className="font-headline-md text-headline-md text-primary mb-sm">Government & Health Schemes</h2>
-                            <p className="text-on-surface-variant max-w-2xl mx-auto">We are proud partners with leading government and insurance schemes to make premium hearing care accessible to everyone.</p>
+                            <h2 className="font-headline-md text-headline-md text-primary mb-sm">Flexible EMI Options</h2>
+                            <p className="text-on-surface-variant max-w-2xl mx-auto">We believe that budget should never stand in the way of better hearing. That's why we offer simple, flexible Equated Monthly Installment (EMI) options on all our premium hearing aids.</p>
                         </RevealOnScroll>
 
                         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-md">
-                            <RevealOnScroll delay="delay-100" className="glass-card p-lg rounded-3xl border border-outline-variant/30 hover:border-tertiary hover:shadow-lg hover:-translate-y-2 transition-all group bg-white">
-                                <div className="w-14 h-14 bg-tertiary/10 rounded-2xl flex items-center justify-center mb-md group-hover:bg-tertiary group-hover:text-white transition-colors text-tertiary">
-                                    <span className="material-symbols-outlined text-[28px]">health_and_safety</span>
-                                </div>
-                                <h4 className="text-title-lg font-bold text-primary mb-xs group-hover:text-tertiary transition-colors">CGHS</h4>
-                                <div className="text-xs font-bold text-tertiary mb-sm uppercase tracking-wide">Central Govt. Health Scheme</div>
-                                <p className="text-on-surface-variant text-sm mb-md">Empanelled to provide top-tier hearing diagnostics and aids for central government employees and pensioners.</p>
-                            </RevealOnScroll>
-
-                            <RevealOnScroll delay="delay-200" className="glass-card p-lg rounded-3xl border border-outline-variant/30 hover:border-secondary hover:shadow-lg hover:-translate-y-2 transition-all group bg-white">
+                            <RevealOnScroll delay="delay-100" className="glass-card p-lg rounded-3xl border border-outline-variant/30 hover:border-secondary hover:shadow-lg hover:-translate-y-2 transition-all group bg-white">
                                 <div className="w-14 h-14 bg-secondary/10 rounded-2xl flex items-center justify-center mb-md group-hover:bg-secondary group-hover:text-white transition-colors text-secondary">
-                                    <span className="material-symbols-outlined text-[28px]">military_tech</span>
+                                    <span className="material-symbols-outlined text-[28px]">percent</span>
                                 </div>
-                                <h4 className="text-title-lg font-bold text-primary mb-xs group-hover:text-secondary transition-colors">ECHS</h4>
-                                <div className="text-xs font-bold text-secondary mb-sm uppercase tracking-wide">Ex-Servicemen Health Scheme</div>
-                                <p className="text-on-surface-variant text-sm mb-md">Dedicated support and comprehensive hearing care coverage for our armed forces veterans and their dependents.</p>
+                                <h4 className="text-title-lg font-bold text-primary mb-xs group-hover:text-secondary transition-colors">0% Interest</h4>
+                                <div className="text-xs font-bold text-secondary mb-sm uppercase tracking-wide">No Hidden Costs</div>
+                                <p className="text-on-surface-variant text-sm mb-md">Enjoy completely interest-free EMI plans on selected premium devices. You only pay for what you buy.</p>
                             </RevealOnScroll>
 
-                            <RevealOnScroll delay="delay-300" className="glass-card p-lg rounded-3xl border border-outline-variant/30 hover:border-primary hover:shadow-lg hover:-translate-y-2 transition-all group bg-white">
+                            <RevealOnScroll delay="delay-200" className="glass-card p-lg rounded-3xl border border-outline-variant/30 hover:border-primary hover:shadow-lg hover:-translate-y-2 transition-all group bg-white">
                                 <div className="w-14 h-14 bg-primary/10 rounded-2xl flex items-center justify-center mb-md group-hover:bg-primary group-hover:text-white transition-colors text-primary">
-                                    <span className="material-symbols-outlined text-[28px]">accessibility_new</span>
+                                    <span className="material-symbols-outlined text-[28px]">bolt</span>
                                 </div>
-                                <h4 className="text-title-lg font-bold text-primary mb-xs group-hover:text-primary transition-colors">ADIP Scheme</h4>
-                                <div className="text-xs font-bold text-primary mb-sm uppercase tracking-wide">Assistance to Disabled Persons</div>
-                                <p className="text-on-surface-variant text-sm mb-md">Helping eligible citizens acquire scientifically manufactured, modern, standard hearing aids and appliances.</p>
+                                <h4 className="text-title-lg font-bold text-primary mb-xs group-hover:text-primary transition-colors">Instant Approval</h4>
+                                <div className="text-xs font-bold text-primary mb-sm uppercase tracking-wide">Paperless Process</div>
+                                <p className="text-on-surface-variant text-sm mb-md">Quick and hassle-free document verification right at the clinic, getting your loan approved in minutes.</p>
+                            </RevealOnScroll>
+
+                            <RevealOnScroll delay="delay-300" className="glass-card p-lg rounded-3xl border border-outline-variant/30 hover:border-tertiary hover:shadow-lg hover:-translate-y-2 transition-all group bg-white">
+                                <div className="w-14 h-14 bg-tertiary/10 rounded-2xl flex items-center justify-center mb-md group-hover:bg-tertiary group-hover:text-white transition-colors text-tertiary">
+                                    <span className="material-symbols-outlined text-[28px]">account_balance_wallet</span>
+                                </div>
+                                <h4 className="text-title-lg font-bold text-primary mb-xs group-hover:text-tertiary transition-colors">Zero Downpayment</h4>
+                                <div className="text-xs font-bold text-tertiary mb-sm uppercase tracking-wide">Walk Out with Care</div>
+                                <p className="text-on-surface-variant text-sm mb-md">Select financing options allow you to take home your new hearing aid today without paying anything upfront.</p>
                             </RevealOnScroll>
 
                             <RevealOnScroll delay="delay-400" className="glass-card p-lg rounded-3xl border border-outline-variant/30 hover:border-primary-fixed-dim hover:shadow-lg hover:-translate-y-2 transition-all group bg-white">
                                 <div className="w-14 h-14 bg-primary-fixed-dim/10 rounded-2xl flex items-center justify-center mb-md group-hover:bg-primary-fixed-dim group-hover:text-white transition-colors text-primary-fixed-dim">
-                                    <span className="material-symbols-outlined text-[28px]">family_home</span>
+                                    <span className="material-symbols-outlined text-[28px]">event_available</span>
                                 </div>
-                                <h4 className="text-title-lg font-bold text-primary mb-xs group-hover:text-primary-fixed-dim transition-colors">Ayushman Bharat</h4>
-                                <div className="text-xs font-bold text-primary-fixed-dim mb-sm uppercase tracking-wide">PM-JAY Coverage</div>
-                                <p className="text-on-surface-variant text-sm mb-md">Providing cashless diagnostic treatments and consultations under the world's largest health insurance scheme.</p>
+                                <h4 className="text-title-lg font-bold text-primary mb-xs group-hover:text-primary-fixed-dim transition-colors">Flexible Tenure</h4>
+                                <div className="text-xs font-bold text-primary-fixed-dim mb-sm uppercase tracking-wide">3 to 24 Months</div>
+                                <p className="text-on-surface-variant text-sm mb-md">Choose a repayment schedule that comfortably fits your monthly budget with our highly customizable plans.</p>
                             </RevealOnScroll>
                         </div>
 
                         <RevealOnScroll delay="delay-200" className="mt-lg text-center">
-                            <p className="text-sm text-on-surface-variant mb-md max-w-2xl mx-auto">Not sure if you qualify for these schemes? Our dedicated administration team will help you verify your eligibility and process your documentation.</p>
+                            <p className="text-sm text-on-surface-variant mb-md max-w-2xl mx-auto">We partner with all major credit cards and leading financial institutions (like Bajaj Finserv) to ensure you get the best deal.</p>
                             <Link to="/book" className="inline-flex items-center gap-xs px-6 py-3 bg-white border border-primary text-primary font-bold rounded-xl hover:bg-primary hover:text-white transition-colors active:scale-95 shadow-sm">
-                                Verify Eligibility <span className="material-symbols-outlined text-[20px]">verified</span>
+                                Discuss Financing Options <span className="material-symbols-outlined text-[20px]">credit_card</span>
                             </Link>
                         </RevealOnScroll>
                     </div>
