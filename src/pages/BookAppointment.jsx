@@ -124,9 +124,9 @@ function BookAppointment() {
       // Sign the encrypted payload
       const signature = CryptoJS.HmacSHA256(encryptedPayload, secretKey).toString(CryptoJS.enc.Hex);
 
-      // The API lives on the admin-portal backend, not the frontend!
-      const apiUrl = import.meta.env.VITE_API_URL || "https://life-hearing-super-admin.vercel.app";
-      const response = await fetch(`${apiUrl}/api/appointments/book`, {
+      // We now proxy requests via Vite locally and Vercel in production
+      // to completely hide the backend URL from the network tab.
+      const response = await fetch('/api/appointments/book', {
         method: 'POST',
         headers: {
           'Content-Type': 'text/plain',

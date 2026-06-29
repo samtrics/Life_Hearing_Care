@@ -1,12 +1,16 @@
 {
   "rewrites": [
     {
+      "source": "/api/(.*)",
+      "destination": "https://life-hearing-super-admin.vercel.app/api/$1"
+    },
+    {
       "source": "/admin-portal",
-      "destination": "https://your-admin-portal-domain.vercel.app"
+      "destination": "https://life-hearing-super-admin.vercel.app"
     },
     {
       "source": "/admin-portal/(.*)",
-      "destination": "https://your-admin-portal-domain.vercel.app/$1"
+      "destination": "https://life-hearing-super-admin.vercel.app/$1"
     },
     {
       "source": "/(.*)",
