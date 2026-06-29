@@ -3,6 +3,8 @@ import { BrowserRouter as Router, Routes, Route, Navigate, useLocation } from 'r
 import { SettingsProvider } from './context/SettingsContext';
 import { supabase } from './supabaseClient';
 import { Analytics } from '@vercel/analytics/react';
+import Navbar from './components/Navbar';
+import Footer from './components/Footer';
 
 // Lazy load all route components
 const Home = lazy(() => import('./pages/Home'));
@@ -53,8 +55,8 @@ const SamtricsTracker = () => {
 
   useEffect(() => {
     // Send telemetry to the Admin Portal bridge
-    const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:3000';
-    fetch(`${apiUrl}/api/samtrics/track`, {
+    // Send telemetry to the Admin Portal bridge via Vite/Vercel proxy
+    fetch(`/api/samtrics/track`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
@@ -68,25 +70,38 @@ const SamtricsTracker = () => {
   return null;
 };
 
+const InnerApp = () => {
+  const location = useLocation();
+  const isAdminRoute = location.pathname.startsWith('/admin');
+
+  return (
+    <>
+      <SamtricsTracker />
+      <Navbar />
+      <Suspense fallback={<LoadingFallback />}>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/services" element={<Services />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/hearing-aids" element={<HearingAids />} />
+          <Route path="/blog" element={<Blog />} />
+          <Route path="/book" element={<BookAppointment />} />
+          <Route path="/admin" element={<PrivateRoute><Admin /></PrivateRoute>} />
+          <Route path="/admin-login" element={<AdminLogin />} />
+          <Route path="/reviews" element={<Reviews />} />
+        </Routes>
+      </Suspense>
+      {!isAdminRoute && <Footer />}
+    </>
+  );
+};
+
 function App() {
   return (
     <>
       <SettingsProvider>
         <Router>
-          <SamtricsTracker />
-          <Suspense fallback={<LoadingFallback />}>
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/services" element={<Services />} />
-              <Route path="/about" element={<About />} />
-              <Route path="/hearing-aids" element={<HearingAids />} />
-              <Route path="/blog" element={<Blog />} />
-              <Route path="/book" element={<BookAppointment />} />
-              <Route path="/admin" element={<PrivateRoute><Admin /></PrivateRoute>} />
-              <Route path="/admin-login" element={<AdminLogin />} />
-              <Route path="/reviews" element={<Reviews />} />
-            </Routes>
-          </Suspense>
+          <InnerApp />
         </Router>
       </SettingsProvider>
       <Analytics />

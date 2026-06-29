@@ -1,7 +1,5 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import Navbar from '../components/Navbar';
-import Footer from '../components/Footer';
 import drPic from '../assets/dr_pic.jpeg';
 
 function About() {
@@ -30,7 +28,6 @@ function About() {
 
     return (
         <>
-            <Navbar />
             <main className="pt-20">
                 {/*  Hero Section with Animation  */}
                 <section className="relative h-[614px] flex items-center justify-center overflow-hidden bg-primary-container">
@@ -278,7 +275,6 @@ function About() {
                     </div>
                 </section>
             </main>
-            <Footer />
         </>
     );
 }

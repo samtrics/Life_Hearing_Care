@@ -1,6 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import Navbar from '../components/Navbar';
-import Footer from '../components/Footer';
 import { supabase } from '../supabaseClient';
 import RevealOnScroll from '../components/RevealOnScroll';
 
@@ -29,7 +27,6 @@ const Reviews = () => {
 
     return (
         <div className="bg-surface-container-lowest min-h-screen text-on-surface font-body-lg flex flex-col">
-            <Navbar />
             
             <main className="flex-grow pt-32 pb-xl px-gutter max-w-container-max mx-auto w-full">
                 <div className="text-center mb-xl">
@@ -79,7 +76,6 @@ const Reviews = () => {
                 )}
             </main>
             
-            <Footer />
         </div>
     );
 };

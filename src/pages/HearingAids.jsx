@@ -1,6 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import Navbar from '../components/Navbar';
-import Footer from '../components/Footer';
 import ricImg from '../assets/ric_hearing_aid.png';
 import starkeyImg from '../assets/starkey_aids.png';
 import { supabase } from '../supabaseClient';
@@ -79,7 +77,6 @@ function HearingAids() {
 
   return (
     <>
-      <Navbar />
       <main className="mt-20">
 {/*  Hero Section  */}
 <section className="relative h-[614px] flex items-center overflow-hidden">
@@ -311,7 +308,6 @@ function HearingAids() {
 )}
 
 </main>
-<Footer />
     </>
   );
 }

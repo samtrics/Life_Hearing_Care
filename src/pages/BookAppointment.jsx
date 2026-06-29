@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import Navbar from '../components/Navbar';
-import Footer from '../components/Footer';
 import { supabase } from '../supabaseClient';
 
 function BookAppointment() {
@@ -193,7 +191,6 @@ function BookAppointment() {
         }
         `}
       </style>
-      <Navbar />
 
       <main className="flex-grow pt-20">
         {/* Hero Section */}
@@ -608,7 +605,6 @@ function BookAppointment() {
 
 
       </main>
-      <Footer />
     </div>
   );
 }

@@ -1,7 +1,5 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import Navbar from '../components/Navbar';
-import Footer from '../components/Footer';
 import { useSettings } from '../context/SettingsContext';
 import ricImg from '../assets/ric_hearing_aid.png';
 import beraImg from '../assets/bera_test.png';
@@ -37,7 +35,6 @@ function Services() {
 
   return (
     <>
-    <Navbar />
     <main className="pt-32">
         {/*  Hero Section  */}
         <section className="relative px-gutter max-w-container-max mx-auto mb-xl">
@@ -504,7 +501,6 @@ function Services() {
             </div>
         </section>
     </main>
-    <Footer />
     </>
   );
 }

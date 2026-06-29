@@ -1,6 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import Navbar from '../components/Navbar';
-import Footer from '../components/Footer';
 import { supabase } from '../supabaseClient';
 
 import DOMPurify from 'dompurify';
@@ -147,7 +145,6 @@ function Blog() {
 
   return (
     <div className="bg-background text-on-surface font-body-lg min-h-screen flex flex-col">
-      <Navbar />
       
       <main className="flex-grow pt-20">
         {/* Hero Section */}
@@ -392,7 +389,6 @@ function Blog() {
         )}
 
       </main>
-      <Footer />
     </div>
   );
 }

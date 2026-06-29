@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import Navbar from '../components/Navbar';
 import { supabase } from '../supabaseClient';
 
 function AdminLogin() {
@@ -43,7 +42,6 @@ function AdminLogin() {
 
   return (
     <div className="min-h-screen flex flex-col relative bg-surface-container-lowest font-body-lg overflow-hidden">
-      <Navbar />
 
       <main className="flex-grow flex pt-20 relative z-10">
 

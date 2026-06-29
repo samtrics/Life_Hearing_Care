@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import Navbar from '../components/Navbar';
 import { supabase } from '../supabaseClient';
 
 const renderTextWithLinks = (text) => {
@@ -479,7 +478,6 @@ function Admin() {
 
   return (
     <div className="bg-surface-container-lowest text-on-surface font-body-lg min-h-screen flex flex-col relative">
-      <Navbar />
       
       <main className="flex-grow pt-24 pb-xl px-gutter max-w-container-max mx-auto w-full">
         

@@ -1,7 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
-import Navbar from '../components/Navbar';
-import Footer from '../components/Footer';
 import { useSettings } from '../context/SettingsContext';
 import { supabase } from '../supabaseClient';
 
@@ -150,7 +148,6 @@ function Home() {
 
     return (
         <>
-            <Navbar />
             <main className="pt-20">
 
                 {/*  1. Dynamic Hero Slider Section  */}
@@ -784,7 +781,6 @@ function Home() {
                 </div>
             )}
 
-            <Footer />
         </>
     );
 }
