@@ -1,4 +1,4 @@
-import { onLCP, onFID, onCLS, onTTFB, onINP } from 'web-vitals'
+import { onLCP, onCLS, onTTFB, onINP } from 'web-vitals'
 
 const SAMTRICS_INGEST_URL = import.meta.env.DEV 
   ? 'http://localhost:3000/api/samtrics/ingest' 
@@ -31,7 +31,6 @@ function sendToSamtrics(metric) {
 export function reportWebVitals() {
   try {
     onCLS(sendToSamtrics)
-    onFID(sendToSamtrics)
     onLCP(sendToSamtrics)
     onTTFB(sendToSamtrics)
     onINP(sendToSamtrics)
