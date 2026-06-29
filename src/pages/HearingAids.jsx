@@ -181,7 +181,11 @@ function HearingAids() {
   products.map(product => (
     <div key={product.id} className="group bg-surface-container-lowest rounded-2xl overflow-hidden shadow-[0px_4px_20px_rgba(15,76,129,0.05)] hover:shadow-xl transition-all flex flex-col h-full">
       <div className="relative h-64 overflow-hidden">
-        <img className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt={product.name} src={product.image}/>
+        <img className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
+             alt={product.name} 
+             src={product.image || 'https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?q=80&w=800&auto=format&fit=crop'} 
+             onError={(e) => { e.target.onerror = null; e.target.src = 'https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?q=80&w=800&auto=format&fit=crop'; }} 
+        />
         {product.badge && (
           <span className={`absolute top-md left-md ${product.badge_class || 'bg-primary text-on-primary'} text-xs font-bold px-sm py-1 rounded-full uppercase tracking-wider`}>{product.badge}</span>
         )}
@@ -316,7 +320,12 @@ function HearingAids() {
       </div>
       
       <div className="aspect-video w-full rounded-2xl overflow-hidden mb-lg">
-        <img src={selectedProduct.image} alt={selectedProduct.name} className="w-full h-full object-cover" />
+        <img 
+            src={selectedProduct.image || 'https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?q=80&w=800&auto=format&fit=crop'} 
+            alt={selectedProduct.name} 
+            className="w-full h-full object-cover" 
+            onError={(e) => { e.target.onerror = null; e.target.src = 'https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?q=80&w=800&auto=format&fit=crop'; }}
+        />
       </div>
 
       <div className="flex justify-between items-center mb-md pb-md border-b border-outline-variant/30">

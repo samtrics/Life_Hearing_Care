@@ -37,10 +37,10 @@ function Home() {
         },
         {
             id: 4,
-            title: "Free Trial on Premium Devices",
-            subtitle: "Experience crystal clear sound before you commit. Available on select advanced hearing aids.",
+            title: "Premium Care & Warranty Package",
+            subtitle: "Enjoy a 7-Day Free Trial, 2-4 years warranty, lifetime free service, and multi-city service program support.",
             image: "/hero_slides/slide4.png",
-            buttonText: "Claim Free Trial",
+            buttonText: "Claim Your Trial",
             buttonLink: "/hearing-aids"
         },
         {
