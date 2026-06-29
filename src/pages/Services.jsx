@@ -71,53 +71,54 @@ function Services() {
                     <div className="lg:w-3/5 space-y-md">
                         <div className="flex justify-between items-start">
                             <div>
-                                <h2 className="text-headline-md font-headline-md text-primary">Comprehensive Hearing Test
-                                </h2>
-                                
+                                <h2 className="text-headline-md font-headline-md text-primary">Comprehensive Hearing Test</h2>
                             </div>
                             <span className="material-symbols-outlined text-4xl text-secondary">hearing</span>
                         </div>
-                        <p className="text-body-lg font-body-lg text-on-surface-variant">Our gold-standard diagnostic
-                            assessment identifies the precise type and degree of hearing loss using state-of-the-art
-                            audiometric equipment.</p>
+                        <p className="text-body-lg font-body-lg text-on-surface-variant">
+                            Our gold-standard diagnostic assessment goes beyond a simple beep test. We conduct a battery of advanced audiometric tests, including pure-tone audiometry, bone conduction, and speech discrimination testing, to identify the exact nature, degree, and anatomical location of any hearing impairment.
+                        </p>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-lg pt-md">
                             <div>
                                 <h3 className="font-bold text-primary mb-base">Key Benefits</h3>
-                                <ul className="space-y-xs text-body-lg">
-                                    <li className="flex items-center gap-xs"><span
-                                            className="material-symbols-outlined text-secondary text-sm"
-                                            style={{ fontVariationSettings: "'FILL' 1" }}>check_circle</span> Precise
-                                        frequency mapping</li>
-                                    <li className="flex items-center gap-xs"><span
-                                            className="material-symbols-outlined text-secondary text-sm"
-                                            style={{ fontVariationSettings: "'FILL' 1" }}>check_circle</span> Speech
-                                        clarity analysis</li>
-                                    <li className="flex items-center gap-xs"><span
-                                            className="material-symbols-outlined text-secondary text-sm"
-                                            style={{ fontVariationSettings: "'FILL' 1" }}>check_circle</span> Detailed
-                                        clinical report</li>
+                                <ul className="space-y-sm text-body-lg">
+                                    <li className="flex items-start gap-xs">
+                                        <span className="material-symbols-outlined text-secondary text-base mt-1" style={{ fontVariationSettings: "'FILL' 1" }}>check_circle</span>
+                                        <span><strong>Pinpoint Accuracy:</strong> High-fidelity frequency mapping identifies hidden hearing loss.</span>
+                                    </li>
+                                    <li className="flex items-start gap-xs">
+                                        <span className="material-symbols-outlined text-secondary text-base mt-1" style={{ fontVariationSettings: "'FILL' 1" }}>check_circle</span>
+                                        <span><strong>Structural Insights:</strong> Middle-ear function analysis via advanced tympanometry.</span>
+                                    </li>
+                                    <li className="flex items-start gap-xs">
+                                        <span className="material-symbols-outlined text-secondary text-base mt-1" style={{ fontVariationSettings: "'FILL' 1" }}>check_circle</span>
+                                        <span><strong>Clinical Transparency:</strong> You receive a detailed, easy-to-understand audiological report.</span>
+                                    </li>
                                 </ul>
                             </div>
                             <div>
                                 <h3 className="font-bold text-primary mb-base">The Process</h3>
                                 <div className="space-y-base">
                                     <div className="flex gap-sm items-start relative step-line pb-base">
-                                        <div
-                                            className="w-10 h-10 rounded-full bg-primary-fixed flex items-center justify-center shrink-0 z-10">
-                                            1</div>
-                                        <p className="text-label-md font-label-md pt-base">Visual Ear Examination</p>
+                                        <div className="w-10 h-10 rounded-full bg-primary-fixed flex items-center justify-center shrink-0 z-10 font-bold text-primary">1</div>
+                                        <div>
+                                            <p className="text-label-lg font-bold pt-2">Otoscopic Examination</p>
+                                            <p className="text-sm text-on-surface-variant mt-1">Visual inspection of the ear canal and eardrum.</p>
+                                        </div>
                                     </div>
                                     <div className="flex gap-sm items-start relative step-line pb-base">
-                                        <div
-                                            className="w-10 h-10 rounded-full bg-primary-fixed flex items-center justify-center shrink-0 z-10">
-                                            2</div>
-                                        <p className="text-label-md font-label-md pt-base">Pure Tone Audiometry</p>
+                                        <div className="w-10 h-10 rounded-full bg-primary-fixed flex items-center justify-center shrink-0 z-10 font-bold text-primary">2</div>
+                                        <div>
+                                            <p className="text-label-lg font-bold pt-2">Complete Audiometry</p>
+                                            <p className="text-sm text-on-surface-variant mt-1">Thorough testing in our calibrated sound-treated booth.</p>
+                                        </div>
                                     </div>
                                     <div className="flex gap-sm items-start">
-                                        <div
-                                            className="w-10 h-10 rounded-full bg-primary-fixed flex items-center justify-center shrink-0 z-10">
-                                            3</div>
-                                        <p className="text-label-md font-label-md pt-base">Results Consultation</p>
+                                        <div className="w-10 h-10 rounded-full bg-primary-fixed flex items-center justify-center shrink-0 z-10 font-bold text-primary">3</div>
+                                        <div>
+                                            <p className="text-label-lg font-bold pt-2">Lifestyle Consultation</p>
+                                            <p className="text-sm text-on-surface-variant mt-1">Matching your audiogram results with daily acoustic needs.</p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -125,8 +126,7 @@ function Services() {
                     </div>
                 </div>
                 {/*  Service 2: Tinnitus Management  */}
-                <div
-                    id="tinnitus" className="glass-card rounded-3xl overflow-hidden shadow-sm flex flex-col lg:flex-row-reverse gap-lg p-lg">
+                <div id="tinnitus" className="glass-card rounded-3xl overflow-hidden shadow-sm flex flex-col lg:flex-row-reverse gap-lg p-lg">
                     <div className="lg:w-2/5 rounded-2xl overflow-hidden">
                         <img className="w-full h-full object-cover min-h-[300px]" loading="lazy" decoding="async"
                             data-alt="A serene, minimalist wellness room designed for tinnitus therapy. The scene features a comfortable ergonomic chair, soft ambient lighting coming from a circular wall lamp, and a small Zen garden on a side table. The color palette consists of calming teals, off-whites, and natural wood textures, creating a sense of peace and professional care."
@@ -136,51 +136,53 @@ function Services() {
                         <div className="flex justify-between items-start">
                             <div>
                                 <h2 className="text-headline-md font-headline-md text-primary">Tinnitus Management</h2>
-                                
                             </div>
                             <span className="material-symbols-outlined text-4xl text-secondary">waves</span>
                         </div>
-                        <p className="text-body-lg font-body-lg text-on-surface-variant">Customized therapeutic approaches
-                            to reduce the impact of persistent ringing or buzzing in the ears, focusing on habituation
-                            and relief.</p>
+                        <p className="text-body-lg font-body-lg text-on-surface-variant">
+                            Tinnitus isn't a disease; it's a symptom, and it requires highly specialized care. We utilize advanced Tinnitus Retraining Therapy (TRT) and customized sound-masking strategies to help your brain habituate to the ringing, significantly reducing its psychological impact and restoring your peace of mind.
+                        </p>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-lg pt-md">
                             <div>
                                 <h3 className="font-bold text-primary mb-base">Key Benefits</h3>
-                                <ul className="space-y-xs text-body-lg">
-                                    <li className="flex items-center gap-xs"><span
-                                            className="material-symbols-outlined text-secondary text-sm"
-                                            style={{ fontVariationSettings: "'FILL' 1" }}>check_circle</span> Reduced
-                                        stress &amp; anxiety</li>
-                                    <li className="flex items-center gap-xs"><span
-                                            className="material-symbols-outlined text-secondary text-sm"
-                                            style={{ fontVariationSettings: "'FILL' 1" }}>check_circle</span> Personalized
-                                        sound therapy</li>
-                                    <li className="flex items-center gap-xs"><span
-                                            className="material-symbols-outlined text-secondary text-sm"
-                                            style={{ fontVariationSettings: "'FILL' 1" }}>check_circle</span> Improved
-                                        sleep quality</li>
+                                <ul className="space-y-sm text-body-lg">
+                                    <li className="flex items-start gap-xs">
+                                        <span className="material-symbols-outlined text-secondary text-base mt-1" style={{ fontVariationSettings: "'FILL' 1" }}>check_circle</span>
+                                        <span><strong>Habituation Strategies:</strong> Train your brain to safely ignore the phantom sounds.</span>
+                                    </li>
+                                    <li className="flex items-start gap-xs">
+                                        <span className="material-symbols-outlined text-secondary text-base mt-1" style={{ fontVariationSettings: "'FILL' 1" }}>check_circle</span>
+                                        <span><strong>Anxiety Reduction:</strong> Clinically proven techniques to lower stress levels.</span>
+                                    </li>
+                                    <li className="flex items-start gap-xs">
+                                        <span className="material-symbols-outlined text-secondary text-base mt-1" style={{ fontVariationSettings: "'FILL' 1" }}>check_circle</span>
+                                        <span><strong>Better Sleep:</strong> Nighttime masking profiles to restore healthy sleep cycles.</span>
+                                    </li>
                                 </ul>
                             </div>
                             <div>
                                 <h3 className="font-bold text-primary mb-base">The Process</h3>
                                 <div className="space-y-base">
                                     <div className="flex gap-sm items-start relative step-line pb-base">
-                                        <div
-                                            className="w-10 h-10 rounded-full bg-primary-fixed flex items-center justify-center shrink-0 z-10">
-                                            1</div>
-                                        <p className="text-label-md font-label-md pt-base">Psychological Assessment</p>
+                                        <div className="w-10 h-10 rounded-full bg-primary-fixed flex items-center justify-center shrink-0 z-10 font-bold text-primary">1</div>
+                                        <div>
+                                            <p className="text-label-lg font-bold pt-2">Psychoacoustic Matching</p>
+                                            <p className="text-sm text-on-surface-variant mt-1">We scientifically identify the exact pitch of your tinnitus.</p>
+                                        </div>
                                     </div>
                                     <div className="flex gap-sm items-start relative step-line pb-base">
-                                        <div
-                                            className="w-10 h-10 rounded-full bg-primary-fixed flex items-center justify-center shrink-0 z-10">
-                                            2</div>
-                                        <p className="text-label-md font-label-md pt-base">Tinnitus Pitch Matching</p>
+                                        <div className="w-10 h-10 rounded-full bg-primary-fixed flex items-center justify-center shrink-0 z-10 font-bold text-primary">2</div>
+                                        <div>
+                                            <p className="text-label-lg font-bold pt-2">Device Programming</p>
+                                            <p className="text-sm text-on-surface-variant mt-1">Fitting specialized masking or amplification devices.</p>
+                                        </div>
                                     </div>
                                     <div className="flex gap-sm items-start">
-                                        <div
-                                            className="w-10 h-10 rounded-full bg-primary-fixed flex items-center justify-center shrink-0 z-10">
-                                            3</div>
-                                        <p className="text-label-md font-label-md pt-base">Custom Masking Plan</p>
+                                        <div className="w-10 h-10 rounded-full bg-primary-fixed flex items-center justify-center shrink-0 z-10 font-bold text-primary">3</div>
+                                        <div>
+                                            <p className="text-label-lg font-bold pt-2">Ongoing Counseling</p>
+                                            <p className="text-sm text-on-surface-variant mt-1">Continuous psychological and clinical support.</p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -197,53 +199,54 @@ function Services() {
                     <div className="lg:w-3/5 space-y-md">
                         <div className="flex justify-between items-start">
                             <div>
-                                <h2 className="text-headline-md font-headline-md text-primary">Speech &amp; Language Therapy
-                                </h2>
-                                
+                                <h2 className="text-headline-md font-headline-md text-primary">Speech &amp; Language Therapy</h2>
                             </div>
                             <span className="material-symbols-outlined text-4xl text-secondary">record_voice_over</span>
                         </div>
-                        <p className="text-body-lg font-body-lg text-on-surface-variant">Expert guidance for speech
-                            disorders often associated with hearing loss, focusing on articulation, voice quality, and
-                            communication strategies.</p>
+                        <p className="text-body-lg font-body-lg text-on-surface-variant">
+                            Hearing loss can often impact articulation and speech comprehension. Our certified speech-language pathologists provide expert, evidence-based therapy to help patients rebuild communication skills, enhance vocal clarity, and develop powerful compensatory strategies for challenging acoustic environments.
+                        </p>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-lg pt-md">
                             <div>
                                 <h3 className="font-bold text-primary mb-base">Key Benefits</h3>
-                                <ul className="space-y-xs text-body-lg">
-                                    <li className="flex items-center gap-xs"><span
-                                            className="material-symbols-outlined text-secondary text-sm"
-                                            style={{ fontVariationSettings: "'FILL' 1" }}>check_circle</span> Clearer
-                                        communication</li>
-                                    <li className="flex items-center gap-xs"><span
-                                            className="material-symbols-outlined text-secondary text-sm"
-                                            style={{ fontVariationSettings: "'FILL' 1" }}>check_circle</span> Increased
-                                        social confidence</li>
-                                    <li className="flex items-center gap-xs"><span
-                                            className="material-symbols-outlined text-secondary text-sm"
-                                            style={{ fontVariationSettings: "'FILL' 1" }}>check_circle</span> Expert vocal
-                                        training</li>
+                                <ul className="space-y-sm text-body-lg">
+                                    <li className="flex items-start gap-xs">
+                                        <span className="material-symbols-outlined text-secondary text-base mt-1" style={{ fontVariationSettings: "'FILL' 1" }}>check_circle</span>
+                                        <span><strong>Vocal Confidence:</strong> Rebuild your ability to project and articulate clearly.</span>
+                                    </li>
+                                    <li className="flex items-start gap-xs">
+                                        <span className="material-symbols-outlined text-secondary text-base mt-1" style={{ fontVariationSettings: "'FILL' 1" }}>check_circle</span>
+                                        <span><strong>Comprehension Tactics:</strong> Learn lip-reading and contextual listening strategies.</span>
+                                    </li>
+                                    <li className="flex items-start gap-xs">
+                                        <span className="material-symbols-outlined text-secondary text-base mt-1" style={{ fontVariationSettings: "'FILL' 1" }}>check_circle</span>
+                                        <span><strong>Cognitive Stimulation:</strong> Engage the brain's auditory processing centers.</span>
+                                    </li>
                                 </ul>
                             </div>
                             <div>
                                 <h3 className="font-bold text-primary mb-base">The Process</h3>
                                 <div className="space-y-base">
                                     <div className="flex gap-sm items-start relative step-line pb-base">
-                                        <div
-                                            className="w-10 h-10 rounded-full bg-primary-fixed flex items-center justify-center shrink-0 z-10">
-                                            1</div>
-                                        <p className="text-label-md font-label-md pt-base">Initial Evaluation</p>
+                                        <div className="w-10 h-10 rounded-full bg-primary-fixed flex items-center justify-center shrink-0 z-10 font-bold text-primary">1</div>
+                                        <div>
+                                            <p className="text-label-lg font-bold pt-2">Baseline Evaluation</p>
+                                            <p className="text-sm text-on-surface-variant mt-1">Comprehensive assessment of speech and language abilities.</p>
+                                        </div>
                                     </div>
                                     <div className="flex gap-sm items-start relative step-line pb-base">
-                                        <div
-                                            className="w-10 h-10 rounded-full bg-primary-fixed flex items-center justify-center shrink-0 z-10">
-                                            2</div>
-                                        <p className="text-label-md font-label-md pt-base">Goal Setting</p>
+                                        <div className="w-10 h-10 rounded-full bg-primary-fixed flex items-center justify-center shrink-0 z-10 font-bold text-primary">2</div>
+                                        <div>
+                                            <p className="text-label-lg font-bold pt-2">Targeted Therapy Plan</p>
+                                            <p className="text-sm text-on-surface-variant mt-1">Goal-setting tailored to your specific communication needs.</p>
+                                        </div>
                                     </div>
                                     <div className="flex gap-sm items-start">
-                                        <div
-                                            className="w-10 h-10 rounded-full bg-primary-fixed flex items-center justify-center shrink-0 z-10">
-                                            3</div>
-                                        <p className="text-label-md font-label-md pt-base">Active Therapy Cycles</p>
+                                        <div className="w-10 h-10 rounded-full bg-primary-fixed flex items-center justify-center shrink-0 z-10 font-bold text-primary">3</div>
+                                        <div>
+                                            <p className="text-label-lg font-bold pt-2">Active Rehabilitation</p>
+                                            <p className="text-sm text-on-surface-variant mt-1">Engaging exercises to strengthen auditory processing.</p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -265,30 +268,50 @@ function Services() {
                             </div>
                             <span className="material-symbols-outlined text-4xl text-secondary">earbuds</span>
                         </div>
-                        <p className="text-body-lg font-body-lg text-on-surface-variant">Experience the latest hearing aid technology firsthand with a no-obligation trial. We help you find the perfect discreet and comfortable solution.</p>
+                        <p className="text-body-lg font-body-lg text-on-surface-variant">
+                            Purchasing a hearing aid is a major medical decision, which is why we offer a comprehensive, no-obligation trial period. Experience the incredible clarity of next-generation digital signal processing in your own real-world environments—from noisy restaurants to quiet living rooms—before making any commitment.
+                        </p>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-lg pt-md">
                             <div>
                                 <h3 className="font-bold text-primary mb-base">Key Benefits</h3>
-                                <ul className="space-y-xs text-body-lg">
-                                    <li className="flex items-center gap-xs"><span className="material-symbols-outlined text-secondary text-sm" style={{ fontVariationSettings: "'FILL' 1" }}>check_circle</span> Nearly invisible design</li>
-                                    <li className="flex items-center gap-xs"><span className="material-symbols-outlined text-secondary text-sm" style={{ fontVariationSettings: "'FILL' 1" }}>check_circle</span> Crisp, clear sound quality</li>
-                                    <li className="flex items-center gap-xs"><span className="material-symbols-outlined text-secondary text-sm" style={{ fontVariationSettings: "'FILL' 1" }}>check_circle</span> Comfortable fit</li>
+                                <ul className="space-y-sm text-body-lg">
+                                    <li className="flex items-start gap-xs">
+                                        <span className="material-symbols-outlined text-secondary text-base mt-1" style={{ fontVariationSettings: "'FILL' 1" }}>check_circle</span>
+                                        <span><strong>Real-World Testing:</strong> Experience the difference in your daily life.</span>
+                                    </li>
+                                    <li className="flex items-start gap-xs">
+                                        <span className="material-symbols-outlined text-secondary text-base mt-1" style={{ fontVariationSettings: "'FILL' 1" }}>check_circle</span>
+                                        <span><strong>Advanced AI Features:</strong> Try the latest Bluetooth and directional microphone tech.</span>
+                                    </li>
+                                    <li className="flex items-start gap-xs">
+                                        <span className="material-symbols-outlined text-secondary text-base mt-1" style={{ fontVariationSettings: "'FILL' 1" }}>check_circle</span>
+                                        <span><strong>Zero Pressure:</strong> A supportive, patient-first approach to finding the right fit.</span>
+                                    </li>
                                 </ul>
                             </div>
                             <div>
                                 <h3 className="font-bold text-primary mb-base">The Process</h3>
                                 <div className="space-y-base">
                                     <div className="flex gap-sm items-start relative step-line pb-base">
-                                        <div className="w-10 h-10 rounded-full bg-primary-fixed flex items-center justify-center shrink-0 z-10">1</div>
-                                        <p className="text-label-md font-label-md pt-base">Hearing Evaluation</p>
+                                        <div className="w-10 h-10 rounded-full bg-primary-fixed flex items-center justify-center shrink-0 z-10 font-bold text-primary">1</div>
+                                        <div>
+                                            <p className="text-label-lg font-bold pt-2">Needs Assessment</p>
+                                            <p className="text-sm text-on-surface-variant mt-1">Discussing your lifestyle, budget, and aesthetic preferences.</p>
+                                        </div>
                                     </div>
                                     <div className="flex gap-sm items-start relative step-line pb-base">
-                                        <div className="w-10 h-10 rounded-full bg-primary-fixed flex items-center justify-center shrink-0 z-10">2</div>
-                                        <p className="text-label-md font-label-md pt-base">Device Selection</p>
+                                        <div className="w-10 h-10 rounded-full bg-primary-fixed flex items-center justify-center shrink-0 z-10 font-bold text-primary">2</div>
+                                        <div>
+                                            <p className="text-label-lg font-bold pt-2">Trial Device Fitting</p>
+                                            <p className="text-sm text-on-surface-variant mt-1">Programming a demo unit specifically to your audiogram.</p>
+                                        </div>
                                     </div>
                                     <div className="flex gap-sm items-start">
-                                        <div className="w-10 h-10 rounded-full bg-primary-fixed flex items-center justify-center shrink-0 z-10">3</div>
-                                        <p className="text-label-md font-label-md pt-base">Custom Fitting</p>
+                                        <div className="w-10 h-10 rounded-full bg-primary-fixed flex items-center justify-center shrink-0 z-10 font-bold text-primary">3</div>
+                                        <div>
+                                            <p className="text-label-lg font-bold pt-2">Follow-Up Evaluation</p>
+                                            <p className="text-sm text-on-surface-variant mt-1">Reviewing your experience and fine-tuning the settings.</p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -310,30 +333,50 @@ function Services() {
                             </div>
                             <span className="material-symbols-outlined text-4xl text-secondary">monitor_heart</span>
                         </div>
-                        <p className="text-body-lg font-body-lg text-on-surface-variant">Brainstem Evoked Response Audiometry (BERA/ABR) provides an objective measurement of hearing function, crucial for infants, children, and complex auditory evaluations.</p>
+                        <p className="text-body-lg font-body-lg text-on-surface-variant">
+                            Brainstem Evoked Response Audiometry (BERA/ABR) is a highly sophisticated, objective neurophysiological test. By measuring the electrical activity of the auditory nerve and brainstem pathways, we can accurately assess hearing function without requiring active patient participation, making it essential for infants and individuals with developmental challenges.
+                        </p>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-lg pt-md">
                             <div>
                                 <h3 className="font-bold text-primary mb-base">Key Benefits</h3>
-                                <ul className="space-y-xs text-body-lg">
-                                    <li className="flex items-center gap-xs"><span className="material-symbols-outlined text-secondary text-sm" style={{ fontVariationSettings: "'FILL' 1" }}>check_circle</span> Completely objective</li>
-                                    <li className="flex items-center gap-xs"><span className="material-symbols-outlined text-secondary text-sm" style={{ fontVariationSettings: "'FILL' 1" }}>check_circle</span> Safe &amp; painless</li>
-                                    <li className="flex items-center gap-xs"><span className="material-symbols-outlined text-secondary text-sm" style={{ fontVariationSettings: "'FILL' 1" }}>check_circle</span> High accuracy</li>
+                                <ul className="space-y-sm text-body-lg">
+                                    <li className="flex items-start gap-xs">
+                                        <span className="material-symbols-outlined text-secondary text-base mt-1" style={{ fontVariationSettings: "'FILL' 1" }}>check_circle</span>
+                                        <span><strong>Objective Diagnostics:</strong> No patient response required for accurate results.</span>
+                                    </li>
+                                    <li className="flex items-start gap-xs">
+                                        <span className="material-symbols-outlined text-secondary text-base mt-1" style={{ fontVariationSettings: "'FILL' 1" }}>check_circle</span>
+                                        <span><strong>Neurological Insights:</strong> Detects lesions or abnormalities in the auditory pathway.</span>
+                                    </li>
+                                    <li className="flex items-start gap-xs">
+                                        <span className="material-symbols-outlined text-secondary text-base mt-1" style={{ fontVariationSettings: "'FILL' 1" }}>check_circle</span>
+                                        <span><strong>Pediatric Friendly:</strong> Safe, painless, and highly effective for newborns.</span>
+                                    </li>
                                 </ul>
                             </div>
                             <div>
                                 <h3 className="font-bold text-primary mb-base">The Process</h3>
                                 <div className="space-y-base">
                                     <div className="flex gap-sm items-start relative step-line pb-base">
-                                        <div className="w-10 h-10 rounded-full bg-primary-fixed flex items-center justify-center shrink-0 z-10">1</div>
-                                        <p className="text-label-md font-label-md pt-base">Electrode Placement</p>
+                                        <div className="w-10 h-10 rounded-full bg-primary-fixed flex items-center justify-center shrink-0 z-10 font-bold text-primary">1</div>
+                                        <div>
+                                            <p className="text-label-lg font-bold pt-2">Surface Electrode Placement</p>
+                                            <p className="text-sm text-on-surface-variant mt-1">Gently attaching sensors to the forehead and ears.</p>
+                                        </div>
                                     </div>
                                     <div className="flex gap-sm items-start relative step-line pb-base">
-                                        <div className="w-10 h-10 rounded-full bg-primary-fixed flex items-center justify-center shrink-0 z-10">2</div>
-                                        <p className="text-label-md font-label-md pt-base">Sound Stimulation</p>
+                                        <div className="w-10 h-10 rounded-full bg-primary-fixed flex items-center justify-center shrink-0 z-10 font-bold text-primary">2</div>
+                                        <div>
+                                            <p className="text-label-lg font-bold pt-2">Click Stimulation</p>
+                                            <p className="text-sm text-on-surface-variant mt-1">Delivering calibrated sounds through specialized earphones.</p>
+                                        </div>
                                     </div>
                                     <div className="flex gap-sm items-start">
-                                        <div className="w-10 h-10 rounded-full bg-primary-fixed flex items-center justify-center shrink-0 z-10">3</div>
-                                        <p className="text-label-md font-label-md pt-base">Brainwave Analysis</p>
+                                        <div className="w-10 h-10 rounded-full bg-primary-fixed flex items-center justify-center shrink-0 z-10 font-bold text-primary">3</div>
+                                        <div>
+                                            <p className="text-label-lg font-bold pt-2">Waveform Analysis</p>
+                                            <p className="text-sm text-on-surface-variant mt-1">Our audiologists interpret the neuro-electrical responses.</p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -355,30 +398,50 @@ function Services() {
                             </div>
                             <span className="material-symbols-outlined text-4xl text-secondary">healing</span>
                         </div>
-                        <p className="text-body-lg font-body-lg text-on-surface-variant">Comprehensive management and therapeutic strategies tailored to address all degrees and types of hearing loss, improving your quality of life.</p>
+                        <p className="text-body-lg font-body-lg text-on-surface-variant">
+                            Hearing loss is complex, and treatment requires more than just amplification. We provide holistic, medically-grounded therapeutic strategies that address the cognitive, emotional, and physical impacts of auditory deprivation, ensuring a comprehensive journey toward auditory rehabilitation.
+                        </p>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-lg pt-md">
                             <div>
                                 <h3 className="font-bold text-primary mb-base">Key Benefits</h3>
-                                <ul className="space-y-xs text-body-lg">
-                                    <li className="flex items-center gap-xs"><span className="material-symbols-outlined text-secondary text-sm" style={{ fontVariationSettings: "'FILL' 1" }}>check_circle</span> Holistic care approach</li>
-                                    <li className="flex items-center gap-xs"><span className="material-symbols-outlined text-secondary text-sm" style={{ fontVariationSettings: "'FILL' 1" }}>check_circle</span> Lifestyle integration</li>
-                                    <li className="flex items-center gap-xs"><span className="material-symbols-outlined text-secondary text-sm" style={{ fontVariationSettings: "'FILL' 1" }}>check_circle</span> Ongoing support</li>
+                                <ul className="space-y-sm text-body-lg">
+                                    <li className="flex items-start gap-xs">
+                                        <span className="material-symbols-outlined text-secondary text-base mt-1" style={{ fontVariationSettings: "'FILL' 1" }}>check_circle</span>
+                                        <span><strong>Cognitive Preservation:</strong> Proactive treatment reduces the risk of auditory decline.</span>
+                                    </li>
+                                    <li className="flex items-start gap-xs">
+                                        <span className="material-symbols-outlined text-secondary text-base mt-1" style={{ fontVariationSettings: "'FILL' 1" }}>check_circle</span>
+                                        <span><strong>Customized Interventions:</strong> Solutions ranging from assistive devices to surgical referrals.</span>
+                                    </li>
+                                    <li className="flex items-start gap-xs">
+                                        <span className="material-symbols-outlined text-secondary text-base mt-1" style={{ fontVariationSettings: "'FILL' 1" }}>check_circle</span>
+                                        <span><strong>Preventative Care:</strong> Strategies to protect your remaining residual hearing.</span>
+                                    </li>
                                 </ul>
                             </div>
                             <div>
                                 <h3 className="font-bold text-primary mb-base">The Process</h3>
                                 <div className="space-y-base">
                                     <div className="flex gap-sm items-start relative step-line pb-base">
-                                        <div className="w-10 h-10 rounded-full bg-primary-fixed flex items-center justify-center shrink-0 z-10">1</div>
-                                        <p className="text-label-md font-label-md pt-base">Medical Review</p>
+                                        <div className="w-10 h-10 rounded-full bg-primary-fixed flex items-center justify-center shrink-0 z-10 font-bold text-primary">1</div>
+                                        <div>
+                                            <p className="text-label-lg font-bold pt-2">Medical Review</p>
+                                            <p className="text-sm text-on-surface-variant mt-1">Analyzing your complete medical and audiological history.</p>
+                                        </div>
                                     </div>
                                     <div className="flex gap-sm items-start relative step-line pb-base">
-                                        <div className="w-10 h-10 rounded-full bg-primary-fixed flex items-center justify-center shrink-0 z-10">2</div>
-                                        <p className="text-label-md font-label-md pt-base">Treatment Planning</p>
+                                        <div className="w-10 h-10 rounded-full bg-primary-fixed flex items-center justify-center shrink-0 z-10 font-bold text-primary">2</div>
+                                        <div>
+                                            <p className="text-label-lg font-bold pt-2">Holistic Planning</p>
+                                            <p className="text-sm text-on-surface-variant mt-1">Developing a multi-faceted rehabilitation strategy.</p>
+                                        </div>
                                     </div>
                                     <div className="flex gap-sm items-start">
-                                        <div className="w-10 h-10 rounded-full bg-primary-fixed flex items-center justify-center shrink-0 z-10">3</div>
-                                        <p className="text-label-md font-label-md pt-base">Rehabilitation</p>
+                                        <div className="w-10 h-10 rounded-full bg-primary-fixed flex items-center justify-center shrink-0 z-10 font-bold text-primary">3</div>
+                                        <div>
+                                            <p className="text-label-lg font-bold pt-2">Continual Monitoring</p>
+                                            <p className="text-sm text-on-surface-variant mt-1">Regular check-ups to track your auditory progress.</p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -400,30 +463,50 @@ function Services() {
                             </div>
                             <span className="material-symbols-outlined text-4xl text-secondary">build</span>
                         </div>
-                        <p className="text-body-lg font-body-lg text-on-surface-variant">Professional fitting, fine-tuning, and expert repair services for all major brands, ensuring your devices deliver exceptional sound engineering and seamless connectivity.</p>
+                        <p className="text-body-lg font-body-lg text-on-surface-variant">
+                            The most advanced hearing aid in the world is only as good as its programming. Our clinical audiologists use Real-Ear Measurement (REM) equipment to meticulously verify that your devices are delivering the precise amplification your prescription requires. We also provide rapid, expert repairs to keep you connected.
+                        </p>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-lg pt-md">
                             <div>
                                 <h3 className="font-bold text-primary mb-base">Key Benefits</h3>
-                                <ul className="space-y-xs text-body-lg">
-                                    <li className="flex items-center gap-xs"><span className="material-symbols-outlined text-secondary text-sm" style={{ fontVariationSettings: "'FILL' 1" }}>check_circle</span> Advanced AI sound processing</li>
-                                    <li className="flex items-center gap-xs"><span className="material-symbols-outlined text-secondary text-sm" style={{ fontVariationSettings: "'FILL' 1" }}>check_circle</span> Bluetooth connectivity</li>
-                                    <li className="flex items-center gap-xs"><span className="material-symbols-outlined text-secondary text-sm" style={{ fontVariationSettings: "'FILL' 1" }}>check_circle</span> Long-lasting battery</li>
+                                <ul className="space-y-sm text-body-lg">
+                                    <li className="flex items-start gap-xs">
+                                        <span className="material-symbols-outlined text-secondary text-base mt-1" style={{ fontVariationSettings: "'FILL' 1" }}>check_circle</span>
+                                        <span><strong>Real-Ear Verification:</strong> Scientifically proven, perfectly matched amplification.</span>
+                                    </li>
+                                    <li className="flex items-start gap-xs">
+                                        <span className="material-symbols-outlined text-secondary text-base mt-1" style={{ fontVariationSettings: "'FILL' 1" }}>check_circle</span>
+                                        <span><strong>Firmware Updates:</strong> Keeping your devices running on the latest software.</span>
+                                    </li>
+                                    <li className="flex items-start gap-xs">
+                                        <span className="material-symbols-outlined text-secondary text-base mt-1" style={{ fontVariationSettings: "'FILL' 1" }}>check_circle</span>
+                                        <span><strong>Rapid Diagnostics:</strong> In-clinic deep cleaning, vacuuming, and parts replacement.</span>
+                                    </li>
                                 </ul>
                             </div>
                             <div>
                                 <h3 className="font-bold text-primary mb-base">The Process</h3>
                                 <div className="space-y-base">
                                     <div className="flex gap-sm items-start relative step-line pb-base">
-                                        <div className="w-10 h-10 rounded-full bg-primary-fixed flex items-center justify-center shrink-0 z-10">1</div>
-                                        <p className="text-label-md font-label-md pt-base">Demonstration</p>
+                                        <div className="w-10 h-10 rounded-full bg-primary-fixed flex items-center justify-center shrink-0 z-10 font-bold text-primary">1</div>
+                                        <div>
+                                            <p className="text-label-lg font-bold pt-2">Acoustic Verification</p>
+                                            <p className="text-sm text-on-surface-variant mt-1">Placing a microscopic tube in your ear to measure output.</p>
+                                        </div>
                                     </div>
                                     <div className="flex gap-sm items-start relative step-line pb-base">
-                                        <div className="w-10 h-10 rounded-full bg-primary-fixed flex items-center justify-center shrink-0 z-10">2</div>
-                                        <p className="text-label-md font-label-md pt-base">Fitting &amp; Programming</p>
+                                        <div className="w-10 h-10 rounded-full bg-primary-fixed flex items-center justify-center shrink-0 z-10 font-bold text-primary">2</div>
+                                        <div>
+                                            <p className="text-label-lg font-bold pt-2">Fine-Tuning</p>
+                                            <p className="text-sm text-on-surface-variant mt-1">Adjusting compression ratios, noise reduction, and feedback managers.</p>
+                                        </div>
                                     </div>
                                     <div className="flex gap-sm items-start">
-                                        <div className="w-10 h-10 rounded-full bg-primary-fixed flex items-center justify-center shrink-0 z-10">3</div>
-                                        <p className="text-label-md font-label-md pt-base">Follow-up Fine Tuning</p>
+                                        <div className="w-10 h-10 rounded-full bg-primary-fixed flex items-center justify-center shrink-0 z-10 font-bold text-primary">3</div>
+                                        <div>
+                                            <p className="text-label-lg font-bold pt-2">Maintenance Training</p>
+                                            <p className="text-sm text-on-surface-variant mt-1">Teaching you how to care for your premium devices.</p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
