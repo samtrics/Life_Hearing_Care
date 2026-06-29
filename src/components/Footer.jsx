@@ -54,12 +54,12 @@ function Footer() {
                     <div>
                         <h4 className="font-bold text-primary mb-md">Services</h4>
                         <ul className="space-y-base flex flex-col items-start">
-                            <li><Link to="/services" className="text-on-surface-variant hover:text-primary transition-colors hover:pl-2">RIC Hearing Aid</Link></li>
-                            <li><Link to="/services" className="text-on-surface-variant hover:text-primary transition-colors hover:pl-2">BERA Test Center</Link></li>
                             <li><Link to="/services" className="text-on-surface-variant hover:text-primary transition-colors hover:pl-2">Hearing Loss Treatment</Link></li>
-                            <li><Link to="/services" className="text-on-surface-variant hover:text-primary transition-colors hover:pl-2">Starkey Hearing Aids</Link></li>
-                            <li><Link to="/services" className="text-on-surface-variant hover:text-primary transition-colors hover:pl-2">Tinnitus Management</Link></li>
+                            <li><Link to="/services" className="text-on-surface-variant hover:text-primary transition-colors hover:pl-2">Tinnitus Management / Therapy</Link></li>
                             <li><Link to="/services" className="text-on-surface-variant hover:text-primary transition-colors hover:pl-2">Speech Therapy</Link></li>
+                            <li><Link to="/services" className="text-on-surface-variant hover:text-primary transition-colors hover:pl-2">BERA / ABR Test</Link></li>
+                            <li><Link to="/services" className="text-on-surface-variant hover:text-primary transition-colors hover:pl-2">Hearing Aid Trial</Link></li>
+                            <li><Link to="/services" className="text-on-surface-variant hover:text-primary transition-colors hover:pl-2">Hearing Aid Fitting, Programming & Repair</Link></li>
                         </ul>
                     </div>
                     <div>
