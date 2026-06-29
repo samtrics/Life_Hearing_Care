@@ -10,11 +10,11 @@ function Footer() {
 
     const FooterLink = ({ to, children }) => (
         <li>
-            <Link to={to} className="group flex items-center text-on-surface-variant hover:text-primary transition-colors py-1">
-                <span className="material-symbols-outlined text-[16px] opacity-0 -ml-4 w-0 group-hover:w-5 group-hover:opacity-100 group-hover:ml-0 transition-all duration-300 ease-out overflow-hidden flex-shrink-0">
+            <Link to={to} className="group flex items-center text-on-surface-variant hover:text-primary transition-colors py-1.5 md:py-1">
+                <span className="material-symbols-outlined text-[16px] opacity-0 md:-ml-4 w-0 md:group-hover:w-5 group-hover:opacity-100 md:group-hover:ml-0 transition-all duration-300 ease-out overflow-hidden flex-shrink-0 hidden md:block">
                     chevron_right
                 </span>
-                <span className="group-hover:translate-x-1 transition-transform duration-300 ease-out">
+                <span className="md:group-hover:translate-x-1 transition-transform duration-300 ease-out">
                     {children}
                 </span>
             </Link>
@@ -43,7 +43,7 @@ function Footer() {
     return (
         <>
             <footer className="bg-surface-container-highest dark:bg-surface-dim pt-xl pb-md">
-                <div className="grid grid-cols-1 md:grid-cols-4 gap-lg px-gutter max-w-container-max mx-auto">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-lg px-gutter max-w-container-max mx-auto">
                     <div className="space-y-md">
                         <div className="text-headline-md font-headline-md text-primary">{clinicName}</div>
                         <p className="text-body-lg text-on-surface-variant">© 2026 {clinicName}. Precision care for your ears.
@@ -84,9 +84,9 @@ function Footer() {
                         </form>
                     </div>
                 </div>
-                <div className="max-w-container-max mx-auto px-gutter mt-xl pt-md border-t border-outline-variant/30 flex flex-col md:flex-row justify-between items-center text-xs text-on-surface-variant gap-4">
+                <div className="max-w-container-max mx-auto px-gutter mt-xl pt-md border-t border-outline-variant/30 flex flex-col md:flex-row justify-between items-center text-xs text-on-surface-variant gap-6 text-center md:text-left">
                     <span>Built with care for clinical excellence. All rights reserved {clinicName}.</span>
-                    <div className="flex items-center gap-6">
+                    <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-6">
                         <span className="font-medium text-on-surface">Designed by Samtrics</span>
                         <Link to="/admin-login" className="text-primary hover:underline flex items-center gap-1"><span className="material-symbols-outlined text-[14px]">admin_panel_settings</span> Admin Login</Link>
                     </div>
