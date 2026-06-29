@@ -54,6 +54,14 @@ function Admin() {
     title: '', excerpt: '', category: '', author: '', imageUrl: '', content: '', is_featured: false
   });
 
+  // Services state
+  const [services, setServices] = useState([]);
+  const [showServiceModal, setShowServiceModal] = useState(false);
+  const [editingService, setEditingService] = useState(null);
+  const [serviceFormData, setServiceFormData] = useState({
+    title: '', description: '', icon: '', image: '', hash_id: '', order_index: 0, key_benefits: [''], process: [{title: '', description: ''}]
+  });
+
   // Products state
   const [products, setProducts] = useState([]);
   const [showProductModal, setShowProductModal] = useState(false);
@@ -172,6 +180,16 @@ function Admin() {
     if (data) setBlockedNumbers(data.map(d => d.phone_number));
   };
 
+  const loadServices = async () => {
+    try {
+      const { data, error } = await supabase.from('services').select('*').order('order_index', { ascending: true });
+      if (error && error.code !== '42P01') throw error;
+      if (data) setServices(data);
+    } catch (err) {
+      console.error('Error loading services:', err);
+    }
+  };
+
   const loadProducts = async () => {
     try {
       const { data, error } = await supabase.from('products').select('*').order('created_at', { ascending: false });
@@ -188,6 +206,7 @@ function Admin() {
     loadSubscribers();
     loadBlogs();
     loadBlockedNumbers();
+    loadServices();
     loadProducts();
   }, []);
 
@@ -314,6 +333,94 @@ function Admin() {
         alert("Failed to delete blog: " + err.message);
       }
     }
+  };
+
+  const handleSaveService = async (e) => {
+    e.preventDefault();
+    try {
+      const serviceData = {
+        title: serviceFormData.title,
+        description: serviceFormData.description,
+        icon: serviceFormData.icon,
+        image: serviceFormData.image,
+        hash_id: serviceFormData.hash_id || serviceFormData.title.toLowerCase().replace(/\s+/g, '-'),
+        order_index: parseInt(serviceFormData.order_index) || 0,
+        key_benefits: serviceFormData.key_benefits.filter(Boolean),
+        process: serviceFormData.process.filter(p => p.title || p.description)
+      };
+
+      if (editingService) {
+        const { error } = await supabase.from('services').update(serviceData).eq('id', editingService.id);
+        if (error) throw error;
+        alert("Service updated successfully!");
+      } else {
+        const { error } = await supabase.from('services').insert([serviceData]);
+        if (error) throw error;
+        alert("Service added successfully!");
+      }
+      
+      setShowServiceModal(false);
+      setEditingService(null);
+      setServiceFormData({ title: '', description: '', icon: '', image: '', hash_id: '', order_index: 0, key_benefits: [''], process: [{title: '', description: ''}] });
+      loadServices();
+    } catch (err) {
+      alert("Error saving service: " + err.message);
+    }
+  };
+
+  const handleEditServiceClick = (service) => {
+    setEditingService(service);
+    setServiceFormData({
+      title: service.title || '',
+      description: service.description || '',
+      icon: service.icon || '',
+      image: service.image || '',
+      hash_id: service.hash_id || '',
+      order_index: service.order_index || 0,
+      key_benefits: (service.key_benefits && service.key_benefits.length > 0) ? service.key_benefits : [''],
+      process: (service.process && service.process.length > 0) ? service.process : [{title: '', description: ''}]
+    });
+    setShowServiceModal(true);
+  };
+
+  const handleDeleteService = async (id) => {
+    if (window.confirm("Are you sure you want to delete this service?")) {
+      try {
+        const { error } = await supabase.from('services').delete().eq('id', id);
+        if (error) throw error;
+        loadServices();
+      } catch (err) {
+        alert("Failed to delete service: " + err.message);
+      }
+    }
+  };
+
+  const addBenefitRow = () => {
+    setServiceFormData({ ...serviceFormData, key_benefits: [...serviceFormData.key_benefits, ''] });
+  };
+  const updateBenefitRow = (index, val) => {
+    const newB = [...serviceFormData.key_benefits];
+    newB[index] = val;
+    setServiceFormData({ ...serviceFormData, key_benefits: newB });
+  };
+  const removeBenefitRow = (index) => {
+    const newB = [...serviceFormData.key_benefits];
+    newB.splice(index, 1);
+    setServiceFormData({ ...serviceFormData, key_benefits: newB });
+  };
+
+  const addProcessRow = () => {
+    setServiceFormData({ ...serviceFormData, process: [...serviceFormData.process, { title: '', description: '' }] });
+  };
+  const updateProcessRow = (index, field, val) => {
+    const newP = [...serviceFormData.process];
+    newP[index][field] = val;
+    setServiceFormData({ ...serviceFormData, process: newP });
+  };
+  const removeProcessRow = (index) => {
+    const newP = [...serviceFormData.process];
+    newP.splice(index, 1);
+    setServiceFormData({ ...serviceFormData, process: newP });
   };
 
   const handleSaveProduct = async (e) => {
@@ -604,6 +711,12 @@ function Admin() {
               className={`whitespace-nowrap px-md md:px-lg py-sm rounded-full font-bold text-sm transition-all flex items-center gap-1 ${activeTab === 'blogs' ? 'bg-primary text-on-primary shadow-md' : 'bg-surface-container hover:bg-surface-container-high text-on-surface'}`}
             >
               <span className="material-symbols-outlined text-[18px]">article</span> Blogs
+            </button>
+            <button 
+              onClick={() => setActiveTab('services')}
+              className={`whitespace-nowrap px-md md:px-lg py-sm rounded-full font-bold text-sm transition-all flex items-center gap-1 ${activeTab === 'services' ? 'bg-primary text-on-primary shadow-md' : 'bg-surface-container hover:bg-surface-container-high text-on-surface'}`}
+            >
+              <span className="material-symbols-outlined text-[18px]">medical_services</span> Services
             </button>
             <button 
               onClick={() => setActiveTab('products')}
@@ -1067,6 +1180,66 @@ function Admin() {
             </div>
           )}
 
+          {/* SERVICES TAB */}
+          {activeTab === 'services' && (
+            <div className="space-y-lg">
+              <div className="flex justify-between items-end border-b border-outline-variant/20 pb-md">
+                <div>
+                  <h2 className="text-title-lg font-title-lg text-primary mb-xs">Manage Services</h2>
+                  <p className="text-sm text-on-surface-variant">Add or remove clinical services.</p>
+                </div>
+                <div className="flex gap-2">
+                  <button onClick={() => { setEditingService(null); setServiceFormData({ title: '', description: '', icon: '', image: '', hash_id: '', order_index: 0, key_benefits: [''], process: [{title: '', description: ''}] }); setShowServiceModal(true); }} className="bg-secondary text-white px-4 py-2 rounded-xl text-sm font-bold shadow-md hover:bg-secondary-container hover:text-on-secondary-container transition-colors flex items-center gap-1">
+                    <span className="material-symbols-outlined text-[18px]">add</span> New Service
+                  </button>
+                </div>
+              </div>
+              
+              {services.length === 0 ? (
+                <div className="bg-surface-container-low border border-outline-variant/20 rounded-3xl p-xl text-center">
+                  <p className="text-on-surface-variant">No services found. Add some to display them on the website!</p>
+                </div>
+              ) : (
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-md">
+                  {services.map((service) => (
+                    <div key={service.id} className="bg-white rounded-3xl border border-outline-variant/20 shadow-sm overflow-hidden flex flex-col">
+                      <div className="h-48 overflow-hidden relative bg-surface-variant">
+                        <img src={service.image} alt={service.title} className="w-full h-full object-cover" />
+                        <div className="absolute top-2 left-2 bg-primary text-white p-2 rounded-full shadow-md flex">
+                          <span className="material-symbols-outlined text-[16px]">{service.icon}</span>
+                        </div>
+                      </div>
+                      <div className="p-4 flex flex-col flex-grow">
+                        <div className="flex justify-between items-start mb-1">
+                          <h3 className="font-bold text-on-surface line-clamp-1">{service.title}</h3>
+                          <span className="text-xs font-bold bg-surface-container px-2 py-1 rounded">Order: {service.order_index}</span>
+                        </div>
+                        <p className="text-sm text-on-surface-variant line-clamp-2 mb-4">{service.description}</p>
+                        <div className="flex justify-between items-center mt-auto pt-3 border-t border-outline-variant/20">
+                          <span className="text-xs text-on-surface-variant">{new Date(service.created_at || Date.now()).toLocaleDateString()}</span>
+                          <div className="flex gap-2">
+                            <button 
+                              onClick={() => handleEditServiceClick(service)}
+                              className="text-primary hover:text-primary/80 font-bold text-xs bg-primary/10 px-2 py-1 rounded transition-colors"
+                            >
+                              Edit
+                            </button>
+                            <button 
+                              onClick={() => handleDeleteService(service.id)}
+                              className="text-error hover:text-error/80 font-bold text-xs bg-error/10 px-2 py-1 rounded transition-colors"
+                            >
+                              Delete
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              )}
+            </div>
+          )}
+
           {/* PRODUCTS TAB */}
           {activeTab === 'products' && (
             <div className="space-y-lg">
@@ -1397,6 +1570,123 @@ function Admin() {
     </div>
   </div>
 )}
+
+      {/* SERVICE MODAL */}
+      {showServiceModal && (
+        <div className="fixed inset-0 bg-on-surface/80 backdrop-blur-sm z-50 flex items-center justify-center p-gutter animate-fade-in">
+          <div className="bg-white rounded-3xl w-full max-w-2xl max-h-[90vh] overflow-y-auto p-lg shadow-2xl relative custom-scrollbar">
+            <button onClick={() => setShowServiceModal(false)} className="absolute top-4 right-4 text-on-surface-variant hover:text-error transition-colors">
+               <span className="material-symbols-outlined text-[32px]">cancel</span>
+            </button>
+            <h2 className="text-headline-sm text-primary mb-md">{editingService ? 'Edit Service' : 'New Service'}</h2>
+            <form onSubmit={handleSaveService} className="space-y-md">
+              <div className="grid grid-cols-2 gap-md">
+                <div>
+                  <label className="block text-sm font-bold mb-1">Service Title</label>
+                  <input required type="text" value={serviceFormData.title} onChange={e => setServiceFormData({...serviceFormData, title: e.target.value})} className="w-full border rounded-xl p-2 focus:ring-2 focus:ring-primary" placeholder="e.g. Tinnitus Management" />
+                </div>
+                <div>
+                  <label className="block text-sm font-bold mb-1">URL Hash ID (for links)</label>
+                  <input type="text" value={serviceFormData.hash_id} onChange={e => setServiceFormData({...serviceFormData, hash_id: e.target.value})} className="w-full border rounded-xl p-2 focus:ring-2 focus:ring-primary" placeholder="e.g. tinnitus" />
+                </div>
+              </div>
+              
+              <div className="grid grid-cols-2 gap-md">
+                <div>
+                  <label className="block text-sm font-bold mb-1">Icon (Material Symbol)</label>
+                  <div className="flex gap-2">
+                    <input required type="text" value={serviceFormData.icon} onChange={e => setServiceFormData({...serviceFormData, icon: e.target.value})} className="w-full border rounded-xl p-2 focus:ring-2 focus:ring-primary" placeholder="e.g. hearing, waves, build" />
+                    <span className="material-symbols-outlined text-[32px] text-primary">{serviceFormData.icon || 'help'}</span>
+                  </div>
+                </div>
+                <div>
+                  <label className="block text-sm font-bold mb-1">Sort Order (Number)</label>
+                  <input type="number" value={serviceFormData.order_index} onChange={e => setServiceFormData({...serviceFormData, order_index: e.target.value})} className="w-full border rounded-xl p-2 focus:ring-2 focus:ring-primary" />
+                </div>
+              </div>
+
+              <div>
+                <label className="block text-sm font-bold mb-1">Image URL</label>
+                <input required type="text" value={serviceFormData.image} onChange={e => setServiceFormData({...serviceFormData, image: e.target.value})} className="w-full border rounded-xl p-2 focus:ring-2 focus:ring-primary" placeholder="https://..." />
+              </div>
+
+              <div>
+                <label className="block text-sm font-bold mb-1">Description</label>
+                <textarea required value={serviceFormData.description} onChange={e => setServiceFormData({...serviceFormData, description: e.target.value})} className="w-full border rounded-xl p-2 h-24 focus:ring-2 focus:ring-primary"></textarea>
+              </div>
+
+              {/* Dynamic Array: Key Benefits */}
+              <div className="bg-surface-container-lowest p-md rounded-2xl border border-outline-variant/30">
+                <div className="flex justify-between items-center mb-2">
+                  <label className="block text-sm font-bold text-secondary">Key Benefits (Bullet Points)</label>
+                  <button type="button" onClick={addBenefitRow} className="text-xs bg-secondary/10 text-secondary px-2 py-1 rounded font-bold flex items-center gap-1 hover:bg-secondary/20">
+                    <span className="material-symbols-outlined text-[14px]">add</span> Add Benefit
+                  </button>
+                </div>
+                <div className="space-y-2">
+                  {serviceFormData.key_benefits.map((benefit, index) => (
+                    <div key={index} className="flex gap-2">
+                      <input 
+                        type="text" 
+                        value={benefit} 
+                        onChange={(e) => updateBenefitRow(index, e.target.value)} 
+                        placeholder={`Benefit ${index + 1}`}
+                        className="flex-grow border rounded-xl p-2 text-sm focus:ring-2 focus:ring-primary"
+                      />
+                      <button type="button" onClick={() => removeBenefitRow(index)} className="text-error bg-error/10 p-2 rounded-xl hover:bg-error/20">
+                        <span className="material-symbols-outlined text-[16px]">delete</span>
+                      </button>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Dynamic Array: Process Steps */}
+              <div className="bg-surface-container-lowest p-md rounded-2xl border border-outline-variant/30">
+                <div className="flex justify-between items-center mb-2">
+                  <label className="block text-sm font-bold text-tertiary">Process Steps</label>
+                  <button type="button" onClick={addProcessRow} className="text-xs bg-tertiary/10 text-tertiary px-2 py-1 rounded font-bold flex items-center gap-1 hover:bg-tertiary/20">
+                    <span className="material-symbols-outlined text-[14px]">add</span> Add Step
+                  </button>
+                </div>
+                <div className="space-y-3">
+                  {serviceFormData.process.map((step, index) => (
+                    <div key={index} className="flex flex-col gap-2 p-3 bg-surface rounded-xl border border-outline-variant/20 relative">
+                      <div className="absolute -left-2 -top-2 w-6 h-6 bg-tertiary text-white rounded-full flex items-center justify-center text-xs font-bold">{index + 1}</div>
+                      <div className="flex gap-2">
+                        <input 
+                          type="text" 
+                          value={step.title} 
+                          onChange={(e) => updateProcessRow(index, 'title', e.target.value)} 
+                          placeholder="Step Title (e.g. Medical Review)"
+                          className="w-1/3 border rounded-xl p-2 text-sm focus:ring-2 focus:ring-primary"
+                        />
+                        <input 
+                          type="text" 
+                          value={step.description} 
+                          onChange={(e) => updateProcessRow(index, 'description', e.target.value)} 
+                          placeholder="Step Description"
+                          className="flex-grow border rounded-xl p-2 text-sm focus:ring-2 focus:ring-primary"
+                        />
+                        <button type="button" onClick={() => removeProcessRow(index)} className="text-error bg-error/10 p-2 rounded-xl hover:bg-error/20 h-10 w-10 flex-shrink-0 flex items-center justify-center">
+                          <span className="material-symbols-outlined text-[16px]">delete</span>
+                        </button>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div className="flex justify-end gap-sm pt-4 border-t border-outline-variant/20">
+                <button type="button" onClick={() => setShowServiceModal(false)} className="px-6 py-2 rounded-xl font-bold text-on-surface-variant bg-surface-container hover:bg-surface-container-high transition-colors">Cancel</button>
+                <button type="submit" className="px-6 py-2 rounded-xl font-bold text-white bg-primary hover:bg-primary-container hover:text-on-primary-container transition-colors shadow-md">
+                  {editingService ? 'Update Service' : 'Add Service'}
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      )}
 
       {/* PRODUCT MODAL (Add/Edit) */}
       {showProductModal && (

@@ -5,6 +5,7 @@ import { supabase } from './supabaseClient';
 import { Analytics } from '@vercel/analytics/react';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
+import FloatingCallButton from './components/FloatingCallButton';
 import { reportWebVitals } from './utils/vitals';
 
 // Lazy load all route components
@@ -114,7 +115,12 @@ const InnerApp = () => {
           <Route path="/reviews" element={<Reviews />} />
         </Routes>
       </Suspense>
-      {!isAdminRoute && <Footer />}
+      {!isAdminRoute && (
+        <>
+          <FloatingCallButton />
+          <Footer />
+        </>
+      )}
     </>
   );
 };
