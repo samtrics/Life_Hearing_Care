@@ -189,6 +189,25 @@ function Home() {
                                         {slide.buttonText}
                                         <span className="material-symbols-outlined ml-2">arrow_forward</span>
                                     </Link>
+                                    
+                                    <div className="mt-10 flex flex-wrap gap-3 text-white/90">
+                                        <div className="flex items-center gap-2 text-sm bg-black/30 px-3 py-2 rounded-lg backdrop-blur-md border border-white/10 shadow-lg">
+                                            <span className="material-symbols-outlined text-primary text-[18px]">history_toggle_off</span>
+                                            <span className="font-medium">7 Days Free Trial</span>
+                                        </div>
+                                        <div className="flex items-center gap-2 text-sm bg-black/30 px-3 py-2 rounded-lg backdrop-blur-md border border-white/10 shadow-lg">
+                                            <span className="material-symbols-outlined text-primary text-[18px]">verified_user</span>
+                                            <span className="font-medium">2-4 Years Warranty</span>
+                                        </div>
+                                        <div className="flex items-center gap-2 text-sm bg-black/30 px-3 py-2 rounded-lg backdrop-blur-md border border-white/10 shadow-lg">
+                                            <span className="material-symbols-outlined text-primary text-[18px]">support_agent</span>
+                                            <span className="font-medium">Lifetime Service</span>
+                                        </div>
+                                        <div className="flex items-center gap-2 text-sm bg-black/30 px-3 py-2 rounded-lg backdrop-blur-md border border-white/10 shadow-lg">
+                                            <span className="material-symbols-outlined text-primary text-[18px]">location_city</span>
+                                            <span className="font-medium">Multi-City Support</span>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
