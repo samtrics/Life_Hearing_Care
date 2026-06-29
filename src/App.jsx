@@ -5,6 +5,7 @@ import { supabase } from './supabaseClient';
 import { Analytics } from '@vercel/analytics/react';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
+import { reportWebVitals } from './utils/vitals';
 
 // Lazy load all route components
 const Home = lazy(() => import('./pages/Home'));
@@ -97,6 +98,10 @@ const InnerApp = () => {
 };
 
 function App() {
+  useEffect(() => {
+    reportWebVitals()
+  }, [])
+
   return (
     <>
       <SettingsProvider>
