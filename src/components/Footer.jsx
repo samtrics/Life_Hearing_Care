@@ -8,6 +8,19 @@ function Footer() {
     const clinicName = "Life Hearing Care";
     const [newsletterEmail, setNewsletterEmail] = useState('');
 
+    const FooterLink = ({ to, children }) => (
+        <li>
+            <Link to={to} className="group flex items-center text-on-surface-variant hover:text-primary transition-colors py-1">
+                <span className="material-symbols-outlined text-[16px] opacity-0 -ml-4 w-0 group-hover:w-5 group-hover:opacity-100 group-hover:ml-0 transition-all duration-300 ease-out overflow-hidden flex-shrink-0">
+                    chevron_right
+                </span>
+                <span className="group-hover:translate-x-1 transition-transform duration-300 ease-out">
+                    {children}
+                </span>
+            </Link>
+        </li>
+    );
+
     // Format phone for WhatsApp (remove all non-numeric characters)
     const whatsappNumber = settings?.contactPhone?.replace(/\D/g, '') || '919876543210';
 
@@ -43,23 +56,23 @@ function Footer() {
                     </div>
                     <div>
                         <h4 className="font-bold text-primary mb-md">Quick Links</h4>
-                        <ul className="space-y-base flex flex-col items-start">
-                            <li><Link to="/" className="text-on-surface-variant hover:text-primary transition-colors hover:pl-2">Home</Link></li>
-                            <li><Link to="/about" className="text-on-surface-variant hover:text-primary transition-colors hover:pl-2">About Us</Link></li>
-                            <li><Link to="/services" className="text-on-surface-variant hover:text-primary transition-colors hover:pl-2">Services</Link></li>
-                            <li><Link to="/hearing-aids" className="text-on-surface-variant hover:text-primary transition-colors hover:pl-2">Hearing Aids</Link></li>
-                            <li><Link to="/blog" className="text-on-surface-variant hover:text-primary transition-colors hover:pl-2">Blog</Link></li>
+                        <ul className="space-y-2 flex flex-col items-start">
+                            <FooterLink to="/">Home</FooterLink>
+                            <FooterLink to="/about">About Us</FooterLink>
+                            <FooterLink to="/services">Services</FooterLink>
+                            <FooterLink to="/hearing-aids">Hearing Aids</FooterLink>
+                            <FooterLink to="/blog">Blog</FooterLink>
                         </ul>
                     </div>
                     <div>
                         <h4 className="font-bold text-primary mb-md">Services</h4>
-                        <ul className="space-y-base flex flex-col items-start">
-                            <li><Link to="/services" className="text-on-surface-variant hover:text-primary transition-colors hover:pl-2">Hearing Loss Treatment</Link></li>
-                            <li><Link to="/services" className="text-on-surface-variant hover:text-primary transition-colors hover:pl-2">Tinnitus Management / Therapy</Link></li>
-                            <li><Link to="/services" className="text-on-surface-variant hover:text-primary transition-colors hover:pl-2">Speech Therapy</Link></li>
-                            <li><Link to="/services" className="text-on-surface-variant hover:text-primary transition-colors hover:pl-2">BERA / ABR Test</Link></li>
-                            <li><Link to="/services" className="text-on-surface-variant hover:text-primary transition-colors hover:pl-2">Hearing Aid Trial</Link></li>
-                            <li><Link to="/services" className="text-on-surface-variant hover:text-primary transition-colors hover:pl-2">Hearing Aid Fitting, Programming & Repair</Link></li>
+                        <ul className="space-y-2 flex flex-col items-start">
+                            <FooterLink to="/services">Hearing Loss Treatment</FooterLink>
+                            <FooterLink to="/services">Tinnitus Management</FooterLink>
+                            <FooterLink to="/services">Speech Therapy</FooterLink>
+                            <FooterLink to="/services">BERA / ABR Test</FooterLink>
+                            <FooterLink to="/services">Hearing Aid Trial</FooterLink>
+                            <FooterLink to="/services">Hearing Aid Fitting</FooterLink>
                         </ul>
                     </div>
                     <div>
