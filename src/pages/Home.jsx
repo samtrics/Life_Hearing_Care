@@ -675,41 +675,45 @@ function Home() {
                     </div>
                 </section>
 
-                <section id="contact" className="py-xl bg-surface-container-low border-t border-outline-variant/10 relative overflow-hidden">
+                <section id="contact" className="py-xl bg-primary relative overflow-hidden text-white shadow-inner">
                     {/* Decorative background blob */}
-                    <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-primary/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3 pointer-events-none"></div>
+                    <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-secondary/20 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3 pointer-events-none"></div>
+                    <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-tertiary/20 rounded-full blur-3xl translate-y-1/3 -translate-x-1/4 pointer-events-none"></div>
 
                     <div className="max-w-container-max mx-auto px-gutter relative z-10">
                         <RevealOnScroll className="text-center mb-xl">
-                            <h2 className="font-headline-md text-headline-lg text-primary mb-sm">Visit Our Clinic</h2>
-                            <p className="text-on-surface-variant max-w-2xl mx-auto text-lg">Find a world-class hearing center near you. We're here to help.</p>
+                            <span className="inline-block py-xs px-md bg-white/20 backdrop-blur-sm text-white rounded-full text-label-md font-label-md uppercase tracking-wider mb-md shadow-sm border border-white/30">
+                                Get In Touch
+                            </span>
+                            <h2 className="font-headline-md text-headline-lg text-white mb-sm">Visit Our Clinic</h2>
+                            <p className="text-white/90 max-w-2xl mx-auto text-lg">Find a world-class hearing center near you. We're here to help.</p>
                         </RevealOnScroll>
 
                         {/* Cards row — always stack on mobile, side by side on md+ */}
                         <div className="flex flex-col md:flex-row gap-lg mb-lg">
                             {/* Clinic Location Card */}
                             <RevealOnScroll delay="delay-100" className="flex-1">
-                                <div className="p-xl bg-white/80 backdrop-blur-md rounded-3xl border border-white shadow-lg hover:shadow-xl transition-all group hover:-translate-y-1 relative overflow-hidden h-full">
-                                    <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-bl-full pointer-events-none transition-transform group-hover:scale-110"></div>
+                                <div className="p-xl bg-white/10 backdrop-blur-xl rounded-3xl border border-white/20 shadow-2xl hover:shadow-primary-container/50 transition-all group hover:-translate-y-1 relative overflow-hidden h-full">
+                                    <div className="absolute top-0 right-0 w-32 h-32 bg-white/5 rounded-bl-full pointer-events-none transition-transform group-hover:scale-110"></div>
                                     <div className="flex items-start gap-md mb-md">
-                                        <div className="w-12 h-12 bg-primary text-white rounded-2xl flex items-center justify-center flex-shrink-0 shadow-md group-hover:rotate-12 transition-transform">
+                                        <div className="w-12 h-12 bg-white text-primary rounded-2xl flex items-center justify-center flex-shrink-0 shadow-md group-hover:rotate-12 transition-transform">
                                             <span className="material-symbols-outlined text-[24px]">location_on</span>
                                         </div>
                                         <div>
-                                            <h4 className="font-headline-sm text-primary mb-1">Kota Clinic</h4>
-                                            <p className="text-on-surface-variant font-medium">Life Hearing Care, Kota, Rajasthan</p>
-                                            <p className="text-sm text-secondary font-bold mt-1">Mon-Sat: 10:00 AM - 7:00 PM</p>
-                                            <p className="text-sm text-secondary font-bold mt-1">Sunday: 10:00 AM - 1:00 PM</p>
+                                            <h4 className="font-headline-sm text-white mb-1">Kota Clinic</h4>
+                                            <p className="text-white/80 font-medium">Life Hearing Care, Kota, Rajasthan</p>
+                                            <p className="text-sm text-secondary-container font-bold mt-1">Mon-Sat: 10:00 AM - 7:00 PM</p>
+                                            <p className="text-sm text-secondary-container font-bold mt-1">Sunday: 10:00 AM - 1:00 PM</p>
                                         </div>
                                     </div>
                                     <div className="flex flex-col gap-3 pl-[64px]">
-                                        <a href="tel:+91 9219559322" className="flex items-center gap-3 text-on-surface-variant hover:text-primary transition-colors font-medium">
-                                            <div className="w-8 h-8 rounded-full bg-surface-container flex items-center justify-center text-primary"><span className="material-symbols-outlined text-[16px]">call</span></div> +91 9219559322
+                                        <a href="tel:+91 9219559322" className="flex items-center gap-3 text-white/90 hover:text-secondary-container transition-colors font-medium">
+                                            <div className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center text-white"><span className="material-symbols-outlined text-[16px]">call</span></div> +91 9219559322
                                         </a>
-                                        <a href="mailto:lifehearcare@gmail.com" className="flex items-center gap-3 text-on-surface-variant hover:text-primary transition-colors font-medium">
-                                            <div className="w-8 h-8 rounded-full bg-surface-container flex items-center justify-center text-primary"><span className="material-symbols-outlined text-[16px]">mail</span></div> lifehearcare@gmail.com
+                                        <a href="mailto:lifehearcare@gmail.com" className="flex items-center gap-3 text-white/90 hover:text-secondary-container transition-colors font-medium">
+                                            <div className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center text-white"><span className="material-symbols-outlined text-[16px]">mail</span></div> lifehearcare@gmail.com
                                         </a>
-                                        <a href="https://www.google.com/maps/place/Life+Hearing+Care/@25.153423,75.8520923,17.5z/data=!4m16!1m9!3m8!1s0x396f85f70140ed13:0xdfdb28470156842c!2sLife+Hearing+Care!8m2!3d25.1528616!4d75.8523502!9m1!1b1!16s%2Fg%2F11j1_gkc3h!3m5!1s0x396f85f70140ed13:0xdfdb28470156842c!8m2!3d25.1528616!4d75.8523502!16s%2Fg%2F11j1_gkc3h!18m1!1e1?entry=ttu&g_ep=EgoyMDI2MDYyNC4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 text-sm font-bold text-white bg-primary px-4 py-2.5 rounded-xl hover:bg-primary-container hover:text-primary transition-colors mt-2 w-max shadow-sm hover:shadow-md">
+                                        <a href="https://www.google.com/maps/place/Life+Hearing+Care/@25.153423,75.8520923,17.5z/data=!4m16!1m9!3m8!1s0x396f85f70140ed13:0xdfdb28470156842c!2sLife+Hearing+Care!8m2!3d25.1528616!4d75.8523502!9m1!1b1!16s%2Fg%2F11j1_gkc3h!3m5!1s0x396f85f70140ed13:0xdfdb28470156842c!8m2!3d25.1528616!4d75.8523502!16s%2Fg%2F11j1_gkc3h!18m1!1e1?entry=ttu&g_ep=EgoyMDI2MDYyNC4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 text-sm font-bold text-primary bg-white px-4 py-2.5 rounded-xl hover:bg-surface-container hover:text-primary transition-colors mt-2 w-max shadow-sm hover:shadow-md">
                                             Get Directions <span className="material-symbols-outlined text-[16px]">directions</span>
                                         </a>
                                     </div>
@@ -718,20 +722,20 @@ function Home() {
 
                             {/* Home Visit Card */}
                             <RevealOnScroll delay="delay-200" className="flex-1">
-                                <div className="p-xl bg-secondary/5 backdrop-blur-md rounded-3xl border border-secondary/20 shadow-lg hover:shadow-xl transition-all group hover:-translate-y-1 relative overflow-hidden h-full">
-                                    <div className="absolute top-0 right-0 w-32 h-32 bg-secondary/10 rounded-bl-full pointer-events-none transition-transform group-hover:scale-110"></div>
+                                <div className="p-xl bg-white/10 backdrop-blur-md rounded-3xl border border-white/20 shadow-2xl hover:shadow-secondary/50 transition-all group hover:-translate-y-1 relative overflow-hidden h-full">
+                                    <div className="absolute top-0 right-0 w-32 h-32 bg-white/5 rounded-bl-full pointer-events-none transition-transform group-hover:scale-110"></div>
                                     <div className="flex items-start gap-md mb-md">
                                         <div className="w-12 h-12 bg-secondary text-white rounded-2xl flex items-center justify-center flex-shrink-0 shadow-md group-hover:rotate-12 transition-transform">
                                             <span className="material-symbols-outlined text-[24px]">home_health</span>
                                         </div>
                                         <div>
-                                            <h4 className="font-headline-sm text-secondary mb-1">Home Visit Services</h4>
-                                            <p className="text-on-surface-variant font-medium">Available exclusively in <strong className="text-on-surface">Kota, Rajasthan</strong></p>
-                                            <p className="text-sm text-primary font-bold mt-1">Bringing expert hearing care to your doorstep.</p>
+                                            <h4 className="font-headline-sm text-white mb-1">Home Visit Services</h4>
+                                            <p className="text-white/80 font-medium">Available exclusively in <strong className="text-white">Kota, Rajasthan</strong></p>
+                                            <p className="text-sm text-secondary-container font-bold mt-1">Bringing expert hearing care to your doorstep.</p>
                                         </div>
                                     </div>
                                     <div className="flex flex-col gap-3 pl-[64px]">
-                                        <Link to="/book" className="inline-flex items-center justify-center gap-2 text-sm font-bold text-white bg-secondary px-6 py-3 rounded-xl hover:bg-secondary-container hover:text-secondary transition-colors mt-2 w-max shadow-md hover:shadow-lg">
+                                        <Link to="/book" className="inline-flex items-center justify-center gap-2 text-sm font-bold text-primary bg-secondary-container px-6 py-3 rounded-xl hover:bg-white hover:text-primary transition-colors mt-2 w-max shadow-md hover:shadow-lg">
                                             Book a Home Visit <span className="material-symbols-outlined text-[18px]">calendar_month</span>
                                         </Link>
                                     </div>
@@ -740,8 +744,8 @@ function Home() {
                         </div>
 
                         {/* Map — full width below cards */}
-                        <RevealOnScroll delay="delay-300" className="w-full h-[350px] sm:h-[450px] rounded-3xl overflow-hidden shadow-xl border-4 border-white group relative bg-surface-container-high">
-                            <div className="absolute inset-0 bg-primary/5 pointer-events-none z-10 group-hover:bg-transparent transition-colors duration-500"></div>
+                        <RevealOnScroll delay="delay-300" className="w-full h-[350px] sm:h-[450px] rounded-3xl overflow-hidden shadow-2xl border-4 border-white/30 group relative bg-surface-container-high backdrop-blur-sm">
+                            <div className="absolute inset-0 bg-primary/20 pointer-events-none z-10 group-hover:bg-transparent transition-colors duration-500"></div>
                             <iframe
                                 title="Clinic Location"
                                 src="https://maps.google.com/maps?q=Life+Hearing+Care,+Kota,+Rajasthan&t=&z=15&ie=UTF8&iwloc=&output=embed"
