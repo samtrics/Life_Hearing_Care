@@ -1,7 +1,8 @@
 import { onLCP, onFID, onCLS, onTTFB, onINP } from 'web-vitals'
 
-const SAMTRICS_INGEST_URL = 'http://localhost:3001/api/samtrics/ingest'
-// Note: In production this would point to the deployed admin portal URL
+const SAMTRICS_INGEST_URL = import.meta.env.DEV 
+  ? 'http://localhost:3000/api/samtrics/ingest' 
+  : 'https://life-hearing-super-admin.vercel.app/api/samtrics/ingest'
 
 function sendToSamtrics(metric) {
   const body = JSON.stringify({
