@@ -153,7 +153,7 @@ function HearingAids() {
 <div className="flex flex-col md:flex-row justify-between items-end mb-lg gap-md">
 <div>
 <h2 className="text-headline-md font-headline-md text-on-surface mb-xs">Premium Product Catalog</h2>
-<p className="text-body-lg font-body-lg text-on-surface-variant">Filter by your specific needs and preferences. <span className="text-primary font-bold ml-2">🎉 Zero Cost EMI available for HearClear products!</span></p>
+<p className="text-body-lg font-body-lg text-on-surface-variant">Filter by your specific needs and preferences. <span className="text-primary font-bold ml-2">🎉 Credit Card EMI available for HearClear products!</span></p>
 </div>
 <div className="flex gap-sm">
 

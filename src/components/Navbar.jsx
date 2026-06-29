@@ -10,8 +10,8 @@ function Navbar() {
 
   // Announcement Slider State
   const announcements = [
-    "🎉 Special Offer: Free Hearing Test this month!",
-    "💳 Zero Cost EMI Available on all premium hearing aids",
+    "🎉 Special Festive Discount: Get up to 20% off on all Digital Hearing Aids!",
+    "💳 Credit Card EMI Available on all premium hearing aids",
     "📅 Book your appointment online and skip the waiting room",
     "🏠 Home visits exclusively available in Kota, Rajasthan"
   ];

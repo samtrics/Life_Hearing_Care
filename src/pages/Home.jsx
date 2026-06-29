@@ -21,8 +21,8 @@ function Home() {
         },
         {
             id: 2,
-            title: "Zero Cost EMI Available",
-            subtitle: "Upgrade to premium hearing aids with easy, interest-free monthly installments.",
+            title: "Credit Card EMI Available",
+            subtitle: "Upgrade to premium hearing aids with easy Credit Card EMI monthly installments.",
             image: "/hero_slides/slide2.png",
             buttonText: "Explore Hearing Aids",
             buttonLink: "/hearing-aids"
@@ -558,9 +558,9 @@ function Home() {
                                 <div className="w-14 h-14 bg-secondary/10 rounded-2xl flex items-center justify-center mb-md group-hover:bg-secondary group-hover:text-white transition-colors text-secondary">
                                     <span className="material-symbols-outlined text-[28px]">percent</span>
                                 </div>
-                                <h4 className="text-title-lg font-bold text-primary mb-xs group-hover:text-secondary transition-colors">0% Interest</h4>
-                                <div className="text-xs font-bold text-secondary mb-sm uppercase tracking-wide">No Hidden Costs</div>
-                                <p className="text-on-surface-variant text-sm mb-md">Enjoy completely interest-free EMI plans on selected premium devices. You only pay for what you buy.</p>
+                                <h4 className="text-title-lg font-bold text-primary mb-xs group-hover:text-secondary transition-colors">Credit Card EMI</h4>
+                                <div className="text-xs font-bold text-secondary mb-sm uppercase tracking-wide">Major Cards Accepted</div>
+                                <p className="text-on-surface-variant text-sm mb-md">Enjoy flexible Credit Card EMI plans on selected premium devices. You only pay for what you buy.</p>
                             </RevealOnScroll>
 
                             <RevealOnScroll delay="delay-200" className="glass-card p-lg rounded-3xl border border-outline-variant/30 hover:border-primary hover:shadow-lg hover:-translate-y-2 transition-all group bg-white">
