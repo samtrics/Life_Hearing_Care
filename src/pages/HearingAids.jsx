@@ -97,6 +97,52 @@ function HearingAids() {
 <img className="w-full h-full object-cover" data-alt="A macro studio photograph of a premium, sleek hearing aid with a metallic finish, resting on a soft velvet surface. The lighting is dramatic and high-contrast, emphasizing the sophisticated micro-engineering and elegant curves of the device. The background is a soft, out-of-focus clinical blue, conveying a sense of high-end medical technology and professional care." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBjcX9Qvnwn6s8OKjxk5aw3PzE9QMSE7_Q5ls7W4xMbymFoemsxkJ8L5YoKFCwCiLMq2MvNVoJlMYCNs-Z0cMjnwWgkJZucfrlbdJmk7hy6SmV4HPXwKtfjEJr7ko0RKYricjTUVO9wKBMdnzp-W-nTRm8RA3S66gkClB0n5V94dnaoTvmdau8BKAPhPN_HAgSbTgNY-wW7uPTFioTZufI0AoR-ktFsfqS4qYCvW9Xof2mxwAZe_j55QD_EZuFvlP0NEt4bl0I0Q-KE"/>
 </div>
 </section>
+{/*  Styles and Categories Section  */}
+<section className="py-xl bg-surface">
+    <div className="px-gutter max-w-container-max mx-auto">
+        <div className="text-center mb-xl">
+            <h2 className="text-headline-md font-headline-md text-primary mb-sm">Explore by Style & Category</h2>
+            <p className="text-body-lg text-on-surface-variant max-w-2xl mx-auto">Discover the perfect fit for your lifestyle. From virtually invisible to powerful behind-the-ear models.</p>
+        </div>
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-md">
+            {[
+                { id: 'iic', title: 'IIC', desc: 'Invisible-In-Canal', icon: 'earbuds' },
+                { id: 'cic', title: 'CIC', desc: 'Completely-In-Canal', icon: 'hearing' },
+                { id: 'itc', title: 'ITC', desc: 'In-The-Canal', icon: 'hearing_disabled' },
+                { id: 'ite', title: 'ITE', desc: 'In-The-Ear', icon: 'record_voice_over' },
+                { id: 'ric', title: 'RIC', desc: 'Receiver-In-Canal', icon: 'settings_bluetooth' },
+                { id: 'bte', title: 'BTE', desc: 'Behind-The-Ear', icon: 'deaf' },
+                { id: 'ai', title: 'AI Powered', desc: 'Smart & Adaptive', icon: 'memory' },
+                { id: 'pediatric', title: 'Pediatric', desc: 'For Children', icon: 'child_care' }
+            ].map((style) => (
+                <div key={style.id} className="bg-surface-container-low p-md rounded-2xl border border-outline-variant/30 hover:border-primary hover:shadow-md transition-all text-center group cursor-pointer">
+                    <div className="w-12 h-12 mx-auto bg-primary/10 text-primary rounded-full flex items-center justify-center mb-sm group-hover:bg-primary group-hover:text-white transition-colors">
+                        <span className="material-symbols-outlined text-[24px]">{style.icon}</span>
+                    </div>
+                    <h3 className="font-bold text-on-surface mb-xs">{style.title}</h3>
+                    <p className="text-xs text-on-surface-variant uppercase tracking-wider">{style.desc}</p>
+                </div>
+            ))}
+        </div>
+    </div>
+</section>
+
+{/* Premium Brands Section */}
+<section className="py-xl bg-surface-container-lowest border-y border-outline-variant/10">
+    <div className="px-gutter max-w-container-max mx-auto text-center">
+        <h2 className="text-headline-md font-headline-md text-primary mb-sm">Our Premium Partners</h2>
+        <p className="text-body-lg text-on-surface-variant max-w-2xl mx-auto mb-xl">We dispense and service the world's most advanced hearing technology brands.</p>
+        
+        <div className="flex flex-wrap justify-center gap-lg md:gap-xl">
+            {['Phonak', 'Signia', 'Starkey', 'ReSound', 'Widex', 'Oticon'].map((brand) => (
+                <div key={brand} className="px-lg py-md bg-white border border-outline-variant/20 rounded-2xl shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all flex items-center justify-center min-w-[140px]">
+                    <span className="font-display-sm text-xl font-black text-on-surface/80 uppercase tracking-widest">{brand}</span>
+                </div>
+            ))}
+        </div>
+    </div>
+</section>
+
 {/*  Advanced Catalog & Filters  */}
 <section className="py-xl bg-surface-container-low" id="catalog">
 <div className="px-gutter max-w-container-max mx-auto">
