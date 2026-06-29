@@ -62,7 +62,7 @@ function Services() {
         <section className="px-gutter max-w-container-max mx-auto py-xl">
             <div className="space-y-xl">
                 {/*  Service 1: Comprehensive Hearing Test  */}
-                <div className="glass-card rounded-3xl overflow-hidden shadow-sm flex flex-col lg:flex-row gap-lg p-lg">
+                <div id="hearing-test" className="glass-card rounded-3xl overflow-hidden shadow-sm flex flex-col lg:flex-row gap-lg p-lg">
                     <div className="lg:w-2/5 rounded-2xl overflow-hidden">
                         <img className="w-full h-full object-cover min-h-[300px]" loading="lazy" decoding="async"
                             data-alt="Close up of a high-tech hearing assessment station in a clinical environment. A pair of premium clinical headphones rests on a sleek white desk next to a digital tablet displaying sound frequency waves. The lighting is soft and professional, using cool blue and white tones to emphasize clinical precision and modern healthcare aesthetics."
@@ -126,7 +126,7 @@ function Services() {
                 </div>
                 {/*  Service 2: Tinnitus Management  */}
                 <div
-                    className="glass-card rounded-3xl overflow-hidden shadow-sm flex flex-col lg:flex-row-reverse gap-lg p-lg">
+                    id="tinnitus" className="glass-card rounded-3xl overflow-hidden shadow-sm flex flex-col lg:flex-row-reverse gap-lg p-lg">
                     <div className="lg:w-2/5 rounded-2xl overflow-hidden">
                         <img className="w-full h-full object-cover min-h-[300px]" loading="lazy" decoding="async"
                             data-alt="A serene, minimalist wellness room designed for tinnitus therapy. The scene features a comfortable ergonomic chair, soft ambient lighting coming from a circular wall lamp, and a small Zen garden on a side table. The color palette consists of calming teals, off-whites, and natural wood textures, creating a sense of peace and professional care."
@@ -188,7 +188,7 @@ function Services() {
                     </div>
                 </div>
                 {/*  Service 3: Speech Therapy  */}
-                <div className="glass-card rounded-3xl overflow-hidden shadow-sm flex flex-col lg:flex-row gap-lg p-lg">
+                <div id="speech-therapy" className="glass-card rounded-3xl overflow-hidden shadow-sm flex flex-col lg:flex-row gap-lg p-lg">
                     <div className="lg:w-2/5 rounded-2xl overflow-hidden">
                         <img className="w-full h-full object-cover min-h-[300px]" loading="lazy" decoding="async"
                             data-alt="A warm and inviting speech therapy session room. A therapist is engaged in a friendly conversation with an elderly patient. The room features high-quality acoustics, light oak furniture, and large windows revealing a soft green garden outside. The mood is supportive, modern, and clinical with high-end glass accents and soft-toned furniture."
@@ -252,7 +252,7 @@ function Services() {
                 </div>
 
                 {/*  Service 4: RIC Hearing Aid  */}
-                <div className="glass-card rounded-3xl overflow-hidden shadow-sm flex flex-col lg:flex-row-reverse gap-lg p-lg">
+                <div id="hearing-aid-trial" className="glass-card rounded-3xl overflow-hidden shadow-sm flex flex-col lg:flex-row-reverse gap-lg p-lg">
                     <div className="lg:w-2/5 rounded-2xl overflow-hidden">
                         <img className="w-full h-full object-cover min-h-[300px]" loading="lazy" decoding="async"
                             alt="RIC Hearing Aid"
@@ -297,7 +297,7 @@ function Services() {
                 </div>
 
                 {/*  Service 5: BERA Test Center  */}
-                <div className="glass-card rounded-3xl overflow-hidden shadow-sm flex flex-col lg:flex-row gap-lg p-lg">
+                <div id="bera-test" className="glass-card rounded-3xl overflow-hidden shadow-sm flex flex-col lg:flex-row gap-lg p-lg">
                     <div className="lg:w-2/5 rounded-2xl overflow-hidden">
                         <img className="w-full h-full object-cover min-h-[300px]" loading="lazy" decoding="async"
                             alt="BERA Test Center"
@@ -342,7 +342,7 @@ function Services() {
                 </div>
 
                 {/*  Service 6: Hearing Loss Treatment  */}
-                <div className="glass-card rounded-3xl overflow-hidden shadow-sm flex flex-col lg:flex-row-reverse gap-lg p-lg">
+                <div id="hearing-loss" className="glass-card rounded-3xl overflow-hidden shadow-sm flex flex-col lg:flex-row-reverse gap-lg p-lg">
                     <div className="lg:w-2/5 rounded-2xl overflow-hidden">
                         <img className="w-full h-full object-cover min-h-[300px]" loading="lazy" decoding="async"
                             alt="Hearing Loss Treatment"
@@ -387,7 +387,7 @@ function Services() {
                 </div>
 
                 {/*  Service 7: Starkey Hearing Aids  */}
-                <div className="glass-card rounded-3xl overflow-hidden shadow-sm flex flex-col lg:flex-row gap-lg p-lg">
+                <div id="hearing-aid-fitting" className="glass-card rounded-3xl overflow-hidden shadow-sm flex flex-col lg:flex-row gap-lg p-lg">
                     <div className="lg:w-2/5 rounded-2xl overflow-hidden">
                         <img className="w-full h-full object-cover min-h-[300px]" loading="lazy" decoding="async"
                             alt="Starkey Hearing Aids"

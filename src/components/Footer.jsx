@@ -67,12 +67,12 @@ function Footer() {
                     <div>
                         <h4 className="font-bold text-primary mb-md">Services</h4>
                         <ul className="space-y-2 flex flex-col items-start">
-                            <FooterLink to="/services">Hearing Loss Treatment</FooterLink>
-                            <FooterLink to="/services">Tinnitus Management</FooterLink>
-                            <FooterLink to="/services">Speech Therapy</FooterLink>
-                            <FooterLink to="/services">BERA / ABR Test</FooterLink>
-                            <FooterLink to="/services">Hearing Aid Trial</FooterLink>
-                            <FooterLink to="/services">Hearing Aid Fitting</FooterLink>
+                            <FooterLink to="/services#hearing-loss">Hearing Loss Treatment</FooterLink>
+                            <FooterLink to="/services#tinnitus">Tinnitus Management</FooterLink>
+                            <FooterLink to="/services#speech-therapy">Speech Therapy</FooterLink>
+                            <FooterLink to="/services#bera-test">BERA / ABR Test</FooterLink>
+                            <FooterLink to="/services#hearing-aid-trial">Hearing Aid Trial</FooterLink>
+                            <FooterLink to="/services#hearing-aid-fitting">Hearing Aid Fitting</FooterLink>
                         </ul>
                     </div>
                     <div>
