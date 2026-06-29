@@ -390,6 +390,24 @@ function Home() {
                                         We don't just sell hearing aids; we provide a lifecycle of care. Our holistic approach
                                         ensures that every patient receives the attention and precision they deserve.
                                     </p>
+                                    <div className="mt-6 inline-flex items-center gap-3 bg-white p-3 pr-5 rounded-2xl border border-outline-variant/30 shadow-sm hover:shadow-md transition-shadow">
+                                        <div className="w-10 h-10 bg-[#fff] rounded-full flex items-center justify-center border border-outline-variant/20 shadow-sm p-2 shrink-0">
+                                            <img src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg" alt="Google" className="w-full h-full object-contain" />
+                                        </div>
+                                        <div>
+                                            <div className="flex items-center gap-1 mb-0.5">
+                                                <span className="font-bold text-primary text-lg leading-none">4.9</span>
+                                                <div className="flex text-[#FBBC05] text-[14px]">
+                                                    <span className="material-symbols-outlined" style={{fontVariationSettings: "'FILL' 1"}}>star</span>
+                                                    <span className="material-symbols-outlined" style={{fontVariationSettings: "'FILL' 1"}}>star</span>
+                                                    <span className="material-symbols-outlined" style={{fontVariationSettings: "'FILL' 1"}}>star</span>
+                                                    <span className="material-symbols-outlined" style={{fontVariationSettings: "'FILL' 1"}}>star</span>
+                                                    <span className="material-symbols-outlined" style={{fontVariationSettings: "'FILL' 1"}}>star</span>
+                                                </div>
+                                            </div>
+                                            <div className="text-xs font-bold text-on-surface-variant uppercase tracking-wider">Based on 2,500+ Reviews</div>
+                                        </div>
+                                    </div>
                                 </RevealOnScroll>
 
                                 <ul className="space-y-md">
