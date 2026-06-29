@@ -309,53 +309,56 @@ function Home() {
                         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-md">
                             <RevealOnScroll delay="delay-100" className="bg-white p-lg rounded-3xl shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all group border border-outline-variant/20">
                                 <div className="w-14 h-14 bg-primary/5 rounded-2xl flex items-center justify-center mb-md group-hover:bg-primary group-hover:text-white transition-colors">
-                                    <span className="material-symbols-outlined text-[28px]">hearing</span>
+                                    <span className="material-symbols-outlined text-[28px]">healing</span>
                                 </div>
-                                <h4 className="text-title-lg font-bold text-primary mb-sm group-hover:text-secondary transition-colors">Hearing Assessment</h4>
-                                <p className="text-on-surface-variant mb-md">Complete diagnostic evaluation to identify the type and degree of hearing loss.</p>
-                                <a className="text-primary font-bold inline-flex items-center gap-xs group-hover:gap-sm transition-all" href="#">Learn More <span className="material-symbols-outlined text-[20px]">arrow_forward</span></a>
+                                <h4 className="text-title-lg font-bold text-primary mb-sm group-hover:text-secondary transition-colors">Hearing Loss Treatment</h4>
+                                <p className="text-on-surface-variant mb-md">Comprehensive management strategies tailored to address all degrees of hearing loss.</p>
+                                <Link to="/services" className="text-primary font-bold inline-flex items-center gap-xs group-hover:gap-sm transition-all">Learn More <span className="material-symbols-outlined text-[20px]">arrow_forward</span></Link>
                             </RevealOnScroll>
 
                             <RevealOnScroll delay="delay-200" className="bg-white p-lg rounded-3xl shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all group border border-outline-variant/20">
                                 <div className="w-14 h-14 bg-secondary/5 rounded-2xl flex items-center justify-center mb-md group-hover:bg-secondary group-hover:text-white transition-colors">
-                                    <span className="material-symbols-outlined text-[28px]">equalizer</span>
+                                    <span className="material-symbols-outlined text-[28px]">waves</span>
                                 </div>
-                                <h4 className="text-title-lg font-bold text-primary mb-sm group-hover:text-secondary transition-colors">Audiometry</h4>
-                                <p className="text-on-surface-variant mb-md">Precision pure-tone and speech audiometry testing in soundproof environments.</p>
-                                <a className="text-primary font-bold inline-flex items-center gap-xs group-hover:gap-sm transition-all" href="#">Learn More <span className="material-symbols-outlined text-[20px]">arrow_forward</span></a>
+                                <h4 className="text-title-lg font-bold text-primary mb-sm group-hover:text-secondary transition-colors">Tinnitus Management & Therapy</h4>
+                                <p className="text-on-surface-variant mb-md">Customized therapeutic approaches to reduce the impact of persistent ringing in the ears.</p>
+                                <Link to="/services" className="text-primary font-bold inline-flex items-center gap-xs group-hover:gap-sm transition-all">Learn More <span className="material-symbols-outlined text-[20px]">arrow_forward</span></Link>
                             </RevealOnScroll>
 
                             <RevealOnScroll delay="delay-300" className="bg-white p-lg rounded-3xl shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all group border border-outline-variant/20">
                                 <div className="w-14 h-14 bg-tertiary/5 rounded-2xl flex items-center justify-center mb-md group-hover:bg-tertiary group-hover:text-white transition-colors">
-                                    <span className="material-symbols-outlined text-[28px]">ecg</span>
+                                    <span className="material-symbols-outlined text-[28px]">record_voice_over</span>
                                 </div>
-                                <h4 className="text-title-lg font-bold text-primary mb-sm group-hover:text-secondary transition-colors">OAE & BERA</h4>
-                                <p className="text-on-surface-variant mb-md">Objective electrophysiological tests for infants and difficult-to-test populations.</p>
-                                <a className="text-primary font-bold inline-flex items-center gap-xs group-hover:gap-sm transition-all" href="#">Learn More <span className="material-symbols-outlined text-[20px]">arrow_forward</span></a>
+                                <h4 className="text-title-lg font-bold text-primary mb-sm group-hover:text-secondary transition-colors">Speech Therapy</h4>
+                                <p className="text-on-surface-variant mb-md">Expert guidance for speech disorders, focusing on articulation, voice quality, and communication.</p>
+                                <Link to="/services" className="text-primary font-bold inline-flex items-center gap-xs group-hover:gap-sm transition-all">Learn More <span className="material-symbols-outlined text-[20px]">arrow_forward</span></Link>
                             </RevealOnScroll>
 
                             <RevealOnScroll delay="delay-100" className="bg-white p-lg rounded-3xl shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all group border border-outline-variant/20">
                                 <div className="w-14 h-14 bg-primary-fixed-dim/5 rounded-2xl flex items-center justify-center mb-md group-hover:bg-primary-fixed-dim group-hover:text-on-primary-fixed transition-colors">
-                                    <span className="material-symbols-outlined text-[28px]">record_voice_over</span>
+                                    <span className="material-symbols-outlined text-[28px]">ecg</span>
                                 </div>
-                                <h4 className="text-title-lg font-bold text-primary mb-sm group-hover:text-secondary transition-colors">Speech Therapy</h4>
-                                <p className="text-on-surface-variant mb-md">Individualized programs to improve communication skills and auditory rehabilitation.</p>
-                                <a className="text-primary font-bold inline-flex items-center gap-xs group-hover:gap-sm transition-all" href="#">Learn More <span className="material-symbols-outlined text-[20px]">arrow_forward</span></a>
+                                <h4 className="text-title-lg font-bold text-primary mb-sm group-hover:text-secondary transition-colors">BERA / ABR Test</h4>
+                                <p className="text-on-surface-variant mb-md">Objective brainwave measurements for infants and complex auditory evaluations.</p>
+                                <Link to="/services" className="text-primary font-bold inline-flex items-center gap-xs group-hover:gap-sm transition-all">Learn More <span className="material-symbols-outlined text-[20px]">arrow_forward</span></Link>
                             </RevealOnScroll>
 
                             <RevealOnScroll delay="delay-200" className="bg-white p-lg rounded-3xl shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all group border border-outline-variant/20">
                                 <div className="w-14 h-14 bg-primary/5 rounded-2xl flex items-center justify-center mb-md group-hover:bg-primary group-hover:text-white transition-colors">
-                                    <span className="material-symbols-outlined text-[28px]">tune</span>
+                                    <span className="material-symbols-outlined text-[28px]">earbuds</span>
                                 </div>
-                                <h4 className="text-title-lg font-bold text-primary mb-sm group-hover:text-secondary transition-colors">Aid Fitting</h4>
-                                <p className="text-on-surface-variant mb-md">Professional fitting and programming of digital hearing aids for optimal performance.</p>
-                                <a className="text-primary font-bold inline-flex items-center gap-xs group-hover:gap-sm transition-all" href="#">Learn More <span className="material-symbols-outlined text-[20px]">arrow_forward</span></a>
+                                <h4 className="text-title-lg font-bold text-primary mb-sm group-hover:text-secondary transition-colors">Hearing Aid Trial</h4>
+                                <p className="text-on-surface-variant mb-md">Experience the latest hearing aid technology firsthand with a no-obligation trial.</p>
+                                <Link to="/services" className="text-primary font-bold inline-flex items-center gap-xs group-hover:gap-sm transition-all">Learn More <span className="material-symbols-outlined text-[20px]">arrow_forward</span></Link>
                             </RevealOnScroll>
 
-                            <RevealOnScroll delay="delay-300" className="bg-surface-container-high p-lg rounded-3xl flex flex-col justify-center items-center text-center border-2 border-dashed border-outline-variant hover:border-primary/50 transition-colors">
-                                <h4 className="text-title-lg font-bold text-primary mb-sm">Need a Custom Solution?</h4>
-                                <p className="text-on-surface-variant mb-md">Consult with our doctors for a personalized care plan.</p>
-                                <button onClick={() => document.getElementById('contact').scrollIntoView({ behavior: 'smooth' })} className="bg-white text-primary px-6 py-2 rounded-full font-bold shadow-sm hover:shadow-md hover:scale-105 transition-all">Contact Us</button>
+                            <RevealOnScroll delay="delay-300" className="bg-white p-lg rounded-3xl shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all group border border-outline-variant/20">
+                                <div className="w-14 h-14 bg-secondary/5 rounded-2xl flex items-center justify-center mb-md group-hover:bg-secondary group-hover:text-white transition-colors">
+                                    <span className="material-symbols-outlined text-[28px]">build</span>
+                                </div>
+                                <h4 className="text-title-lg font-bold text-primary mb-sm group-hover:text-secondary transition-colors">Hearing Aid Fitting, Programming & Repair</h4>
+                                <p className="text-on-surface-variant mb-md">Professional fitting, fine-tuning, and expert repair services for all major brands.</p>
+                                <Link to="/services" className="text-primary font-bold inline-flex items-center gap-xs group-hover:gap-sm transition-all">Learn More <span className="material-symbols-outlined text-[20px]">arrow_forward</span></Link>
                             </RevealOnScroll>
                         </div>
                     </div>

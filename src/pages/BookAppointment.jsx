@@ -468,12 +468,12 @@ function BookAppointment() {
                           className="w-full px-md py-sm rounded-xl border border-outline-variant bg-surface focus:bg-white focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all text-on-surface"
                         >
                           <option value="General Consultation">General Consultation</option>
-                          <option value="RIC Hearing Aid">RIC Hearing Aid</option>
-                          <option value="BERA Test Center">BERA Test Center</option>
-                          <option value="Hearing Loss">Hearing Loss</option>
-                          <option value="Starkey Hearing Aids">Starkey Hearing Aids</option>
-                          <option value="Tinnitus Management">Tinnitus Management</option>
-                          <option value="Hearing Aid Fitting">Hearing Aid Fitting</option>
+                          <option value="Hearing Loss Treatment">Hearing Loss Treatment</option>
+                          <option value="Tinnitus Management / Therapy">Tinnitus Management / Therapy</option>
+                          <option value="Speech Therapy">Speech Therapy</option>
+                          <option value="BERA / ABR Test">BERA / ABR Test</option>
+                          <option value="Hearing Aid Trial">Hearing Aid Trial</option>
+                          <option value="Hearing Aid Fitting, Programming & Repair">Hearing Aid Fitting, Programming & Repair</option>
                         </select>
                       </div>
                     </div>

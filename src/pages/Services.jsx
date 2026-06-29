@@ -261,11 +261,11 @@ function Services() {
                     <div className="lg:w-3/5 space-y-md text-left">
                         <div className="flex justify-between items-start">
                             <div>
-                                <h2 className="text-headline-md font-headline-md text-primary">RIC Hearing Aids</h2>
+                                <h2 className="text-headline-md font-headline-md text-primary">Hearing Aid Trial</h2>
                             </div>
                             <span className="material-symbols-outlined text-4xl text-secondary">earbuds</span>
                         </div>
-                        <p className="text-body-lg font-body-lg text-on-surface-variant">Receiver-in-Canal (RIC) hearing aids offer a highly discreet and comfortable solution, providing exceptional sound clarity and a natural listening experience.</p>
+                        <p className="text-body-lg font-body-lg text-on-surface-variant">Experience the latest hearing aid technology firsthand with a no-obligation trial. We help you find the perfect discreet and comfortable solution.</p>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-lg pt-md">
                             <div>
                                 <h3 className="font-bold text-primary mb-base">Key Benefits</h3>
@@ -306,11 +306,11 @@ function Services() {
                     <div className="lg:w-3/5 space-y-md">
                         <div className="flex justify-between items-start">
                             <div>
-                                <h2 className="text-headline-md font-headline-md text-primary">BERA Test Center</h2>
+                                <h2 className="text-headline-md font-headline-md text-primary">BERA / ABR Test Center</h2>
                             </div>
                             <span className="material-symbols-outlined text-4xl text-secondary">monitor_heart</span>
                         </div>
-                        <p className="text-body-lg font-body-lg text-on-surface-variant">Brainstem Evoked Response Audiometry (BERA) provides an objective measurement of hearing function, crucial for infants, children, and complex auditory evaluations.</p>
+                        <p className="text-body-lg font-body-lg text-on-surface-variant">Brainstem Evoked Response Audiometry (BERA/ABR) provides an objective measurement of hearing function, crucial for infants, children, and complex auditory evaluations.</p>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-lg pt-md">
                             <div>
                                 <h3 className="font-bold text-primary mb-base">Key Benefits</h3>
@@ -396,11 +396,11 @@ function Services() {
                     <div className="lg:w-3/5 space-y-md">
                         <div className="flex justify-between items-start">
                             <div>
-                                <h2 className="text-headline-md font-headline-md text-primary">Starkey Hearing Aids</h2>
+                                <h2 className="text-headline-md font-headline-md text-primary">Hearing Aid Fitting, Programming & Repair</h2>
                             </div>
-                            <span className="material-symbols-outlined text-4xl text-secondary">memory</span>
+                            <span className="material-symbols-outlined text-4xl text-secondary">build</span>
                         </div>
-                        <p className="text-body-lg font-body-lg text-on-surface-variant">We proudly dispense Starkey's premium line of digital hearing aids, known for their industry-leading AI technology, seamless connectivity, and exceptional sound engineering.</p>
+                        <p className="text-body-lg font-body-lg text-on-surface-variant">Professional fitting, fine-tuning, and expert repair services for all major brands, ensuring your devices deliver exceptional sound engineering and seamless connectivity.</p>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-lg pt-md">
                             <div>
                                 <h3 className="font-bold text-primary mb-base">Key Benefits</h3>
