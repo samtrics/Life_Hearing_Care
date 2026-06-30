@@ -275,7 +275,7 @@ function Home() {
                         <div ref={techScrollRef} className="flex gap-lg overflow-x-auto pb-lg hide-scrollbar snap-x scroll-smooth">
                             <RevealOnScroll delay="delay-100" className="min-w-[280px] md:min-w-[300px] snap-start bg-white rounded-3xl overflow-hidden shadow-sm border border-outline-variant/20 hover:shadow-xl hover:-translate-y-2 transition-all duration-300 group cursor-pointer">
                                 <div className="h-64 bg-surface-container overflow-hidden">
-                                    <img className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" alt="IIC" loading="lazy" decoding="async" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCzriLabfO1yqsppbImFISeINGugdl5n5XWrl7W0AY4CL3lw13ojazF7V-JFPciL5ICZQVwiZjcafsFtzj1_A5d9eFIiraxW6Um7FbTZmC86kZfeHhbKiehLQthen3QUEjl6cmqDCNWPPWg36H04iDP4SQaTaSSYoR7eVD79bay9Tk6rWcLZkIJ0lmSnDBLOOtfuyXQHgQn8YbsACZQCjp342WnJKUc-UM2upkIin_YsStY2dSfIOJ5TQwa5AqCwG16nIAk3tEZnWxB=w600" />
+                                    <img className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" alt="IIC" loading="lazy" decoding="async" src="/tech_images/iic.webp" />
                                 </div>
                                 <div className="p-lg">
                                     <h4 className="font-bold text-primary mb-xs group-hover:text-secondary transition-colors">Invisible (IIC)</h4>
@@ -286,7 +286,7 @@ function Home() {
 
                             <RevealOnScroll delay="delay-200" className="min-w-[280px] md:min-w-[300px] snap-start bg-white rounded-3xl overflow-hidden shadow-sm border border-outline-variant/20 hover:shadow-xl hover:-translate-y-2 transition-all duration-300 group cursor-pointer">
                                 <div className="h-64 bg-surface-container overflow-hidden">
-                                    <img className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" alt="Rechargeable" loading="lazy" decoding="async" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCtdXDtCWBI3XBmozDGJUhoQ8Ztbnswhoys2CqD81XicddvTu-TiHeIf8Q_QYAv1hDjWITzI9hkRIQABURbkaMM6Bb7xzqtNKfWRaKgUtpLSyQDgXI-thA09HYmPbnEGD4gjb_bqyVBPEQ8ZqPImGvzKwiv8Og98zqICacTCmjdvkQK40s6Lzd5l8BYaWhe00NQS9Zv8DHpcoVfoKQqcJQ39CRQiL1ii-5xWR5iNQiLkQjAz8kT7QHnc9nVJjtQfx_AYqhnmLqLZ8Hk=w600" />
+                                    <img className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" alt="Rechargeable" loading="lazy" decoding="async" src="/tech_images/rechargeable.webp" />
                                 </div>
                                 <div className="p-lg">
                                     <h4 className="font-bold text-primary mb-xs group-hover:text-secondary transition-colors">Rechargeable</h4>
@@ -297,7 +297,7 @@ function Home() {
 
                             <RevealOnScroll delay="delay-300" className="min-w-[280px] md:min-w-[300px] snap-start bg-white rounded-3xl overflow-hidden shadow-sm border border-outline-variant/20 hover:shadow-xl hover:-translate-y-2 transition-all duration-300 group cursor-pointer">
                                 <div className="h-64 bg-surface-container overflow-hidden">
-                                    <img className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" alt="Bluetooth" loading="lazy" decoding="async" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBpncrGZfGYGImxcGVEkiQ8R5Mu48ZK3BWa8Q6fvwWdYamaO1hfOpN2JW2KgaNyqErjsN9JYqAtIGoZ2u5Q-qctg2-qh7-60Z9w8khJgLFLEDnZ4NST5AiOuk-JZapwDHIPQmLmgpBARbybir2DvxUZOi5Kex1g05hQ_XPFQGngxdCAVCTOkBAR42Ehbqv9dcFjiVxM2g3bomVAsb6Ag8b-wVxybaFI3t17T1FmQVolQTI3TBmSe5NtK_hsCTIOMvGTiPQE0ze2gw2d=w600" />
+                                    <img className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" alt="Bluetooth" loading="lazy" decoding="async" src="/tech_images/bluetooth.webp" />
                                 </div>
                                 <div className="p-lg">
                                     <h4 className="font-bold text-primary mb-xs group-hover:text-secondary transition-colors">Bluetooth Connected</h4>
@@ -308,7 +308,7 @@ function Home() {
 
                             <RevealOnScroll delay="delay-400" className="min-w-[280px] md:min-w-[300px] snap-start bg-white rounded-3xl overflow-hidden shadow-sm border border-outline-variant/20 hover:shadow-xl hover:-translate-y-2 transition-all duration-300 group cursor-pointer">
                                 <div className="h-64 bg-surface-container overflow-hidden">
-                                    <img className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" alt="Pediatric" loading="lazy" decoding="async" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBui1H2umKS2xnzMJay0DQGhtroh2gqol5AubcsVVWaJmkb4CRbfP9EBXOo_djzUUBYRdkfI2-JOmnzqQ4Pxb5HpZQ9BnOyaAh7vULUC-mVh1vxRDPecuDNw3zUb5iynE-PcpLchuKQBpl3z7tXvTpAAJZErfz9VPlctgwsMlJFsxVW2rQuf3bidz6XcxsN90TvyTFbTO4OkeemzYR2OgrjXV0jJcRVl8mPtZnz0kwGwn5DG_zhAK_zIOoTy_9f4xc7q-RpuXHHIJwJ=w600" />
+                                    <img className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" alt="Pediatric" loading="lazy" decoding="async" src="/tech_images/pediatric.webp" />
                                 </div>
                                 <div className="p-lg">
                                     <h4 className="font-bold text-primary mb-xs group-hover:text-secondary transition-colors">Pediatric Solutions</h4>
