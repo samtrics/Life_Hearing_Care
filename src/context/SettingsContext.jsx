@@ -1,5 +1,4 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
-import { supabase } from '../supabaseClient';
 
 const SettingsContext = createContext();
 
@@ -9,11 +8,11 @@ export function SettingsProvider({ children }) {
     supportEmail: 'admin@lifehearingcare.com',
     contactPhone: '+1 (555) 123-4567'
   });
-  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     async function loadSettings() {
       try {
+        const { supabase } = await import('../supabaseClient');
         const { data, error } = await supabase
           .from('clinic_settings')
           .select('*')
@@ -29,8 +28,6 @@ export function SettingsProvider({ children }) {
         }
       } catch (err) {
         console.error("Failed to load clinic settings:", err);
-      } finally {
-        setIsLoading(false);
       }
     }
     loadSettings();
@@ -38,7 +35,7 @@ export function SettingsProvider({ children }) {
 
   return (
     <SettingsContext.Provider value={settings}>
-      {!isLoading && children}
+      {children}
     </SettingsContext.Provider>
   );
 }

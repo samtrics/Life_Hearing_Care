@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { supabase } from '../supabaseClient';
 import { useSettings } from '../context/SettingsContext';
 
 function Footer() {
@@ -28,6 +27,7 @@ function Footer() {
         e.preventDefault();
         if (!newsletterEmail) return;
 
+        const { supabase } = await import('../supabaseClient');
         const { error } = await supabase.from('newsletter_subscribers').insert([{
             email: newsletterEmail
         }]);

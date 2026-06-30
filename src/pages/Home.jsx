@@ -1,7 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useSettings } from '../context/SettingsContext';
-import { supabase } from '../supabaseClient';
 
 import RevealOnScroll from '../components/RevealOnScroll';
 
@@ -87,6 +86,7 @@ function Home() {
     };
 
     const loadFeedbacks = async () => {
+        const { supabase } = await import('../supabaseClient');
         const { data } = await supabase.from('patient_feedback').select('*').eq('status', 'approved').order('created_at', { ascending: false }).limit(6);
         if (data) setFeedbacks(data);
     };
@@ -107,6 +107,7 @@ function Home() {
 
     const handleFeedbackSubmit = async (e) => {
         e.preventDefault();
+        const { supabase } = await import('../supabaseClient');
         // SECURITY: Always insert as 'pending' — admin must approve before it goes live
         const { error } = await supabase.from('patient_feedback').insert([{
             author_name: feedbackForm.name,
@@ -134,6 +135,7 @@ function Home() {
             return;
         }
 
+        const { supabase } = await import('../supabaseClient');
         const { error } = await supabase.from('newsletter_subscribers').insert([{
             email: newsletterEmail
         }]);

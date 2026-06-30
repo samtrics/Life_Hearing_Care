@@ -1,7 +1,6 @@
 import React, { Suspense, lazy, useEffect, useState } from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import { SettingsProvider } from './context/SettingsContext';
-import { supabase } from './supabaseClient';
 import { Analytics } from '@vercel/analytics/react';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
@@ -35,6 +34,7 @@ const PrivateRoute = ({ children }) => {
 
   useEffect(() => {
     const checkAuth = async () => {
+      const { supabase } = await import('./supabaseClient');
       const { data } = await supabase.auth.getSession();
       const allowedEmail = import.meta.env.VITE_STAFF_EMAIL;
       
