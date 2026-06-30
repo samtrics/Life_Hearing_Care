@@ -6,6 +6,11 @@ import { supabase } from '../supabaseClient';
 import imgInvisible from '../assets/img_invisible.png';
 import imgBte from '../assets/img_bte.png';
 import imgPediatric from '../assets/img_pediatric.png';
+import resoundGnLogo from '../assets/resound_gn.png';
+import oticonRealLogo from '../assets/oticon_real_logo.png';
+import starkeyRealLogo from '../assets/starkey_real_logo.png';
+import widexRealLogo from '../assets/widex_real_logo.png';
+import signiaRealLogo from '../assets/signia_real_logo.png';
 
 function HearingAids() {
   const [selectedProduct, setSelectedProduct] = useState(null);
@@ -138,9 +143,22 @@ function HearingAids() {
         <p className="text-body-lg text-on-surface-variant max-w-2xl mx-auto mb-xl">We dispense and service the world's most advanced hearing technology brands.</p>
         
         <div className="flex flex-wrap justify-center gap-lg md:gap-xl">
-            {['Phonak', 'Signia', 'Starkey', 'ReSound', 'Widex', 'Oticon'].map((brand) => (
-                <div key={brand} className="px-lg py-md bg-white border border-outline-variant/20 rounded-2xl shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all flex items-center justify-center min-w-[140px]">
-                    <span className="font-display-sm text-xl font-black text-on-surface/80 uppercase tracking-widest">{brand}</span>
+            {[
+                { name: 'PHONAK', color: 'text-[#008A00]', font: 'font-sans tracking-tight', weight: 'font-bold' },
+                { name: 'signia', imgSrc: signiaRealLogo },
+                { name: 'Starkey', imgSrc: starkeyRealLogo },
+                { name: 'ReSound', imgSrc: resoundGnLogo },
+                { name: 'WIDEX', imgSrc: widexRealLogo },
+                { name: 'Oticon', imgSrc: oticonRealLogo }
+            ].map((brand) => (
+                <div key={brand.name} className="px-lg py-md bg-white border border-outline-variant/20 rounded-2xl shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all flex items-center justify-center min-w-[160px] h-[80px] grayscale hover:grayscale-0 opacity-70 hover:opacity-100 cursor-pointer">
+                    {brand.imgSrc ? (
+                        <img src={brand.imgSrc} alt={`${brand.name} logo`} className="max-h-[60px] max-w-[130px] object-contain rounded-md" />
+                    ) : (
+                        <span className={`text-2xl sm:text-3xl ${brand.font} ${brand.weight} ${brand.color}`}>
+                            {brand.name}
+                        </span>
+                    )}
                 </div>
             ))}
         </div>
