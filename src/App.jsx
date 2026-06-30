@@ -72,6 +72,37 @@ const SamtricsTracker = () => {
   return null;
 };
 
+// SEO TITLE UPDATER
+const DocumentMetaUpdater = () => {
+  const location = useLocation();
+
+  useEffect(() => {
+    const routeTitles = {
+      '/': 'Life Hearing Care | Best Hearing Aid Center In Kota',
+      '/about': 'About Us | Life Hearing Care Kota',
+      '/services': 'Audiometry & Speech Therapy Services | Life Hearing Care',
+      '/hearing-aids': 'Premium Hearing Aids in Kota | Life Hearing Care',
+      '/book': 'Book Appointment | Life Hearing Care Kota',
+      '/blog': 'Hearing Health Blog | Life Hearing Care',
+      '/reviews': 'Patient Reviews | Life Hearing Care'
+    };
+
+    const title = routeTitles[location.pathname] || 'Life Hearing Care | Best Hearing Aid Center In Kota';
+    document.title = title;
+    
+    // Update OpenGraph title
+    const ogTitle = document.querySelector('meta[property="og:title"]');
+    if (ogTitle) ogTitle.setAttribute('content', title);
+    
+    // Update Twitter title
+    const twTitle = document.querySelector('meta[property="twitter:title"]');
+    if (twTitle) twTitle.setAttribute('content', title);
+
+  }, [location]);
+
+  return null;
+};
+
 const ScrollToTop = () => {
   const { pathname, hash } = useLocation();
 
@@ -101,6 +132,7 @@ const InnerApp = () => {
     <>
       <ScrollToTop />
       <SamtricsTracker />
+      <DocumentMetaUpdater />
       <Navbar />
       <Suspense fallback={<LoadingFallback />}>
         <Routes>
