@@ -28,6 +28,9 @@ function Admin() {
   const todayStr = new Date().toLocaleDateString('en-CA');
   const [selectedDate, setSelectedDate] = useState(todayStr);
 
+  const [patientsError, setPatientsError] = useState('');
+  const [appointmentsError, setAppointmentsError] = useState('');
+
   // Modals state
   const [showAddModal, setShowAddModal] = useState(false);
   const [showRescheduleModal, setShowRescheduleModal] = useState(false);
@@ -72,14 +75,27 @@ function Admin() {
 
   const loadAppointments = async () => {
     try {
-      const { data: appointmentsData, error } = await supabase
-        .from('appointments')
-        .select('*')
-        .order('created_at', { ascending: false });
-        
-      if (error) throw error;
+      setAppointmentsError('Fetching...');
+      
+      const { data: sessionData } = await supabase.auth.getSession();
+      const token = sessionData?.session?.access_token;
+      
+      const res = await fetch('/api/admin/appointments', {
+        headers: {
+          'Authorization': `Bearer ${token}`
+        }
+      });
+      
+      if (!res.ok) {
+        throw new Error(`API Error: ${res.statusText}`);
+      }
+      
+      const { appointments: appointmentsData, error } = await res.json();
+      
+      if (error) throw new Error(error);
       
       if (appointmentsData) {
+        setAppointmentsError('');
         const mapped = appointmentsData.map(d => ({
           id: d.id,
           appointmentId: d.appointment_id,
@@ -119,6 +135,7 @@ function Admin() {
       }
     } catch (err) {
       console.error('Supabase Error:', err);
+      setAppointmentsError(err.message || 'Unknown Error');
     }
   };
 
@@ -650,6 +667,11 @@ function Admin() {
     <div className="bg-surface-container-lowest text-on-surface font-body-lg min-h-screen flex flex-col relative">
       
       <main className="flex-grow pt-24 pb-xl px-gutter max-w-container-max mx-auto w-full">
+        {appointmentsError && (
+            <div className="bg-error/10 text-error p-4 rounded-xl mb-4">
+              <strong>Debug Info:</strong> {appointmentsError}
+            </div>
+          )}
         
         {/* Header & Mobile Friendly Tabs */}
         <div className="flex flex-col gap-md mb-lg pt-4 md:pt-0">
