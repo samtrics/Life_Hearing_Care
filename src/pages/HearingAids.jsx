@@ -103,7 +103,7 @@ function HearingAids() {
 </div>
 {/*  Decorative image  */}
 <div className="absolute right-[-10%] top-1/2 -translate-y-1/2 w-1/2 h-[80%] hidden lg:block rounded-l-[4rem] overflow-hidden shadow-2xl rotate-3">
-<img className="w-full h-full object-cover" data-alt="A macro studio photograph of a premium, sleek hearing aid with a metallic finish, resting on a soft velvet surface. The lighting is dramatic and high-contrast, emphasizing the sophisticated micro-engineering and elegant curves of the device. The background is a soft, out-of-focus clinical blue, conveying a sense of high-end medical technology and professional care." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBjcX9Qvnwn6s8OKjxk5aw3PzE9QMSE7_Q5ls7W4xMbymFoemsxkJ8L5YoKFCwCiLMq2MvNVoJlMYCNs-Z0cMjnwWgkJZucfrlbdJmk7hy6SmV4HPXwKtfjEJr7ko0RKYricjTUVO9wKBMdnzp-W-nTRm8RA3S66gkClB0n5V94dnaoTvmdau8BKAPhPN_HAgSbTgNY-wW7uPTFioTZufI0AoR-ktFsfqS4qYCvW9Xof2mxwAZe_j55QD_EZuFvlP0NEt4bl0I0Q-KE"/>
+<img className="w-full h-full object-cover" data-alt="A macro studio photograph of a premium, sleek hearing aid with a metallic finish, resting on a soft velvet surface. The lighting is dramatic and high-contrast, emphasizing the sophisticated micro-engineering and elegant curves of the device. The background is a soft, out-of-focus clinical blue, conveying a sense of high-end medical technology and professional care." src="/tech_images/hearing_aid_1.webp"/>
 </div>
 </section>
 {/*  Styles and Categories Section  */}
@@ -315,7 +315,7 @@ function HearingAids() {
 {/*  Item 4: Wide  */}
 <div className="md:col-span-2 p-lg bg-surface-container rounded-2xl flex flex-col md:flex-row gap-lg items-center">
 <div className="w-full md:w-1/3 rounded-xl overflow-hidden aspect-video md:aspect-square">
-<img className="w-full h-full object-cover" data-alt="A high-resolution 3D medical illustration of a human ear canal, showing how a modern, nearly-invisible hearing aid fits deep and securely. The style is clean, clinical, and sophisticated, using shades of transparent blue and white to highlight the technological precision of the fit. Soft lighting effects emphasize the depth and comfort of the device." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAcc30RuLN1KTcu2SgTQCiKf_9FyfMf77euvy69Fswo2bwEYPw5ShOIKPvPFhODd7Ce8m537iPmxm2jqaCL57GwYaABxvZgUDeQx_DpK_WeyUULYT5r5M8ZUBD58h6DKQCrZD2ec3HfhGzQXlbyfpYcG265BwhSTygycHbFlPL7RyPLpGhmYVwPGdQaQWU3ZkJT6TLv940MsEZHl3h_X8nWqFmKNVUJL8RXjmwKGfymN6tgif-39J-Rfs11fQ0eULeen1DQ-McJswvC"/>
+<img className="w-full h-full object-cover" data-alt="A high-resolution 3D medical illustration of a human ear canal, showing how a modern, nearly-invisible hearing aid fits deep and securely. The style is clean, clinical, and sophisticated, using shades of transparent blue and white to highlight the technological precision of the fit. Soft lighting effects emphasize the depth and comfort of the device." src="/tech_images/hearing_aid_2.webp"/>
 </div>
 <div className="flex-1">
 <h3 className="text-title-lg font-title-lg mb-sm">The Fitting Process</h3>

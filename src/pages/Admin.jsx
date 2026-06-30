@@ -484,7 +484,7 @@ function Admin() {
   const handleSeedDefaultProducts = async () => {
     if (!window.confirm("This will insert 14 default premium products into the database. Are you sure?")) return;
     
-    const defaultImage = 'https://lh3.googleusercontent.com/aida-public/AB6AXuBjcX9Qvnwn6s8OKjxk5aw3PzE9QMSE7_Q5ls7W4xMbymFoemsxkJ8L5YoKFCwCiLMq2MvNVoJlMYCNs-Z0cMjnwWgkJZucfrlbdJmk7hy6SmV4HPXwKtfjEJr7ko0RKYricjTUVO9wKBMdnzp-W-nTRm8RA3S66gkClB0n5V94dnaoTvmdau8BKAPhPN_HAgSbTgNY-wW7uPTFioTZufI0AoR-ktFsfqS4qYCvW9Xof2mxwAZe_j55QD_EZuFvlP0NEt4bl0I0Q-KE';
+    const defaultImage = '/tech_images/hearing_aid_1.webp';
     
     // We omit ID here so Supabase can generate proper UUIDs
     const defaults = [

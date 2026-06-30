@@ -73,7 +73,7 @@ function Services() {
                     <img className="w-full h-full object-cover"
                         fetchpriority="high"
                         decoding="async"
-                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuCubAoZNqHvSIGT5FUB1g1VmglxGLIlJGGSadch5SIV0RgYoigKLO4m220r3uUUJ1HiFqLPBzoc-Ys9CLj2vZDn_0FmSwgVySHs2ANJoHBE42J8ukfREX4LR87JXw33xv6XjKbXr5VTzKBLjHM1lwLyKLpRArujNWeQyLKRqHmkjx02rNk-B7BFlBZd8ywRtlQsr6-VybIstWcUXMhlNiesE8SL_ZBY-pgPYNRWx465-U6A6c310Lw4ciTHwvypCqZfHhOTAMz0jmvH" />
+                        src="/tech_images/service_main.webp" />
                     <div className="absolute inset-0 bg-gradient-to-t from-primary/30 to-transparent"></div>
                 </div>
             </div>

@@ -60,18 +60,18 @@ function About() {
                             <div className="space-y-md pt-lg">
                                 <img className="rounded-xl shadow-lg w-full h-64 object-cover"
                                     alt="A clean, modern clinical examination room in a professional hearing care facility."
-                                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuCVKxuCN8PoEEYFG-xubiAPG-rmgcVBuDX6SkPTF_wRl1iWvCZj6nSDKGSbVaPi0fCQqGf2mmratIyighM0UKRkTwTeY4TmUXEV5dLn_MtCH9qtt2ssTjdfLV5z47Z3oVBstw3CqrIQPoLCa2Q03o4Hd2Sltlyip_mkxxfH4wvnhss12eUcTEkeVoXYbl6p01woIly9aElA_CwEDzBjdrML2Zq0squ9QNUG9gCF5Gj_O4Ejrtg4p8KXczIEb9GmGTXeUMNQhw9rOP0l" />
+                                    src="/tech_images/about_1.webp" />
                                 <img className="rounded-xl shadow-lg w-full h-48 object-cover"
                                     alt="A macro shot of a sophisticated, modern behind-the-ear hearing aid resting on a soft, light grey velvet surface."
-                                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuDSl1CgEaMCduqCYnoziUo1lNf95rYYKMFj6p01qPtS2QOK07uTXhd_I8ALo7TGvDYydEYQagwUFeMX0h0x5xTnjLJtmeYB-AZYxA14KwHdoeBFUX8uT3c80CQoNjwSSTlBABiIBb3A1gTpwYb2BY9WyEfThPrYWZ3nTiYLyhLV41yp9IGWQl7xC0DsZoX-xccCkA-Tc7LDqUNKq0tlbhVLOdj1sfCKMBhSjFCrVpll9QrZAXtdttKCkevI3IhS74Bdk15R6jTXskuo" />
+                                    src="/tech_images/about_2.webp" />
                             </div>
                             <div className="space-y-md">
                                 <img className="rounded-xl shadow-lg w-full h-80 object-cover"
                                     alt="An expert audiologist in professional clinical attire warmly smiling while speaking with an elderly patient."
-                                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuBe6iDrxBw6NSzV616DB3Tz-ekxGyK_5zmKdiYf_M25cQHL887EcJajvmWIYO651CHAEwT-BCXkatSstjnJk_V19JI6WG8JLw6ErVO38SF8rgNAn9wk65-7yaFVYe17-PbaGqTwCp_NTYNTc9XFiHrAuHdgCvPczgL1MEtKdsV2CqjqHKUHmGsCAowaBksxV59cVLW56NUL4HZiVfqyGJKsSmQvMhEC1MI6i2hgqCGHQPLfUHg2ds4v5OKDY5Xw7FTcXW1SvKc39Eat" />
+                                    src="/tech_images/about_3.webp" />
                                 <img className="rounded-xl shadow-lg w-full h-32 object-cover"
                                     alt="A close-up of a digital hearing test screen displaying complex but clean audiogram data."
-                                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuDbhH9qhhgFDZiYEI310vAHzlDlD3ZnlR6MXzyzt-Xoy4f2HQOrBdEwo_TZBJovb5SPgSfvc4Qyu-c2tHZ944oHeY15vaO4XUeb0ykIhdMpAznVLUfD8NTWKD1--QZVRSYMO_CcEpQDPoQfSsJlB0ZyUQTLnMdyrk6C53kaDkpCHrAtxBmDFmVKqEmOxrmzviY6CQZvNo0PxT75-45OqOO1kEawGOv8nmQVmBU0ADghaWmq6IN6XyzWvekbEm0zn41lsgFAS6KjJEf0" />
+                                    src="/tech_images/about_4.webp" />
                             </div>
                         </div>
                     </div>
@@ -236,18 +236,18 @@ function About() {
                             <div className="col-span-2 row-span-2 rounded-2xl overflow-hidden relative group">
                                 <img className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                                     alt="A wide-angle shot of the main lobby of Life Hearing Care clinic."
-                                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuDWwJUfVLZWLnZ6YibKQ3Gzvrk9DEV_3tC68IC1ZOZRlDxBqvGnIaCLPXntoHnE0nl-9sGP8-I0612NeuRlFyMjQnZkB_fzgu5IqqJCR2rjRoOqzVnUwiAKcyhz7kZRVWTyGQccYJIiSaJtVzeIl5ZWxBPvQM_YnHf6cwzcJopBplqjCBc9Py_ekthFNMEt_EzXaVJSIgK050idUGv_6ukvhpaT8qNON5jIi4CNmT9cB0N7B7TONoxrySEgsFnuXKCDPiwPpSBZDNRq" />
+                                    src="/tech_images/about_5.webp" />
                                 <div className="absolute inset-0 bg-black/20 group-hover:bg-black/0 transition-colors"></div>
                             </div>
                             <div className="rounded-2xl overflow-hidden relative group">
                                 <img className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                                     alt="A specialized soundproof booth used for clinical hearing tests."
-                                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuDIU8QPcPpgNsWesUapm_1wF8Pr8wf8em5eZmacDykBdrhfoBMjNN6b8f14WW_M_xmCUT6MqYA6Ip6QsG5U0uDTdd1cmQBVyNHO_kUaXIsYUgXKYXV8JCvzdDyP19geJ3VBXOm12o95r0C0bHIIqyAYl35euwAN4U-0jfUvmu5k6jKfZrlTn175qNTd4shpNmvZWYHZT04Yfr-TS7ojDlhdmZTY8ljRRwAxa6G_uljuBPvZUVHyASLhyMpiekKQ2_qberRRsCEY0yF2" />
+                                    src="/tech_images/about_6.webp" />
                             </div>
                             <div className="rounded-2xl overflow-hidden relative group">
                                 <img className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                                     alt="A modern laboratory workbench where a technician is working on a miniature hearing aid component."
-                                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuBcFbWVN5wSk5PMCT5IX16QR8qk9-2JBco9AQBgvqfVCFLPtxCUzJEO0kHmvegxSlGq6VKiUALzHNfHNrvPdSsjYemLYEpDBg71Y2t03csmi51LAdKqmBRJ0ghxTrmBMVvQ4VFd9q9ObPiLrjRDgMYQczPVNo7cn6EX9cUrIR-F__JDhWfLJ0Lel6ARCjn6Lwu0WyGgm5RuBBInmwnQDiqgRcP5SnYUiDMde57exAZefhw_k1iubaaXHIzBIP0T0PN1U-l2LdFj8k2r" />
+                                    src="/tech_images/about_7.webp" />
                             </div>
                         </div>
                     </div>
