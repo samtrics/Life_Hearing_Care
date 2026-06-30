@@ -8,7 +8,7 @@ import FloatingCallButton from './components/FloatingCallButton';
 import { reportWebVitals } from './utils/vitals';
 
 // Lazy load all route components
-const Home = lazy(() => import('./pages/Home'));
+import Home from './pages/Home';
 const Services = lazy(() => import('./pages/Services'));
 const About = lazy(() => import('./pages/About'));
 const HearingAids = lazy(() => import('./pages/HearingAids'));
