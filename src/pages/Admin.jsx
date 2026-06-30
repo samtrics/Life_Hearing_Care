@@ -80,6 +80,10 @@ function Admin() {
       const { data: sessionData } = await supabase.auth.getSession();
       const token = sessionData?.session?.access_token;
       
+      if (!token) {
+        throw new Error('Authentication token missing. Please log in again.');
+      }
+      
       const res = await fetch('/api/admin/appointments', {
         headers: {
           'Authorization': `Bearer ${token}`
@@ -87,7 +91,8 @@ function Admin() {
       });
       
       if (!res.ok) {
-        throw new Error(`API Error: ${res.statusText}`);
+        const errText = await res.text();
+        throw new Error(`API Error ${res.status}: ${errText}`);
       }
       
       const { appointments: appointmentsData, error } = await res.json();
