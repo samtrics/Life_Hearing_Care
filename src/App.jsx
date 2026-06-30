@@ -8,7 +8,7 @@ import FloatingCallButton from './components/FloatingCallButton';
 import { reportWebVitals } from './utils/vitals';
 
 // Lazy load all route components
-import Home from './pages/Home';
+const Home = lazy(() => import('./pages/Home'));
 const Services = lazy(() => import('./pages/Services'));
 const About = lazy(() => import('./pages/About'));
 const HearingAids = lazy(() => import('./pages/HearingAids'));
@@ -18,14 +18,9 @@ const Admin = lazy(() => import('./pages/Admin'));
 const AdminLogin = lazy(() => import('./pages/AdminLogin'));
 const Reviews = lazy(() => import('./pages/Reviews'));
 
-// Global Loading Fallback
+// Global Loading Fallback (Silent placeholder to prevent flashing spinners)
 const LoadingFallback = () => (
-  <div className="min-h-screen flex items-center justify-center bg-surface">
-    <div className="flex flex-col items-center gap-md">
-      <span className="material-symbols-outlined text-[48px] text-primary animate-spin">progress_activity</span>
-      <p className="text-on-surface-variant font-label-md">Loading Life Hearing Care...</p>
-    </div>
-  </div>
+  <div className="min-h-[70vh] bg-surface"></div>
 );
 
 // SECURITY: Strict Route Guard for Admin Panel
