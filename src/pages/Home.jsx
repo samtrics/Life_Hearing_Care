@@ -15,7 +15,7 @@ function Home() {
             id: 1,
             title: "Hear Better. Live Better.",
             subtitle: "Advanced hearing care solutions for every age. Rediscover the joy of sound with our expert audiologists.",
-            image: "/hero_slides/slide1.png",
+            image: "/hero_slides/slide1.webp",
             buttonText: "Book Appointment",
             buttonLink: "/book"
         },
@@ -23,7 +23,7 @@ function Home() {
             id: 2,
             title: "Credit Card EMI Available",
             subtitle: "Upgrade to premium hearing aids with easy Credit Card EMI monthly installments.",
-            image: "/hero_slides/slide2.png",
+            image: "/hero_slides/slide2.webp",
             buttonText: "Explore Hearing Aids",
             buttonLink: "/hearing-aids"
         },
@@ -31,7 +31,7 @@ function Home() {
             id: 3,
             title: "Expert Care at Your Doorstep",
             subtitle: "Exclusive Home Visit services available across Kota, Rajasthan.",
-            image: "/hero_slides/slide3.png",
+            image: "/hero_slides/slide3.webp",
             buttonText: "Book a Home Visit",
             buttonLink: "/book"
         },
@@ -39,7 +39,7 @@ function Home() {
             id: 4,
             title: "Premium Care & Warranty Package",
             subtitle: "Enjoy a 7-Day Free Trial, 2-4 years warranty, lifetime free service, and multi-city service program support.",
-            image: "/hero_slides/slide4.png",
+            image: "/hero_slides/slide4.webp",
             buttonText: "Claim Your Trial",
             buttonLink: "/hearing-aids"
         },
@@ -47,7 +47,7 @@ function Home() {
             id: 5,
             title: "Say Goodbye to Batteries",
             subtitle: "Discover our range of advanced rechargeable hearing aids that last all day on a single charge.",
-            image: "/hero_slides/slide5.png",
+            image: "/hero_slides/slide5.webp",
             buttonText: "View Rechargeable Devices",
             buttonLink: "/hearing-aids"
         },
@@ -55,7 +55,7 @@ function Home() {
             id: 6,
             title: "Tinnitus Relief & Management",
             subtitle: "Struggling with ringing in your ears? Our expert audiologists can help you find lasting relief.",
-            image: "/hero_slides/slide6.png",
+            image: "/hero_slides/slide6.webp",
             buttonText: "Consult an Audiologist",
             buttonLink: "/services"
         }
