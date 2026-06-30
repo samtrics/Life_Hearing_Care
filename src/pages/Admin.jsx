@@ -307,8 +307,22 @@ function Admin() {
 
   const handleStatusChange = async (id, newStatus) => {
     try {
-      const { error } = await supabase.from('appointments').update({ status: newStatus }).eq('id', id);
-      if (error) throw error;
+      const { data: sessionData } = await supabase.auth.getSession();
+      const token = sessionData?.session?.access_token;
+      if (!token) throw new Error('Not authenticated');
+
+      const res = await fetch('/api/admin/appointments', {
+        method: 'PATCH',
+        headers: {
+          'Content-Type': 'application/json',
+          'x-admin-auth': `Bearer ${token}`
+        },
+        body: JSON.stringify({ id, status: newStatus })
+      });
+      
+      const result = await res.json();
+      if (!res.ok || result.error) throw new Error(result.error || 'Failed');
+      
       loadAppointments();
     } catch (err) {
       console.error("Error updating status:", err);
@@ -572,15 +586,31 @@ function Admin() {
       status: 'Confirmed',
       source: 'Booking by Admin'
     };
-    const { error } = await supabase.from('appointments').insert([newAppointment]);
-    if (error) {
-      console.error("Error adding appointment:", error);
-      alert("Failed to add appointment: " + error.message);
-      return;
+    
+    try {
+      const { data: sessionData } = await supabase.auth.getSession();
+      const token = sessionData?.session?.access_token;
+      if (!token) throw new Error('Not authenticated');
+
+      const res = await fetch('/api/admin/appointments', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'x-admin-auth': `Bearer ${token}`
+        },
+        body: JSON.stringify(newAppointment)
+      });
+      
+      const result = await res.json();
+      if (!res.ok || result.error) throw new Error(result.error || 'Failed');
+      
+      setShowAddModal(false);
+      setFormData({ firstName: '', lastName: '', email: '', phone: '', date: '', time: 'morning', reason: 'consultation', notes: '', age: '', gender: '' });
+      loadAppointments();
+    } catch (err) {
+      console.error("Error adding appointment:", err);
+      alert("Failed to add appointment: " + err.message);
     }
-    setShowAddModal(false);
-    setFormData({ firstName: '', lastName: '', email: '', phone: '', date: '', time: 'morning', reason: 'consultation', notes: '', age: '', gender: '' });
-    loadAppointments();
   };
 
   const openReschedule = (appt) => {
@@ -595,19 +625,36 @@ function Admin() {
     // If the appointment was cancelled, automatically reactivate it to Confirmed
     const newStatus = selectedAppt.status.toLowerCase() === 'cancelled' ? 'Confirmed' : selectedAppt.status;
     
-    const { error } = await supabase.from('appointments').update({ 
-      appointment_date: formData.date, 
-      appointment_time: formData.time,
-      status: newStatus
-    }).eq('id', selectedAppt.id);
-    
-    if (error) {
-      console.error("Error rescheduling:", error);
-      alert("Failed to reschedule: " + error.message);
-      return;
+    try {
+      const { data: sessionData } = await supabase.auth.getSession();
+      const token = sessionData?.session?.access_token;
+      if (!token) throw new Error('Not authenticated');
+
+      const res = await fetch('/api/admin/appointments', {
+        method: 'PATCH',
+        headers: {
+          'Content-Type': 'application/json',
+          'x-admin-auth': `Bearer ${token}`
+        },
+        body: JSON.stringify({ 
+          id: selectedAppt.id,
+          appointment_date: formData.date, 
+          appointment_time: formData.time,
+          status: newStatus
+        })
+      });
+      
+      const result = await res.json();
+      if (!res.ok || result.error) throw new Error(result.error || 'Failed');
+      
+      setShowRescheduleModal(false);
+      setSelectedAppt(null);
+      setFormData({ ...formData, date: '', time: 'morning' });
+      loadAppointments();
+    } catch (err) {
+      console.error("Error rescheduling:", err);
+      alert("Failed to reschedule: " + err.message);
     }
-    setShowRescheduleModal(false);
-    loadAppointments();
   };
 
   // Helpers
