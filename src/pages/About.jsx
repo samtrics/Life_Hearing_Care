@@ -186,7 +186,7 @@ function About() {
                                 </div>
                             </div>
                             <div className="p-md">
-                                <h4 className="text-title-lg font-title-lg text-primary">Dr. Manish Singh</h4>
+                                <h4 className="text-title-lg font-title-lg text-primary">Mr. Manish Singh</h4>
                                 <p className="text-body-lg text-on-surface-variant mt-xs">Batchelor In Audiology And Speech Language Pathology,
                                     Over 8 years of clinical experience specializing in pediatric care.</p>
                             </div>
