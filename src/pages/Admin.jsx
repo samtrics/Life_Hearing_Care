@@ -311,6 +311,9 @@ function Admin() {
       const token = sessionData?.session?.access_token;
       if (!token) throw new Error('Not authenticated');
 
+      // Optimistic UI Update
+      setAppointments(prev => prev.map(appt => appt.id === id ? { ...appt, status: newStatus } : appt));
+
       const res = await fetch('/api/admin/appointments', {
         method: 'PATCH',
         headers: {
@@ -321,9 +324,10 @@ function Admin() {
       });
       
       const result = await res.json();
-      if (!res.ok || result.error) throw new Error(result.error || 'Failed');
-      
-      loadAppointments();
+      if (!res.ok || result.error) {
+        loadAppointments(); // Revert on error
+        throw new Error(result.error || 'Failed');
+      }
     } catch (err) {
       console.error("Error updating status:", err);
       alert("Failed to update status.");
@@ -592,6 +596,10 @@ function Admin() {
       const token = sessionData?.session?.access_token;
       if (!token) throw new Error('Not authenticated');
 
+      // Optimistic UI Update: Close modal immediately to make it feel fast
+      setShowAddModal(false);
+      setFormData({ firstName: '', lastName: '', email: '', phone: '', date: '', time: 'morning', reason: 'consultation', notes: '', age: '', gender: '' });
+
       const res = await fetch('/api/admin/appointments', {
         method: 'POST',
         headers: {
@@ -602,14 +610,15 @@ function Admin() {
       });
       
       const result = await res.json();
-      if (!res.ok || result.error) throw new Error(result.error || 'Failed');
+      if (!res.ok || result.error) {
+        alert("Failed to save appointment on server. Please refresh.");
+        throw new Error(result.error || 'Failed');
+      }
       
-      setShowAddModal(false);
-      setFormData({ firstName: '', lastName: '', email: '', phone: '', date: '', time: 'morning', reason: 'consultation', notes: '', age: '', gender: '' });
+      // Load real IDs in the background
       loadAppointments();
     } catch (err) {
       console.error("Error adding appointment:", err);
-      alert("Failed to add appointment: " + err.message);
     }
   };
 
@@ -630,6 +639,18 @@ function Admin() {
       const token = sessionData?.session?.access_token;
       if (!token) throw new Error('Not authenticated');
 
+      // Optimistic UI Update: Apply changes instantly
+      setAppointments(prev => prev.map(appt => appt.id === selectedAppt.id ? { 
+        ...appt, 
+        date: formData.date, 
+        time: formData.time, 
+        status: newStatus 
+      } : appt));
+      
+      setShowRescheduleModal(false);
+      setSelectedAppt(null);
+      setFormData({ ...formData, date: '', time: 'morning' });
+
       const res = await fetch('/api/admin/appointments', {
         method: 'PATCH',
         headers: {
@@ -645,12 +666,10 @@ function Admin() {
       });
       
       const result = await res.json();
-      if (!res.ok || result.error) throw new Error(result.error || 'Failed');
-      
-      setShowRescheduleModal(false);
-      setSelectedAppt(null);
-      setFormData({ ...formData, date: '', time: 'morning' });
-      loadAppointments();
+      if (!res.ok || result.error) {
+        loadAppointments(); // Revert on error
+        throw new Error(result.error || 'Failed');
+      }
     } catch (err) {
       console.error("Error rescheduling:", err);
       alert("Failed to reschedule: " + err.message);
