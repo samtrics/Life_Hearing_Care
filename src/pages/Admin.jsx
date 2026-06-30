@@ -86,7 +86,7 @@ function Admin() {
       
       const res = await fetch('/api/admin/appointments', {
         headers: {
-          'Authorization': `Bearer ${token}`
+          'x-admin-auth': `Bearer ${token}`
         }
       });
       
