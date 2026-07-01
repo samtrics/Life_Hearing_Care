@@ -151,7 +151,7 @@ function HearingAids() {
                 { name: 'WIDEX', imgSrc: widexRealLogo },
                 { name: 'Oticon', imgSrc: oticonRealLogo }
             ].map((brand) => (
-                <div key={brand.name} className="px-lg py-md bg-white border border-outline-variant/20 rounded-2xl shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all flex items-center justify-center min-w-[160px] h-[80px] grayscale hover:grayscale-0 opacity-70 hover:opacity-100 cursor-pointer">
+                <div key={brand.name} className="px-lg py-md bg-white border border-outline-variant/20 rounded-2xl shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all flex items-center justify-center min-w-[160px] h-[80px] opacity-70 hover:opacity-100 cursor-pointer">
                     {brand.imgSrc ? (
                         <img src={brand.imgSrc} alt={`${brand.name} logo`} className="max-h-[60px] max-w-[130px] object-contain rounded-md" />
                     ) : (
