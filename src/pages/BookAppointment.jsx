@@ -286,7 +286,7 @@ function BookAppointment() {
                         <span className="material-symbols-outlined">mail</span>
                       </div>
                       <div>
-                        <a href="mailto:@lifehearcare.com" className="text-on-surface-variant hover:text-primary transition-colors font-medium block">
+                        <a href="mailto:lifehearcare@gmail.com" className="text-on-surface-variant hover:text-primary transition-colors font-medium block">
                           lifehearcare@gmail.com
                         </a>
                       </div>
